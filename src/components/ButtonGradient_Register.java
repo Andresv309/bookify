@@ -14,14 +14,14 @@ import javax.swing.border.EmptyBorder;
  *
  * @author Cristian Vega
  */
-public class ButtonGradient_Login extends JButton{
+public class ButtonGradient_Register extends JButton{
     
     
     
-    private Color color1 = Color.decode("#bf83d6");
-    private Color color2 = Color.decode("#9680d5"); 
+    private Color color1 = Color.decode("#41bcff");
+    private Color color2 = Color.decode("#a1ddff"); 
 
-    public ButtonGradient_Login() { 
+    public ButtonGradient_Register() { 
         
         setContentAreaFilled(false);
         setForeground(Color.WHITE);
