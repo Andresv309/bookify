@@ -39,7 +39,7 @@ public class Login extends javax.swing.JFrame {
         jLabel7 = new javax.swing.JLabel();
         jSeparator3 = new javax.swing.JSeparator();
         login_passwordInput = new javax.swing.JPasswordField();
-        buttonGradient1 = new components.ButtonGradient();
+        buttonGradient1 = new components.ButtonGradient_Login();
         jLabel8 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
@@ -274,7 +274,7 @@ public class Login extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private components.ButtonGradient buttonGradient1;
+    private components.ButtonGradient_Login buttonGradient1;
     private javax.swing.JPanel cardForm;
     private javax.swing.JPanel cardForm1;
     private javax.swing.JPanel cardForm2;

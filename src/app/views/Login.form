@@ -245,7 +245,7 @@
                         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="login_passwordInputActionPerformed"/>
                       </Events>
                     </Component>
-                    <Component class="components.ButtonGradient" name="buttonGradient1">
+                    <Component class="components.ButtonGradient_Login" name="buttonGradient1">
                       <Properties>
                         <Property name="text" type="java.lang.String" value="Iniciar "/>
                       </Properties>
