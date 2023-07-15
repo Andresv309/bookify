@@ -48,6 +48,8 @@ public class Login extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(51, 51, 51));
+        setMinimumSize(new java.awt.Dimension(1140, 760));
+        setPreferredSize(new java.awt.Dimension(1140, 760));
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jPanel3.setBackground(new java.awt.Color(39, 37, 37));
@@ -108,6 +110,7 @@ public class Login extends javax.swing.JFrame {
             }
         });
 
+        buttonGradient1.setBorder(null);
         buttonGradient1.setText("Iniciar ");
         buttonGradient1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -174,9 +177,9 @@ public class Login extends javax.swing.JFrame {
         cardForm1Layout.setHorizontalGroup(
             cardForm1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, cardForm1Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap(34, Short.MAX_VALUE)
                 .addComponent(cardForm2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(34, Short.MAX_VALUE))
         );
         cardForm1Layout.setVerticalGroup(
             cardForm1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -194,16 +197,16 @@ public class Login extends javax.swing.JFrame {
         jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/Ellipse.png"))); // NOI18N
         cardForm.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(-10, 230, -1, -1));
 
-        jPanel3.add(cardForm, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 100, 370, 500));
+        jPanel3.add(cardForm, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 120, 370, 500));
 
         jLabel1.setBackground(new java.awt.Color(0, 0, 0));
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/Unio2.png"))); // NOI18N
         jPanel3.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(-10, 0, 670, -1));
 
         jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/Ellipse.png"))); // NOI18N
-        jPanel3.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(770, 400, -1, -1));
+        jPanel3.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(810, 500, -1, -1));
 
-        getContentPane().add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1130, 670));
+        getContentPane().add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1160, 740));
 
         pack();
         setLocationRelativeTo(null);
