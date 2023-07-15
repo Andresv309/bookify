@@ -50,7 +50,7 @@ public class Step3 extends javax.swing.JPanel {
             .addGroup(cardStep1Layout.createSequentialGroup()
                 .addGap(84, 84, 84)
                 .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 233, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(95, Short.MAX_VALUE))
+                .addContainerGap(99, Short.MAX_VALUE))
         );
         cardStep1Layout.setVerticalGroup(
             cardStep1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
