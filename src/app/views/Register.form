@@ -130,17 +130,6 @@
                 </DimensionLayout>
               </Layout>
               <SubComponents>
-                <Component class="components.ButtonGradient_Register" name="back">
-                  <Properties>
-                    <Property name="text" type="java.lang.String" value="Volver "/>
-                    <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                      <Font name="Segoe UI Symbol" size="12" style="0"/>
-                    </Property>
-                  </Properties>
-                  <Events>
-                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="backActionPerformed"/>
-                  </Events>
-                </Component>
                 <Container class="components.progressindicator.ProgressIndicator" name="progressIndicator">
                   <Properties>
                     <Property name="model" type="javax.swing.ListModel" editor="org.netbeans.modules.form.editors2.ListModelEditor">
@@ -168,9 +157,20 @@
                     <Property name="opaque" type="boolean" value="false"/>
                   </Properties>
                 </Container>
+                <Component class="components.ButtonGradient_Register" name="back">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="Volver "/>
+                    <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                      <Font name="Segoe UI Symbol" size="12" style="0"/>
+                    </Property>
+                  </Properties>
+                  <Events>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="backActionPerformed"/>
+                  </Events>
+                </Component>
                 <Component class="components.ButtonGradient_Register" name="next">
                   <Properties>
-                    <Property name="text" type="java.lang.String" value="Siguiente "/>
+                    <Property name="text" type="java.lang.String" value="Siguiente &#xa;"/>
                     <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                       <Font name="Segoe UI Symbol" size="12" style="0"/>
                     </Property>

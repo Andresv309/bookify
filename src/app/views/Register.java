@@ -24,7 +24,7 @@ public class Register extends javax.swing.JFrame {
         Component[] components = new Component[]{new Step1(), new Step2(), new Step3()};
         panelSlider.setSliderComponent(components);
         progressIndicator.initSlider(panelSlider);
-        back.setVisible(false);
+//        back.setVisible(false);
     }
 
     /**
@@ -42,9 +42,9 @@ public class Register extends javax.swing.JFrame {
         jPanel3 = new javax.swing.JPanel();
         cardForm = new javax.swing.JPanel();
         cardForm1 = new javax.swing.JPanel();
-        back = new components.ButtonGradient_Register();
         progressIndicator = new components.progressindicator.ProgressIndicator();
         panelSlider = new components.progressindicator.PanelSlider();
+        back = new components.ButtonGradient_Register();
         next = new components.ButtonGradient_Register();
         jLabel2 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
@@ -67,14 +67,6 @@ public class Register extends javax.swing.JFrame {
 
         cardForm1.setBackground(new java.awt.Color(255, 255, 255));
 
-        back.setText("Volver ");
-        back.setFont(new java.awt.Font("Segoe UI Symbol", 0, 12)); // NOI18N
-        back.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                backActionPerformed(evt);
-            }
-        });
-
         progressIndicator.setModel(new javax.swing.AbstractListModel() {
             String[] strings = { "Tu Cuenta ", "Personal", "Final " };
             public int getSize() { return strings.length; }
@@ -88,7 +80,15 @@ public class Register extends javax.swing.JFrame {
 
         panelSlider.setOpaque(false);
 
-        next.setText("Siguiente ");
+        back.setText("Volver ");
+        back.setFont(new java.awt.Font("Segoe UI Symbol", 0, 12)); // NOI18N
+        back.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                backActionPerformed(evt);
+            }
+        });
+
+        next.setText("Siguiente \n");
         next.setFont(new java.awt.Font("Segoe UI Symbol", 0, 12)); // NOI18N
         next.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -160,28 +160,28 @@ public class Register extends javax.swing.JFrame {
         // TODO add your handling code here:
         progressIndicator.previous();
         
-        if(position > INITIAL_STEP) position -=1;
-        
-        if(position == INITIAL_STEP){
-            back.setVisible(false);
-        }  
-        if(position < FINAL_STEP && next.getText() == "Registrarme") {
-            next.setText("Siguiente");
-        };
+//        if(position > INITIAL_STEP) position -=1;
+//        
+//        if(position == INITIAL_STEP){
+//            back.setVisible(false);
+//        }  
+//        if(position < FINAL_STEP && next.getText() == "Registrarme") {
+//            next.setText("Siguiente");
+//        };
     }//GEN-LAST:event_backActionPerformed
 
     private void nextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nextActionPerformed
         // TODO add your handling code here:
         progressIndicator.next();
         
-        if(position < FINAL_STEP) position +=1;
-        
-        if(position != INITIAL_STEP && !back.isVisible()) {
-            back.setVisible(true);
-        } 
-        if(position == FINAL_STEP) {
-            next.setText("Registrarme");
-        }
+//        if(position < FINAL_STEP) position +=1;
+//        
+//        if(position != INITIAL_STEP && !back.isVisible()) {
+//            back.setVisible(true);
+//        } 
+//        if(position == FINAL_STEP) {
+//            next.setText("Registrarme");
+//        }
         
     }//GEN-LAST:event_nextActionPerformed
 
