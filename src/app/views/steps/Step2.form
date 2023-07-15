@@ -41,11 +41,11 @@
                   <Group type="103" groupAlignment="0" max="-2" attributes="0">
                       <Component id="jLabel9" alignment="0" min="-2" pref="131" max="-2" attributes="0"/>
                       <Component id="jLabel6" alignment="0" min="-2" pref="109" max="-2" attributes="0"/>
-                      <Component id="login_userNameInput" alignment="0" min="-2" pref="171" max="-2" attributes="0"/>
+                      <Component id="register_nameInput" alignment="0" min="-2" pref="171" max="-2" attributes="0"/>
                       <Component id="jSeparator2" alignment="0" max="32767" attributes="0"/>
-                      <Component id="selectCiudad" alignment="0" pref="262" max="32767" attributes="0"/>
+                      <Component id="register_typeIdSelect" alignment="0" pref="262" max="32767" attributes="0"/>
                       <Component id="jSeparator3" alignment="0" max="32767" attributes="0"/>
-                      <Component id="login_userNameInput1" alignment="0" min="-2" max="-2" attributes="0"/>
+                      <Component id="register_userIdNumberInput" alignment="0" min="-2" max="-2" attributes="0"/>
                       <Component id="jLabel7" alignment="0" min="-2" pref="122" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace max="32767" attributes="0"/>
@@ -64,17 +64,17 @@
                   <EmptySpace type="separate" max="32767" attributes="0"/>
                   <Component id="jLabel6" min="-2" pref="14" max="-2" attributes="0"/>
                   <EmptySpace max="-2" attributes="0"/>
-                  <Component id="login_userNameInput" min="-2" max="-2" attributes="0"/>
+                  <Component id="register_nameInput" min="-2" max="-2" attributes="0"/>
                   <EmptySpace min="-2" pref="4" max="-2" attributes="0"/>
                   <Component id="jSeparator2" min="-2" pref="10" max="-2" attributes="0"/>
                   <EmptySpace min="-2" pref="25" max="-2" attributes="0"/>
                   <Component id="jLabel9" min="-2" pref="14" max="-2" attributes="0"/>
                   <EmptySpace max="-2" attributes="0"/>
-                  <Component id="selectCiudad" min="-2" pref="34" max="-2" attributes="0"/>
+                  <Component id="register_typeIdSelect" min="-2" pref="34" max="-2" attributes="0"/>
                   <EmptySpace min="-2" pref="25" max="-2" attributes="0"/>
                   <Component id="jLabel7" min="-2" pref="14" max="-2" attributes="0"/>
                   <EmptySpace max="-2" attributes="0"/>
-                  <Component id="login_userNameInput1" min="-2" max="-2" attributes="0"/>
+                  <Component id="register_userIdNumberInput" min="-2" max="-2" attributes="0"/>
                   <EmptySpace min="-2" pref="4" max="-2" attributes="0"/>
                   <Component id="jSeparator3" min="-2" pref="10" max="-2" attributes="0"/>
                   <EmptySpace min="-2" pref="83" max="-2" attributes="0"/>
@@ -94,7 +94,7 @@
             <Property name="text" type="java.lang.String" value="Nombre "/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JTextField" name="login_userNameInput">
+        <Component class="javax.swing.JTextField" name="register_nameInput">
           <Properties>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="ff" green="ff" red="ff" type="rgb"/>
@@ -114,8 +114,8 @@
             </Property>
           </Properties>
           <Events>
-            <EventHandler event="mousePressed" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="login_userNameInputMousePressed"/>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="login_userNameInputActionPerformed"/>
+            <EventHandler event="mousePressed" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="register_nameInputMousePressed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="register_nameInputActionPerformed"/>
           </Events>
           <AuxValues>
             <AuxValue name="JavaCodeGenerator_SerializeTo" type="java.lang.String" value="Register_login_userNameInput"/>
@@ -146,7 +146,7 @@
             <Property name="text" type="java.lang.String" value="Tipo de Documento"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JComboBox" name="selectCiudad">
+        <Component class="javax.swing.JComboBox" name="register_typeIdSelect">
           <Properties>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="ff" green="ff" red="ff" type="rgb"/>
@@ -170,7 +170,7 @@
             <Property name="focusable" type="boolean" value="false"/>
           </Properties>
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="selectCiudadActionPerformed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="register_typeIdSelectActionPerformed"/>
           </Events>
           <AuxValues>
             <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
@@ -187,7 +187,7 @@
             <Property name="text" type="java.lang.String" value="N&#xb0; de Documento"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JTextField" name="login_userNameInput1">
+        <Component class="javax.swing.JTextField" name="register_userIdNumberInput">
           <Properties>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="ff" green="ff" red="ff" type="rgb"/>
@@ -207,8 +207,8 @@
             </Property>
           </Properties>
           <Events>
-            <EventHandler event="mousePressed" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="login_userNameInput1MousePressed"/>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="login_userNameInput1ActionPerformed"/>
+            <EventHandler event="mousePressed" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="register_userIdNumberInputMousePressed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="register_userIdNumberInputActionPerformed"/>
           </Events>
           <AuxValues>
             <AuxValue name="JavaCodeGenerator_SerializeTo" type="java.lang.String" value="Register_login_userNameInput"/>

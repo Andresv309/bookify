@@ -28,13 +28,13 @@ public class Step2 extends javax.swing.JPanel {
 
         cardStep1 = new javax.swing.JPanel();
         jLabel6 = new javax.swing.JLabel();
-        login_userNameInput = new javax.swing.JTextField();
+        register_nameInput = new javax.swing.JTextField();
         jSeparator2 = new javax.swing.JSeparator();
         jLabel8 = new javax.swing.JLabel();
         jLabel9 = new javax.swing.JLabel();
-        selectCiudad = new javax.swing.JComboBox<>();
+        register_typeIdSelect = new javax.swing.JComboBox<>();
         jLabel7 = new javax.swing.JLabel();
-        login_userNameInput1 = new javax.swing.JTextField();
+        register_userIdNumberInput = new javax.swing.JTextField();
         jSeparator3 = new javax.swing.JSeparator();
 
         cardStep1.setBackground(new java.awt.Color(255, 255, 255));
@@ -43,20 +43,20 @@ public class Step2 extends javax.swing.JPanel {
         jLabel6.setForeground(java.awt.Color.black);
         jLabel6.setText("Nombre ");
 
-        login_userNameInput.setBackground(new java.awt.Color(255, 255, 255));
-        login_userNameInput.setFont(new java.awt.Font("Yu Gothic UI Semibold", 0, 12)); // NOI18N
-        login_userNameInput.setForeground(new java.awt.Color(204, 204, 204));
-        login_userNameInput.setText("Ingrese su Nombre ");
-        login_userNameInput.setBorder(null);
-        login_userNameInput.setSelectionColor(new java.awt.Color(30, 30, 30));
-        login_userNameInput.addMouseListener(new java.awt.event.MouseAdapter() {
+        register_nameInput.setBackground(new java.awt.Color(255, 255, 255));
+        register_nameInput.setFont(new java.awt.Font("Yu Gothic UI Semibold", 0, 12)); // NOI18N
+        register_nameInput.setForeground(new java.awt.Color(204, 204, 204));
+        register_nameInput.setText("Ingrese su Nombre ");
+        register_nameInput.setBorder(null);
+        register_nameInput.setSelectionColor(new java.awt.Color(30, 30, 30));
+        register_nameInput.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mousePressed(java.awt.event.MouseEvent evt) {
-                login_userNameInputMousePressed(evt);
+                register_nameInputMousePressed(evt);
             }
         });
-        login_userNameInput.addActionListener(new java.awt.event.ActionListener() {
+        register_nameInput.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                login_userNameInputActionPerformed(evt);
+                register_nameInputActionPerformed(evt);
             }
         });
 
@@ -68,15 +68,15 @@ public class Step2 extends javax.swing.JPanel {
         jLabel9.setForeground(java.awt.Color.black);
         jLabel9.setText("Tipo de Documento");
 
-        selectCiudad.setBackground(new java.awt.Color(255, 255, 255));
-        selectCiudad.setFont(new java.awt.Font("Yu Gothic UI Semibold", 0, 12)); // NOI18N
-        selectCiudad.setForeground(new java.awt.Color(204, 204, 204));
-        selectCiudad.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Cedula ( C.C )", "Tarjeta de Identidad ( T.I )", "Cedula de Extranjeria ( C.E )" }));
-        selectCiudad.setBorder(null);
-        selectCiudad.setFocusable(false);
-        selectCiudad.addActionListener(new java.awt.event.ActionListener() {
+        register_typeIdSelect.setBackground(new java.awt.Color(255, 255, 255));
+        register_typeIdSelect.setFont(new java.awt.Font("Yu Gothic UI Semibold", 0, 12)); // NOI18N
+        register_typeIdSelect.setForeground(new java.awt.Color(204, 204, 204));
+        register_typeIdSelect.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Cedula ( C.C )", "Tarjeta de Identidad ( T.I )", "Cedula de Extranjeria ( C.E )" }));
+        register_typeIdSelect.setBorder(null);
+        register_typeIdSelect.setFocusable(false);
+        register_typeIdSelect.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                selectCiudadActionPerformed(evt);
+                register_typeIdSelectActionPerformed(evt);
             }
         });
 
@@ -84,20 +84,20 @@ public class Step2 extends javax.swing.JPanel {
         jLabel7.setForeground(java.awt.Color.black);
         jLabel7.setText("N° de Documento");
 
-        login_userNameInput1.setBackground(new java.awt.Color(255, 255, 255));
-        login_userNameInput1.setFont(new java.awt.Font("Yu Gothic UI Semibold", 0, 12)); // NOI18N
-        login_userNameInput1.setForeground(new java.awt.Color(204, 204, 204));
-        login_userNameInput1.setText("Ingrese el numero de su Documento");
-        login_userNameInput1.setBorder(null);
-        login_userNameInput1.setSelectionColor(new java.awt.Color(30, 30, 30));
-        login_userNameInput1.addMouseListener(new java.awt.event.MouseAdapter() {
+        register_userIdNumberInput.setBackground(new java.awt.Color(255, 255, 255));
+        register_userIdNumberInput.setFont(new java.awt.Font("Yu Gothic UI Semibold", 0, 12)); // NOI18N
+        register_userIdNumberInput.setForeground(new java.awt.Color(204, 204, 204));
+        register_userIdNumberInput.setText("Ingrese el numero de su Documento");
+        register_userIdNumberInput.setBorder(null);
+        register_userIdNumberInput.setSelectionColor(new java.awt.Color(30, 30, 30));
+        register_userIdNumberInput.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mousePressed(java.awt.event.MouseEvent evt) {
-                login_userNameInput1MousePressed(evt);
+                register_userIdNumberInputMousePressed(evt);
             }
         });
-        login_userNameInput1.addActionListener(new java.awt.event.ActionListener() {
+        register_userIdNumberInput.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                login_userNameInput1ActionPerformed(evt);
+                register_userIdNumberInputActionPerformed(evt);
             }
         });
 
@@ -112,11 +112,11 @@ public class Step2 extends javax.swing.JPanel {
                 .addGroup(cardStep1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, 131, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 109, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(login_userNameInput, javax.swing.GroupLayout.PREFERRED_SIZE, 171, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(register_nameInput, javax.swing.GroupLayout.PREFERRED_SIZE, 171, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jSeparator2)
-                    .addComponent(selectCiudad, 0, 262, Short.MAX_VALUE)
+                    .addComponent(register_typeIdSelect, 0, 262, Short.MAX_VALUE)
                     .addComponent(jSeparator3)
-                    .addComponent(login_userNameInput1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(register_userIdNumberInput, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 122, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, cardStep1Layout.createSequentialGroup()
@@ -131,17 +131,17 @@ public class Step2 extends javax.swing.JPanel {
                 .addGap(18, 18, Short.MAX_VALUE)
                 .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 14, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(login_userNameInput, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(register_nameInput, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(4, 4, 4)
                 .addComponent(jSeparator2, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(25, 25, 25)
                 .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, 14, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(selectCiudad, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(register_typeIdSelect, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(25, 25, 25)
                 .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 14, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(login_userNameInput1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(register_userIdNumberInput, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(4, 4, 4)
                 .addComponent(jSeparator3, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(83, 83, 83))
@@ -159,27 +159,29 @@ public class Step2 extends javax.swing.JPanel {
         );
     }// </editor-fold>//GEN-END:initComponents
 
-    private void login_userNameInput1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_login_userNameInput1ActionPerformed
+    private void register_userIdNumberInputActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_register_userIdNumberInputActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_login_userNameInput1ActionPerformed
+    }//GEN-LAST:event_register_userIdNumberInputActionPerformed
 
-    private void login_userNameInput1MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_login_userNameInput1MousePressed
+    private void register_userIdNumberInputMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_register_userIdNumberInputMousePressed
         // TODO add your handling code here:
-    }//GEN-LAST:event_login_userNameInput1MousePressed
+        register_userIdNumberInput.setText("");
+        register_userIdNumberInput.setForeground(new java.awt.Color(0,0,0));
+    }//GEN-LAST:event_register_userIdNumberInputMousePressed
 
-    private void selectCiudadActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_selectCiudadActionPerformed
+    private void register_typeIdSelectActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_register_typeIdSelectActionPerformed
 
-    }//GEN-LAST:event_selectCiudadActionPerformed
+    }//GEN-LAST:event_register_typeIdSelectActionPerformed
 
-    private void login_userNameInputActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_login_userNameInputActionPerformed
+    private void register_nameInputActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_register_nameInputActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_login_userNameInputActionPerformed
+    }//GEN-LAST:event_register_nameInputActionPerformed
 
-    private void login_userNameInputMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_login_userNameInputMousePressed
+    private void register_nameInputMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_register_nameInputMousePressed
         // TODO add your handling code here:
-        login_userNameInput.setText("");
-        login_userNameInput.setForeground(new java.awt.Color(0,0,0));
-    }//GEN-LAST:event_login_userNameInputMousePressed
+        register_nameInput.setText("");
+        register_nameInput.setForeground(new java.awt.Color(0,0,0));
+    }//GEN-LAST:event_register_nameInputMousePressed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -190,8 +192,8 @@ public class Step2 extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel9;
     private javax.swing.JSeparator jSeparator2;
     private javax.swing.JSeparator jSeparator3;
-    private javax.swing.JTextField login_userNameInput;
-    private javax.swing.JTextField login_userNameInput1;
-    private javax.swing.JComboBox<String> selectCiudad;
+    private javax.swing.JTextField register_nameInput;
+    private javax.swing.JComboBox<String> register_typeIdSelect;
+    private javax.swing.JTextField register_userIdNumberInput;
     // End of variables declaration//GEN-END:variables
 }
