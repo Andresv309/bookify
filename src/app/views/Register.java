@@ -4,7 +4,11 @@
  */
 package app.views;
 
-import javax.swing.UIManager;
+import app.views.steps.Step1;
+import app.views.steps.Step2;
+import app.views.steps.Step3;
+import java.awt.Component;
+import java.time.Duration;
 
 /**
  *
@@ -17,7 +21,10 @@ public class Register extends javax.swing.JFrame {
      */
     public Register() {
         initComponents();
-        
+        Component[] components = new Component[]{new Step1(), new Step2(), new Step3()};
+        panelSlider.setSliderComponent(components);
+        progressIndicator.initSlider(panelSlider);
+        back.setVisible(false);
     }
 
     /**
@@ -29,24 +36,24 @@ public class Register extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jToggleButton1 = new javax.swing.JToggleButton();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        jEditorPane1 = new javax.swing.JEditorPane();
         jPanel3 = new javax.swing.JPanel();
         cardForm = new javax.swing.JPanel();
         cardForm1 = new javax.swing.JPanel();
-        cardForm2 = new javax.swing.JPanel();
-        jLabel6 = new javax.swing.JLabel();
-        login_userNameInput = new javax.swing.JTextField();
-        jSeparator2 = new javax.swing.JSeparator();
-        jLabel7 = new javax.swing.JLabel();
-        jSeparator3 = new javax.swing.JSeparator();
-        login_passwordInput = new javax.swing.JPasswordField();
-        jLabel8 = new javax.swing.JLabel();
-        buttonGradient_Register1 = new components.ButtonGradient_Register();
-        jLabel9 = new javax.swing.JLabel();
-        selectCiudad = new javax.swing.JComboBox<>();
+        back = new components.ButtonGradient_Register();
+        progressIndicator = new components.progressindicator.ProgressIndicator();
+        panelSlider = new components.progressindicator.PanelSlider();
+        next = new components.ButtonGradient_Register();
         jLabel2 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
+
+        jToggleButton1.setText("jToggleButton1");
+
+        jScrollPane1.setViewportView(jEditorPane1);
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(51, 51, 51));
@@ -60,203 +67,123 @@ public class Register extends javax.swing.JFrame {
 
         cardForm1.setBackground(new java.awt.Color(255, 255, 255));
 
-        cardForm2.setBackground(new java.awt.Color(255, 255, 255));
-
-        jLabel6.setFont(new java.awt.Font("Yu Gothic UI Semibold", 0, 14)); // NOI18N
-        jLabel6.setForeground(java.awt.Color.black);
-        jLabel6.setText("Usuario ");
-
-        login_userNameInput.setBackground(new java.awt.Color(255, 255, 255));
-        login_userNameInput.setFont(new java.awt.Font("Yu Gothic UI Semibold", 0, 12)); // NOI18N
-        login_userNameInput.setForeground(new java.awt.Color(204, 204, 204));
-        login_userNameInput.setText("Ingrese el Nombre de Usuario ");
-        login_userNameInput.setBorder(null);
-        login_userNameInput.setSelectionColor(new java.awt.Color(30, 30, 30));
-        login_userNameInput.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mousePressed(java.awt.event.MouseEvent evt) {
-                login_userNameInputMousePressed(evt);
-            }
-        });
-        login_userNameInput.addActionListener(new java.awt.event.ActionListener() {
+        back.setText("Volver ");
+        back.setFont(new java.awt.Font("Segoe UI Symbol", 0, 12)); // NOI18N
+        back.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                login_userNameInputActionPerformed(evt);
+                backActionPerformed(evt);
             }
         });
 
-        jSeparator2.setForeground(new java.awt.Color(0, 0, 0));
-
-        jLabel7.setFont(new java.awt.Font("Yu Gothic UI Semibold", 0, 14)); // NOI18N
-        jLabel7.setForeground(java.awt.Color.black);
-        jLabel7.setText("Contraseña ");
-
-        jSeparator3.setForeground(new java.awt.Color(0, 0, 0));
-
-        login_passwordInput.setBackground(new java.awt.Color(255, 255, 255));
-        login_passwordInput.setForeground(new java.awt.Color(204, 204, 204));
-        login_passwordInput.setText("jPasswordField1");
-        login_passwordInput.setBorder(null);
-        login_passwordInput.setSelectionColor(new java.awt.Color(255, 255, 255));
-        login_passwordInput.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                login_passwordInputMouseClicked(evt);
-            }
-            public void mousePressed(java.awt.event.MouseEvent evt) {
-                login_passwordInputMousePressed(evt);
-            }
+        progressIndicator.setModel(new javax.swing.AbstractListModel() {
+            String[] strings = { "Tu Cuenta ", "Personal", "Final " };
+            public int getSize() { return strings.length; }
+            public Object getElementAt(int i) { return strings[i]; }
         });
-        login_passwordInput.addActionListener(new java.awt.event.ActionListener() {
+        progressIndicator.setOpaque(false);
+        progressIndicator.setProgress(0.0F);
+        progressIndicator.setProgressColor(new java.awt.Color(51, 153, 255));
+        progressIndicator.setProgressColorGradient(new java.awt.Color(204, 51, 255));
+        progressIndicator.setProgressFont(new java.awt.Font("Segoe UI Symbol", 1, 17)); // NOI18N
+
+        panelSlider.setOpaque(false);
+
+        next.setText("Siguiente ");
+        next.setFont(new java.awt.Font("Segoe UI Symbol", 0, 12)); // NOI18N
+        next.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                login_passwordInputActionPerformed(evt);
+                nextActionPerformed(evt);
             }
         });
-
-        jLabel8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/Logo.png"))); // NOI18N
-
-        buttonGradient_Register1.setText("Registrar");
-        buttonGradient_Register1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                buttonGradient_Register1ActionPerformed(evt);
-            }
-        });
-
-        jLabel9.setFont(new java.awt.Font("Yu Gothic UI Semibold", 0, 14)); // NOI18N
-        jLabel9.setForeground(java.awt.Color.black);
-        jLabel9.setText("Tipo de Usuario");
-
-        selectCiudad.setBackground(new java.awt.Color(255, 255, 255));
-        selectCiudad.setFont(new java.awt.Font("Yu Gothic UI Semibold", 0, 12)); // NOI18N
-        selectCiudad.setForeground(new java.awt.Color(204, 204, 204));
-        selectCiudad.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Lector", "Bibliotecario", "Administrador" }));
-        selectCiudad.setBorder(null);
-        selectCiudad.setFocusable(false);
-        selectCiudad.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                selectCiudadActionPerformed(evt);
-            }
-        });
-
-        javax.swing.GroupLayout cardForm2Layout = new javax.swing.GroupLayout(cardForm2);
-        cardForm2.setLayout(cardForm2Layout);
-        cardForm2Layout.setHorizontalGroup(
-            cardForm2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, cardForm2Layout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
-                .addGroup(cardForm2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, 131, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 109, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(login_userNameInput, javax.swing.GroupLayout.PREFERRED_SIZE, 171, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jSeparator2)
-                    .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 109, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(login_passwordInput, javax.swing.GroupLayout.PREFERRED_SIZE, 166, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jSeparator3)
-                    .addComponent(selectCiudad, 0, 262, Short.MAX_VALUE))
-                .addGap(64, 64, 64))
-            .addGroup(cardForm2Layout.createSequentialGroup()
-                .addGap(152, 152, 152)
-                .addComponent(buttonGradient_Register1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, cardForm2Layout.createSequentialGroup()
-                .addContainerGap(124, Short.MAX_VALUE)
-                .addComponent(jLabel8)
-                .addGap(121, 121, 121))
-        );
-        cardForm2Layout.setVerticalGroup(
-            cardForm2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(cardForm2Layout.createSequentialGroup()
-                .addGap(14, 14, 14)
-                .addComponent(jLabel8)
-                .addGap(39, 39, 39)
-                .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 14, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(6, 6, 6)
-                .addComponent(login_userNameInput, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(4, 4, 4)
-                .addComponent(jSeparator2, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(30, 30, 30)
-                .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 14, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(login_passwordInput, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, 0)
-                .addComponent(jSeparator3, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(30, 30, 30)
-                .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, 14, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(selectCiudad, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 62, Short.MAX_VALUE)
-                .addComponent(buttonGradient_Register1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(30, 30, 30))
-        );
 
         javax.swing.GroupLayout cardForm1Layout = new javax.swing.GroupLayout(cardForm1);
         cardForm1.setLayout(cardForm1Layout);
         cardForm1Layout.setHorizontalGroup(
             cardForm1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, cardForm1Layout.createSequentialGroup()
-                .addContainerGap(20, Short.MAX_VALUE)
-                .addComponent(cardForm2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(15, 15, 15))
+            .addGroup(cardForm1Layout.createSequentialGroup()
+                .addGap(69, 69, 69)
+                .addComponent(progressIndicator, javax.swing.GroupLayout.PREFERRED_SIZE, 308, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 53, Short.MAX_VALUE))
+            .addGroup(cardForm1Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(panelSlider, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
+            .addGroup(cardForm1Layout.createSequentialGroup()
+                .addGap(34, 34, 34)
+                .addComponent(back, javax.swing.GroupLayout.PREFERRED_SIZE, 108, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(next, javax.swing.GroupLayout.PREFERRED_SIZE, 108, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(33, 33, 33))
         );
         cardForm1Layout.setVerticalGroup(
             cardForm1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(cardForm1Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(cardForm2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(13, 13, 13)
+                .addComponent(progressIndicator, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 9, Short.MAX_VALUE)
+                .addComponent(panelSlider, javax.swing.GroupLayout.PREFERRED_SIZE, 428, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(29, 29, 29)
+                .addGroup(cardForm1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(next, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(back, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(19, 19, 19))
         );
 
-        cardForm.add(cardForm1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 430, 560));
+        cardForm.add(cardForm1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 430, 600));
 
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/EllipseRegister.png"))); // NOI18N
         cardForm.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(-70, -90, -1, -1));
 
         jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/EllipseRegister.png"))); // NOI18N
-        cardForm.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 320, -1, -1));
+        cardForm.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 350, -1, 280));
 
-        jPanel3.add(cardForm, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 40, 450, 580));
+        jPanel3.add(cardForm, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 50, 450, 620));
 
         jLabel1.setBackground(new java.awt.Color(0, 0, 0));
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/UnionRegister.png"))); // NOI18N
         jPanel3.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(-40, 0, 670, 430));
 
         jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/EllipseRegister.png"))); // NOI18N
-        jPanel3.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(830, 450, -1, -1));
+        jPanel3.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(800, 500, -1, -1));
 
-        getContentPane().add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1130, 670));
+        getContentPane().add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1160, 760));
 
         pack();
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void login_userNameInputMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_login_userNameInputMousePressed
+    int position = 0; 
+    final int INITIAL_STEP = 0;
+    final int FINAL_STEP = 2;
+    
+    private void backActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backActionPerformed
         // TODO add your handling code here:
-        login_userNameInput.setText("");
-        login_userNameInput.setForeground(new java.awt.Color(0,0,0));
-    }//GEN-LAST:event_login_userNameInputMousePressed
+        progressIndicator.previous();
+        
+        if(position > INITIAL_STEP) position -=1;
+        
+        if(position == INITIAL_STEP){
+            back.setVisible(false);
+        }  
+        if(position < FINAL_STEP && next.getText() == "Registrarme") {
+            next.setText("Siguiente");
+        };
+    }//GEN-LAST:event_backActionPerformed
 
-    private void login_userNameInputActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_login_userNameInputActionPerformed
+    private void nextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nextActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_login_userNameInputActionPerformed
-
-    private void login_passwordInputActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_login_passwordInputActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_login_passwordInputActionPerformed
-
-    private void login_passwordInputMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_login_passwordInputMouseClicked
-        // TODO add your handling code h
-    }//GEN-LAST:event_login_passwordInputMouseClicked
-
-    private void login_passwordInputMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_login_passwordInputMousePressed
-        // TODO add your handling code here:
-        login_passwordInput.setText("");
-        login_passwordInput.setForeground(new java.awt.Color(0,0,0));
-    }//GEN-LAST:event_login_passwordInputMousePressed
-
-    private void buttonGradient_Register1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonGradient_Register1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_buttonGradient_Register1ActionPerformed
-
-    private void selectCiudadActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_selectCiudadActionPerformed
-
-    }//GEN-LAST:event_selectCiudadActionPerformed
+        progressIndicator.next();
+        
+        if(position < FINAL_STEP) position +=1;
+        
+        if(position != INITIAL_STEP && !back.isVisible()) {
+            back.setVisible(true);
+        } 
+        if(position == FINAL_STEP) {
+            next.setText("Registrarme");
+        }
+        
+    }//GEN-LAST:event_nextActionPerformed
 
     /**
      * @param args the command line arguments
@@ -295,25 +222,26 @@ public class Register extends javax.swing.JFrame {
             }
         });
     }
-
+    
+    
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private components.ButtonGradient_Register buttonGradient_Register1;
+    private components.ButtonGradient_Register back;
     private javax.swing.JPanel cardForm;
     private javax.swing.JPanel cardForm1;
-    private javax.swing.JPanel cardForm2;
+    private javax.swing.JEditorPane jEditorPane1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
-    private javax.swing.JLabel jLabel6;
-    private javax.swing.JLabel jLabel7;
-    private javax.swing.JLabel jLabel8;
-    private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel3;
-    private javax.swing.JSeparator jSeparator2;
-    private javax.swing.JSeparator jSeparator3;
-    private javax.swing.JPasswordField login_passwordInput;
-    private javax.swing.JTextField login_userNameInput;
-    private javax.swing.JComboBox<String> selectCiudad;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JToggleButton jToggleButton1;
+    private components.ButtonGradient_Register next;
+    private components.progressindicator.PanelSlider panelSlider;
+    private components.progressindicator.ProgressIndicator progressIndicator;
     // End of variables declaration//GEN-END:variables
+    
+
+
 }
+
