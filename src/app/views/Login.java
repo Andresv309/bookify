@@ -39,7 +39,6 @@ public class Login extends javax.swing.JFrame {
         jLabel7 = new javax.swing.JLabel();
         jSeparator3 = new javax.swing.JSeparator();
         login_passwordInput = new javax.swing.JPasswordField();
-        buttonGradient1 = new components.ButtonGradient_Login();
         jLabel8 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
@@ -63,10 +62,8 @@ public class Login extends javax.swing.JFrame {
         cardForm2.setBackground(new java.awt.Color(255, 255, 255));
 
         jLabel6.setFont(new java.awt.Font("Yu Gothic UI Semibold", 0, 14)); // NOI18N
-        jLabel6.setForeground(java.awt.Color.black);
         jLabel6.setText("Usuario ");
 
-        login_userNameInput.setBackground(new java.awt.Color(255, 255, 255));
         login_userNameInput.setFont(new java.awt.Font("Yu Gothic UI Semibold", 0, 12)); // NOI18N
         login_userNameInput.setForeground(new java.awt.Color(204, 204, 204));
         login_userNameInput.setText("Ingrese el Nombre de Usuario ");
@@ -86,12 +83,10 @@ public class Login extends javax.swing.JFrame {
         jSeparator2.setForeground(new java.awt.Color(0, 0, 0));
 
         jLabel7.setFont(new java.awt.Font("Yu Gothic UI Semibold", 0, 14)); // NOI18N
-        jLabel7.setForeground(java.awt.Color.black);
         jLabel7.setText("Contraseña ");
 
         jSeparator3.setForeground(new java.awt.Color(0, 0, 0));
 
-        login_passwordInput.setBackground(new java.awt.Color(255, 255, 255));
         login_passwordInput.setForeground(new java.awt.Color(204, 204, 204));
         login_passwordInput.setText("jPasswordField1");
         login_passwordInput.setBorder(null);
@@ -110,45 +105,25 @@ public class Login extends javax.swing.JFrame {
             }
         });
 
-        buttonGradient1.setBorder(null);
-        buttonGradient1.setText("Iniciar ");
-        buttonGradient1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                buttonGradient1ActionPerformed(evt);
-            }
-        });
-
         jLabel8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/Logo.png"))); // NOI18N
 
         javax.swing.GroupLayout cardForm2Layout = new javax.swing.GroupLayout(cardForm2);
         cardForm2.setLayout(cardForm2Layout);
         cardForm2Layout.setHorizontalGroup(
             cardForm2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(cardForm2Layout.createSequentialGroup()
-                .addGap(20, 20, 20)
-                .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 109, javax.swing.GroupLayout.PREFERRED_SIZE))
-            .addGroup(cardForm2Layout.createSequentialGroup()
-                .addGap(20, 20, 20)
-                .addComponent(login_userNameInput, javax.swing.GroupLayout.PREFERRED_SIZE, 171, javax.swing.GroupLayout.PREFERRED_SIZE))
-            .addGroup(cardForm2Layout.createSequentialGroup()
-                .addGap(20, 20, 20)
-                .addComponent(jSeparator2, javax.swing.GroupLayout.PREFERRED_SIZE, 262, javax.swing.GroupLayout.PREFERRED_SIZE))
-            .addGroup(cardForm2Layout.createSequentialGroup()
-                .addGap(20, 20, 20)
-                .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 109, javax.swing.GroupLayout.PREFERRED_SIZE))
-            .addGroup(cardForm2Layout.createSequentialGroup()
-                .addGap(20, 20, 20)
-                .addComponent(login_passwordInput, javax.swing.GroupLayout.PREFERRED_SIZE, 166, javax.swing.GroupLayout.PREFERRED_SIZE))
-            .addGroup(cardForm2Layout.createSequentialGroup()
-                .addGap(20, 20, 20)
-                .addComponent(jSeparator3, javax.swing.GroupLayout.PREFERRED_SIZE, 262, javax.swing.GroupLayout.PREFERRED_SIZE))
-            .addGroup(cardForm2Layout.createSequentialGroup()
-                .addGap(100, 100, 100)
-                .addComponent(buttonGradient1, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, cardForm2Layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jLabel8)
                 .addGap(64, 64, 64))
+            .addGroup(cardForm2Layout.createSequentialGroup()
+                .addGap(20, 20, 20)
+                .addGroup(cardForm2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 109, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(login_userNameInput, javax.swing.GroupLayout.PREFERRED_SIZE, 171, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jSeparator2, javax.swing.GroupLayout.PREFERRED_SIZE, 262, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 109, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(login_passwordInput, javax.swing.GroupLayout.PREFERRED_SIZE, 166, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jSeparator3, javax.swing.GroupLayout.PREFERRED_SIZE, 262, javax.swing.GroupLayout.PREFERRED_SIZE)))
         );
         cardForm2Layout.setVerticalGroup(
             cardForm2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -167,9 +142,7 @@ public class Login extends javax.swing.JFrame {
                 .addComponent(login_passwordInput, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, 0)
                 .addComponent(jSeparator3, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(50, 50, 50)
-                .addComponent(buttonGradient1, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(35, Short.MAX_VALUE))
+                .addContainerGap(122, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout cardForm1Layout = new javax.swing.GroupLayout(cardForm1);
@@ -277,7 +250,6 @@ public class Login extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private components.ButtonGradient_Login buttonGradient1;
     private javax.swing.JPanel cardForm;
     private javax.swing.JPanel cardForm1;
     private javax.swing.JPanel cardForm2;
