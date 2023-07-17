@@ -6,7 +6,7 @@ import java.sql.SQLException;
 
 public class DBConnection {
     private static final String DB_URL = "jdbc:sqlite:C:\\repositorios\\Libros\\design-patterns-activity-java\\dbLibrary"; // Ruta a tu archivo de base de datos SQLite
-    
+
     private static Connection connection;
     
     public static Connection getConnection() {
@@ -34,4 +34,6 @@ public class DBConnection {
             }
         }
     }
+
 }
+
