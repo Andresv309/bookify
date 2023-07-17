@@ -4,7 +4,6 @@
  */
 package app;
 
-import app.models.DBConnection;
 import app.views.Login;
 import javax.xml.transform.Source;
 
@@ -18,10 +17,6 @@ public class app {
         Login login = new Login();
         
         login.setVisible(true);
-        
-        DBConnection con  = new DBConnection();
-        con.closeConnection();
-       // var result = con.getConnection();
     }
     
 }

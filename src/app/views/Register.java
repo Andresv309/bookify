@@ -9,8 +9,6 @@ import app.views.steps.Step2;
 import app.views.steps.Step3;
 import java.awt.Component;
 import java.time.Duration;
-import components.progressindicator.*;
-
 
 /**
  *
@@ -21,17 +19,10 @@ public class Register extends javax.swing.JFrame {
     /**
      * Creates new form login
      */
-    
-     ProgressIndicator progressIndicator = new ProgressIndicator();
-     PanelSlider panelSlider = new PanelSlider();
     public Register() {
         initComponents();
         Component[] components = new Component[]{new Step1(), new Step2(), new Step3()};
-      
-        
         panelSlider.setSliderComponent(components);
-        
-       
         progressIndicator.initSlider(panelSlider);
 //        back.setVisible(false);
     }
@@ -51,6 +42,10 @@ public class Register extends javax.swing.JFrame {
         jPanel3 = new javax.swing.JPanel();
         cardForm = new javax.swing.JPanel();
         cardForm1 = new javax.swing.JPanel();
+        progressIndicator = new components.progressindicator.ProgressIndicator();
+        panelSlider = new components.progressindicator.PanelSlider();
+        back = new components.ButtonGradient_Register();
+        next = new components.ButtonGradient_Register();
         jLabel2 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
@@ -72,15 +67,66 @@ public class Register extends javax.swing.JFrame {
 
         cardForm1.setBackground(new java.awt.Color(255, 255, 255));
 
+        progressIndicator.setModel(new javax.swing.AbstractListModel() {
+            String[] strings = { "Tu Cuenta ", "Personal", "Final " };
+            public int getSize() { return strings.length; }
+            public Object getElementAt(int i) { return strings[i]; }
+        });
+        progressIndicator.setOpaque(false);
+        progressIndicator.setProgress(0.0F);
+        progressIndicator.setProgressColor(new java.awt.Color(51, 153, 255));
+        progressIndicator.setProgressColorGradient(new java.awt.Color(204, 51, 255));
+        progressIndicator.setProgressFont(new java.awt.Font("Segoe UI Symbol", 1, 17)); // NOI18N
+
+        panelSlider.setOpaque(false);
+
+        back.setText("Volver ");
+        back.setFont(new java.awt.Font("Segoe UI Symbol", 0, 12)); // NOI18N
+        back.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                backActionPerformed(evt);
+            }
+        });
+
+        next.setText("Siguiente \n");
+        next.setFont(new java.awt.Font("Segoe UI Symbol", 0, 12)); // NOI18N
+        next.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                nextActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout cardForm1Layout = new javax.swing.GroupLayout(cardForm1);
         cardForm1.setLayout(cardForm1Layout);
         cardForm1Layout.setHorizontalGroup(
             cardForm1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 430, Short.MAX_VALUE)
+            .addGroup(cardForm1Layout.createSequentialGroup()
+                .addGap(69, 69, 69)
+                .addComponent(progressIndicator, javax.swing.GroupLayout.PREFERRED_SIZE, 308, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 53, Short.MAX_VALUE))
+            .addGroup(cardForm1Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(panelSlider, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
+            .addGroup(cardForm1Layout.createSequentialGroup()
+                .addGap(34, 34, 34)
+                .addComponent(back, javax.swing.GroupLayout.PREFERRED_SIZE, 108, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(next, javax.swing.GroupLayout.PREFERRED_SIZE, 108, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(33, 33, 33))
         );
         cardForm1Layout.setVerticalGroup(
             cardForm1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 600, Short.MAX_VALUE)
+            .addGroup(cardForm1Layout.createSequentialGroup()
+                .addGap(13, 13, 13)
+                .addComponent(progressIndicator, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 9, Short.MAX_VALUE)
+                .addComponent(panelSlider, javax.swing.GroupLayout.PREFERRED_SIZE, 428, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(29, 29, 29)
+                .addGroup(cardForm1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(next, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(back, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(19, 19, 19))
         );
 
         cardForm.add(cardForm1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 430, 600));
@@ -179,6 +225,7 @@ public class Register extends javax.swing.JFrame {
     
     
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private components.ButtonGradient_Register back;
     private javax.swing.JPanel cardForm;
     private javax.swing.JPanel cardForm1;
     private javax.swing.JEditorPane jEditorPane1;
@@ -189,6 +236,9 @@ public class Register extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel3;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JToggleButton jToggleButton1;
+    private components.ButtonGradient_Register next;
+    private components.progressindicator.PanelSlider panelSlider;
+    private components.progressindicator.ProgressIndicator progressIndicator;
     // End of variables declaration//GEN-END:variables
     
 
