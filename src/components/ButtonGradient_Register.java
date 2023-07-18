@@ -1,5 +1,6 @@
 package components;
 
+import app.utils.enums.Colors;
 import java.awt.Color;
 import java.awt.Cursor;
 import java.awt.GradientPaint;
@@ -16,10 +17,10 @@ import javax.swing.border.EmptyBorder;
  */
 public class ButtonGradient_Register extends JButton{
     
+
     
-    
-    private Color color1 = Color.decode("#41bcff");
-    private Color color2 = Color.decode("#a1ddff"); 
+    private Color color1 = Color.decode(Colors.PRIMARY_COLOR_BLUE.toString());
+    private Color color2 = Color.decode(Colors.SECONDARY_COLOR_BLUE.toString()); 
 
     public ButtonGradient_Register() { 
         
