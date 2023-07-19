@@ -5,7 +5,7 @@ import java.sql.DriverManager;
 import java.sql.SQLException;
 
 public class DBConnection {
-    private static final String DB_URL = "jdbc:sqlite:dbLibrary"; // Ruta relativa de base de datos SQLite
+    private static final String DB_URL = "C:\\sqlLite\\dbLibrary"; // Ruta relativa de base de datos SQLite
 
     private static Connection connection;
 
