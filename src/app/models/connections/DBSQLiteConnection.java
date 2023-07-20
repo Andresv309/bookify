@@ -6,7 +6,7 @@ import java.sql.Connection;
 
 public final class DBSQLiteConnection {
     // Ruta relativa de base de datos SQLite
-    private static final String DB_URL = "db/sqlite/libraryShop.db.";
+    private static final String DB_URL = System.getProperty("user.dir") + "/src/db/sqlite/libraryShop.db";
     private static DBSQLiteConnection instance;
     private static Connection connection;
 
