@@ -1,5 +1,5 @@
 
-package app.dao;
+package app.dao.interfaces;
 import app.models.Book;
 
 

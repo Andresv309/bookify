@@ -1,5 +1,5 @@
 
-package app.dao;
+package app.dao.interfaces;
 
 import app.dao.exceptions.DAOException;
 import java.util.List;
