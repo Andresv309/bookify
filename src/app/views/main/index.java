@@ -42,6 +42,7 @@ public class index extends javax.swing.JFrame {
         header = new components.Header();
         main = new javax.swing.JPanel();
         view = new javax.swing.JPanel();
+        mainBody1 = new components.MainBody();
         menu1 = new components.menu.Menu();
         footer = new javax.swing.JPanel();
 
@@ -52,15 +53,23 @@ public class index extends javax.swing.JFrame {
 
         main.setOpaque(false);
 
+        view.setOpaque(false);
+
         javax.swing.GroupLayout viewLayout = new javax.swing.GroupLayout(view);
         view.setLayout(viewLayout);
         viewLayout.setHorizontalGroup(
             viewLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 1058, Short.MAX_VALUE)
+            .addGroup(viewLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(mainBody1, javax.swing.GroupLayout.DEFAULT_SIZE, 1046, Short.MAX_VALUE)
+                .addContainerGap())
         );
         viewLayout.setVerticalGroup(
             viewLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 714, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, viewLayout.createSequentialGroup()
+                .addContainerGap(14, Short.MAX_VALUE)
+                .addComponent(mainBody1, javax.swing.GroupLayout.PREFERRED_SIZE, 693, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
         );
 
         javax.swing.GroupLayout mainLayout = new javax.swing.GroupLayout(main);
@@ -77,7 +86,7 @@ public class index extends javax.swing.JFrame {
             mainLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(view, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
             .addGroup(mainLayout.createSequentialGroup()
-                .addContainerGap()
+                .addGap(14, 14, 14)
                 .addComponent(menu1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
@@ -161,6 +170,7 @@ public class index extends javax.swing.JFrame {
     private javax.swing.JPanel footer;
     private components.Header header;
     private javax.swing.JPanel main;
+    private components.MainBody mainBody1;
     private components.menu.Menu menu1;
     private components.mainComponents.swing.PanelBackground panelBackground;
     private javax.swing.JPanel view;
