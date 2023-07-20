@@ -4,8 +4,7 @@
  */
 package app;
 
-import app.models.DBConnection;
-import app.views.Login;
+import app.views.login.LoginFrame;
 import javax.xml.transform.Source;
 
 /**
@@ -15,7 +14,7 @@ import javax.xml.transform.Source;
 public class app {
     public static void main(String[] args) {
         
-        Login login = new Login();
+        LoginFrame login = new LoginFrame();
         
         login.setVisible(true);
         
