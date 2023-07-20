@@ -1,31 +1,20 @@
 
 package app.dao.sqlite;
 
-import app.dao.interfaces.BookDAO;
-import app.models.Book;
+import app.dao.interfaces.StockDAO;
+import app.models.Stock;
 import java.util.List;
 
 
-public class SQLiteBookDAO implements BookDAO {
+public class SQLiteStockDAO implements StockDAO {
 
-    private final String INSERT = "";
-    private final String UPDATE = "";
-    private final String DELETE = "";
-    private final String GET = "";
-    private final String GETALL = "";
-        
-    public SQLiteBookDAO () {
-        
-    }
-    
-    
     @Override
-    public void insert(Book record) {
+    public void insert(Stock record) {
         throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
 
     @Override
-    public void update(Book record) {
+    public void update(Stock record) {
         throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
 
@@ -35,12 +24,12 @@ public class SQLiteBookDAO implements BookDAO {
     }
 
     @Override
-    public Book get(Long idRecord) {
+    public Stock get(Long idRecord) {
         throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
 
     @Override
-    public List<Book> getAll() {
+    public List<Stock> getAll() {
         throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
     
