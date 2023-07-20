@@ -1,6 +1,17 @@
-/build/
-nbproject/private/private.properties
-nbproject/private/private.properties
-nbproject/private/private.xml
-nbproject/**/*
-/dist/
+# NetBeans specific files
+nbproject/private/
+build/
+
+# Compiled output
+dist/
+build/
+
+# Logs and other temporary files
+*.log
+*.bak
+*.tmp
+
+# Properties files
+nb-configuration.xml
+nbactions.xml
+
