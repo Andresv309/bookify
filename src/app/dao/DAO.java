@@ -1,19 +1,14 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Interface.java to edit this template
- */
+
 package app.dao;
 
+import app.dao.exceptions.DAOException;
 import java.util.List;
 
-/**
- *
- * @author ASUS
- */
+
 public interface DAO<T, K> {
-    void insert(T record);
-    void update(T record);
-    void delete(K idRecord);
-    T get(K idRecord);
-    List<T> getAll();
+    void insert(T record) throws DAOException;
+    void update(T record) throws DAOException;
+    void delete(K idRecord) throws DAOException;
+    T get(K idRecord) throws DAOException;
+    List<T> getAll() throws DAOException;
 }
