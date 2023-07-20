@@ -89,21 +89,26 @@
             <DimensionLayout dim="0">
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="1" attributes="0">
-                      <EmptySpace min="-2" pref="40" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Group type="102" alignment="0" attributes="0">
-                              <EmptySpace min="-2" pref="1" max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                  <Component id="jSeparator3" alignment="0" min="-2" pref="261" max="-2" attributes="0"/>
-                                  <Component id="AuthorView_Author" alignment="0" min="-2" pref="246" max="-2" attributes="0"/>
+                          <Group type="102" attributes="0">
+                              <EmptySpace min="-2" pref="40" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Component id="LAutor" alignment="0" min="-2" pref="109" max="-2" attributes="0"/>
                                   <Group type="102" alignment="0" attributes="0">
-                                      <Component id="button_RegisterA" min="-2" pref="115" max="-2" attributes="0"/>
-                                      <EmptySpace max="32767" attributes="0"/>
-                                      <Component id="button_SaveA" min="-2" pref="116" max="-2" attributes="0"/>
+                                      <EmptySpace min="-2" pref="1" max="-2" attributes="0"/>
+                                      <Group type="103" groupAlignment="0" attributes="0">
+                                          <Component id="jSeparator3" alignment="0" min="-2" pref="261" max="-2" attributes="0"/>
+                                          <Component id="AuthorView_Author" alignment="0" min="-2" pref="246" max="-2" attributes="0"/>
+                                      </Group>
                                   </Group>
                               </Group>
                           </Group>
-                          <Component id="LAutor" alignment="0" min="-2" pref="109" max="-2" attributes="0"/>
+                          <Group type="102" alignment="0" attributes="0">
+                              <EmptySpace min="-2" pref="31" max="-2" attributes="0"/>
+                              <Component id="button_RegisterA" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace min="-2" pref="26" max="-2" attributes="0"/>
+                              <Component id="button_SaveA" min="-2" pref="94" max="-2" attributes="0"/>
+                          </Group>
                       </Group>
                       <EmptySpace pref="58" max="32767" attributes="0"/>
                       <Component id="jLabel1" min="-2" pref="150" max="-2" attributes="0"/>
@@ -133,7 +138,7 @@
                               <Component id="AuthorView_Author" min="-2" pref="22" max="-2" attributes="0"/>
                               <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
                               <Component id="jSeparator3" min="-2" pref="3" max="-2" attributes="0"/>
-                              <EmptySpace type="separate" max="-2" attributes="0"/>
+                              <EmptySpace min="-2" pref="30" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="3" attributes="0">
                                   <Component id="button_RegisterA" alignment="3" min="-2" max="-2" attributes="0"/>
                                   <Component id="button_SaveA" alignment="3" min="-2" max="-2" attributes="0"/>
@@ -146,14 +151,6 @@
             </DimensionLayout>
           </Layout>
           <SubComponents>
-            <Component class="components.ButtonGradient_Register" name="button_RegisterA">
-              <Properties>
-                <Property name="text" type="java.lang.String" value="Registrar"/>
-              </Properties>
-              <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="button_RegisterAActionPerformed"/>
-              </Events>
-            </Component>
             <Component class="javax.swing.JLabel" name="LAutor">
               <Properties>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
@@ -211,9 +208,17 @@
                 </Property>
               </Properties>
             </Component>
-            <Component class="components.ButtonGradient_Login" name="button_SaveA">
+            <Component class="components.ButtonGradient" name="button_RegisterA">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Guardar"/>
+              </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="button_RegisterAActionPerformed"/>
+              </Events>
+            </Component>
+            <Component class="components.ButtonGradient" name="button_SaveA">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Cancelar"/>
               </Properties>
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="button_SaveAActionPerformed"/>

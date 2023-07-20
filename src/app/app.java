@@ -18,8 +18,8 @@ public class app {
         
         login.setVisible(true);
         
-        DBConnection con  = new DBConnection();
-        con.getConnection();
+        //DBConnection con  = new DBConnection();
+        //con.getConnection();
     }
     
 }
