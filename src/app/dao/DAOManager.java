@@ -1,16 +1,23 @@
 
 package app.dao;
 
+import app.dao.sqlite.SQLiteDAOManager;
+import app.dao.interfaces.IDAOManager;
 
-public interface DAOManager {
-    AuthorDAO getAuthorDAO();
-    BookDAO getBookDAO();
-    CategoryDAO getCategoryDAO ();
-    CustomerDAO getCustomerDAO();
-    SaleDAO getSaleDAO();
-    ShelveDAO getShelveDAO();
-    StockDAO getStockDAO();
-    CardTypeDAO getCardTypeDAO();
-    SaleItemsDAO getSaleItemsDAO();
-    UserDAO getUserDao();
+public final class DAOManager {
+    private IDAOManager DAOinstance;
+    
+    public DAOManager() {
+        this.DAOinstance = new SQLiteDAOManager();
+    }
+
+    public IDAOManager getDAOinstance() {
+        return DAOinstance;
+    }
+
+    public void setDAOinstance(IDAOManager DAOinstance) {
+        this.DAOinstance = DAOinstance;
+    }
+    
+    
 }
