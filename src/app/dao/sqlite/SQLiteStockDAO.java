@@ -1,7 +1,7 @@
 
 package app.dao.sqlite;
 
-import app.dao.StockDAO;
+import app.dao.interfaces.StockDAO;
 import app.models.Stock;
 import java.util.List;
 

@@ -1,7 +1,7 @@
 
 package app.dao.sqlite;
 
-import app.dao.SaleDAO;
+import app.dao.interfaces.SaleDAO;
 import app.models.Sale;
 import java.util.List;
 

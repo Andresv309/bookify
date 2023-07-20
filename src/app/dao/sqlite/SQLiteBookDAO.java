@@ -1,7 +1,7 @@
 
 package app.dao.sqlite;
 
-import app.dao.BookDAO;
+import app.dao.interfaces.BookDAO;
 import app.models.Book;
 import java.util.List;
 

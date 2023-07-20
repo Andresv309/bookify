@@ -1,7 +1,7 @@
 
 package app.dao.sqlite;
 
-import app.dao.ShelveDAO;
+import app.dao.interfaces.ShelveDAO;
 import app.models.Shelve;
 import java.util.List;
 

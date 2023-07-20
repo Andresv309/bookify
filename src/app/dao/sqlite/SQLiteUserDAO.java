@@ -1,7 +1,7 @@
 
 package app.dao.sqlite;
 
-import app.dao.UserDAO;
+import app.dao.interfaces.UserDAO;
 import app.dao.exceptions.DAOException;
 import app.models.User;
 import java.util.List;

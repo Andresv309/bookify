@@ -1,7 +1,7 @@
 
 package app.dao.sqlite;
 
-import app.dao.CardTypeDAO;
+import app.dao.interfaces.CardTypeDAO;
 import app.dao.exceptions.DAOException;
 import app.models.CardType;
 import java.util.List;

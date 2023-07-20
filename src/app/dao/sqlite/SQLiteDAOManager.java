@@ -1,22 +1,23 @@
 
 package app.dao.sqlite;
 
-import app.dao.AuthorDAO;
-import app.dao.BookDAO;
-import app.dao.CardTypeDAO;
-import app.dao.CategoryDAO;
-import app.dao.CustomerDAO;
-import app.dao.DAOManager;
-import app.dao.SaleDAO;
-import app.dao.SaleItemsDAO;
-import app.dao.ShelveDAO;
-import app.dao.StockDAO;
-import app.dao.UserDAO;
+import app.dao.interfaces.AuthorDAO;
+import app.dao.interfaces.BookDAO;
+import app.dao.interfaces.CardTypeDAO;
+import app.dao.interfaces.CategoryDAO;
+import app.dao.interfaces.CustomerDAO;
+import app.dao.interfaces.SaleDAO;
+import app.dao.interfaces.SaleItemsDAO;
+import app.dao.interfaces.ShelveDAO;
+import app.dao.interfaces.StockDAO;
+import app.dao.interfaces.UserDAO;
 import app.models.connections.DBSQLiteConnection;
 import java.sql.Connection;
+import app.dao.interfaces.IDAOManager;
 
 
-public class SQLiteDAOManager implements DAOManager{
+public class SQLiteDAOManager implements IDAOManager{
+    private DBSQLiteConnection connInstance;
     private Connection conn;
     
     private AuthorDAO author = null;
@@ -31,7 +32,12 @@ public class SQLiteDAOManager implements DAOManager{
     private UserDAO user = null;
     
     public SQLiteDAOManager () {
-        this.conn = DBSQLiteConnection.getInstance().getConnection();
+        this.connInstance = DBSQLiteConnection.getInstance();
+        this.conn = connInstance.getConnection();
+    }
+    
+    public void closeConnection() {
+        connInstance.closeConnection();
     }
 
     @Override

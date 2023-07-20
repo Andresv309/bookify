@@ -1,7 +1,7 @@
 
 package app.dao.sqlite;
 
-import app.dao.CategoryDAO;
+import app.dao.interfaces.CategoryDAO;
 import app.dao.exceptions.DAOException;
 import app.models.Category;
 import app.models.connections.DBConnection1;

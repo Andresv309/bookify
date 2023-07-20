@@ -1,7 +1,7 @@
 
 package app.dao.sqlite;
 
-import app.dao.CustomerDAO;
+import app.dao.interfaces.CustomerDAO;
 import app.models.Customer;
 import java.util.List;
 
