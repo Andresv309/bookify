@@ -1,6 +1,5 @@
 package components;
 
-import utils.Colors;
 import java.awt.Color;
 import java.awt.Cursor;
 import java.awt.GradientPaint;
@@ -17,10 +16,28 @@ import javax.swing.border.EmptyBorder;
  */
 public class ButtonGradient extends JButton{
     
+    private Color gradientColor1 = new Color(255, 90, 90);
+    private Color gradientColor2 = new Color(42, 199, 80);
     
     
-    private Color color1 = Color.decode(Colors.PRIMARY_COLOR_PURPLE.toString());
-    private Color color2 = Color.decode(Colors.SECONDARY_COLOR_PURPLE.toString()); 
+    public Color getGradientColor1() {
+        return gradientColor1;
+    }
+
+    public void setGradientColor1(Color gradientColor1) {
+        this.gradientColor1 = gradientColor1;
+        repaint();
+    }
+
+    public Color getGradientColor2() {
+        return gradientColor2;
+    }
+
+    public void setGradientColor2(Color gradientColor2) {
+        this.gradientColor2 = gradientColor2;
+        repaint();
+    }
+    
 
     public ButtonGradient() { 
         
@@ -40,7 +57,7 @@ public class ButtonGradient extends JButton{
         Graphics2D g2 = img.createGraphics();
         g2.setRenderingHint(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON);
         
-        GradientPaint gra = new GradientPaint(0,0,color1,width,0,color2);
+        GradientPaint gra = new GradientPaint(0,0,gradientColor1,width,0,gradientColor2);
         g2.setPaint(gra);
         g2.fillRoundRect(0,0, width, heigth,heigth, heigth);
         grphcs.drawImage(img,0,0,null); 
