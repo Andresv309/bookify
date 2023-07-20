@@ -4,12 +4,12 @@ package app.models;
 import java.util.Objects;
 
 
-public class Author {
+public class CardType {
     private Long id = null;
-    private String name;
+    private String tpe;
 
-    public Author(String name) {
-        this.name = name;
+    public CardType(String tpe) {
+        this.tpe = tpe;
     }
 
     public Long getId() {
@@ -20,19 +20,19 @@ public class Author {
         this.id = id;
     }
 
-    public String getName() {
-        return name;
+    public String getTpe() {
+        return tpe;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setTpe(String tpe) {
+        this.tpe = tpe;
     }
 
     @Override
     public int hashCode() {
-        int hash = 7;
-        hash = 47 * hash + Objects.hashCode(this.id);
-        hash = 47 * hash + Objects.hashCode(this.name);
+        int hash = 5;
+        hash = 23 * hash + Objects.hashCode(this.id);
+        hash = 23 * hash + Objects.hashCode(this.tpe);
         return hash;
     }
 
@@ -47,8 +47,8 @@ public class Author {
         if (getClass() != obj.getClass()) {
             return false;
         }
-        final Author other = (Author) obj;
-        if (!Objects.equals(this.name, other.name)) {
+        final CardType other = (CardType) obj;
+        if (!Objects.equals(this.tpe, other.tpe)) {
             return false;
         }
         return Objects.equals(this.id, other.id);
@@ -56,6 +56,6 @@ public class Author {
 
     @Override
     public String toString() {
-        return "Author{" + "id=" + id + ", name=" + name + '}';
-    }  
+        return "CardType{" + "id=" + id + ", tpe=" + tpe + '}';
+    }
 }
