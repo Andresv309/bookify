@@ -1,11 +1,11 @@
-package app.models;
+package app.models.connections;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
 
-public class DBConnection {
-    private static final String DB_URL = "C:\\sqlLite\\dbLibrary"; // Ruta relativa de base de datos SQLite
+public class DBConnection1 {
+    private static final String DB_URL = "jdbc:sqlite:dbLibrary"; // Ruta relativa de base de datos SQLite
 
     private static Connection connection;
 
