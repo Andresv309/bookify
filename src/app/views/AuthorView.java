@@ -8,12 +8,12 @@ package app.views;
  *
  * @author sairo
  */
-public class CategoryView extends javax.swing.JFrame {
+public class AuthorView extends javax.swing.JFrame {
 
     /**
      * Creates new form RCategory
      */
-    public CategoryView() {
+    public AuthorView() {
         initComponents();
     }
 
@@ -28,15 +28,15 @@ public class CategoryView extends javax.swing.JFrame {
 
         jPanel1 = new javax.swing.JPanel();
         jScrollPane2 = new javax.swing.JScrollPane();
-        TableCategory = new javax.swing.JTable();
+        TableAuthor = new javax.swing.JTable();
         jPanel2 = new javax.swing.JPanel();
-        button_RegisterC = new components.ButtonGradient_Register();
-        jLabel8 = new javax.swing.JLabel();
+        button_RegisterA = new components.ButtonGradient_Register();
+        LAutor = new javax.swing.JLabel();
         txtBookRegistration = new javax.swing.JLabel();
-        CategoryView_category = new javax.swing.JTextField();
+        AuthorView_Author = new javax.swing.JTextField();
         jSeparator3 = new javax.swing.JSeparator();
         jLabel1 = new javax.swing.JLabel();
-        button_SaveC = new components.ButtonGradient_Login();
+        button_SaveA = new components.ButtonGradient_Login();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -46,48 +46,48 @@ public class CategoryView extends javax.swing.JFrame {
         jPanel1.setPreferredSize(new java.awt.Dimension(870, 645));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        TableCategory.setFont(new java.awt.Font("Yu Gothic UI Semibold", 1, 12)); // NOI18N
-        TableCategory.setModel(new javax.swing.table.DefaultTableModel(
+        TableAuthor.setFont(new java.awt.Font("Yu Gothic UI Semibold", 1, 12)); // NOI18N
+        TableAuthor.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
             },
             new String [] {
-                "Tipos  de Categorías"
+                "Autores"
             }
         ));
-        jScrollPane2.setViewportView(TableCategory);
+        jScrollPane2.setViewportView(TableAuthor);
 
         jPanel1.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 310, 820, 140));
 
         jPanel2.setBackground(new java.awt.Color(255, 255, 255));
 
-        button_RegisterC.setText("Registrar");
-        button_RegisterC.addActionListener(new java.awt.event.ActionListener() {
+        button_RegisterA.setText("Registrar");
+        button_RegisterA.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                button_RegisterCActionPerformed(evt);
+                button_RegisterAActionPerformed(evt);
             }
         });
 
-        jLabel8.setFont(new java.awt.Font("Yu Gothic UI Semibold", 0, 14)); // NOI18N
-        jLabel8.setText("Categoría");
+        LAutor.setFont(new java.awt.Font("Yu Gothic UI Semibold", 0, 14)); // NOI18N
+        LAutor.setText("Autor");
 
         txtBookRegistration.setBackground(new java.awt.Color(0, 0, 0));
         txtBookRegistration.setFont(new java.awt.Font("Yu Gothic UI Semibold", 1, 24)); // NOI18N
-        txtBookRegistration.setText("Registro Categorías");
+        txtBookRegistration.setText("Registro Autor");
 
-        CategoryView_category.setFont(new java.awt.Font("Yu Gothic UI Semibold", 0, 12)); // NOI18N
-        CategoryView_category.setForeground(new java.awt.Color(204, 204, 204));
-        CategoryView_category.setText("Ingrese la Categoría");
-        CategoryView_category.setBorder(null);
-        CategoryView_category.setSelectionColor(new java.awt.Color(30, 30, 30));
-        CategoryView_category.addMouseListener(new java.awt.event.MouseAdapter() {
+        AuthorView_Author.setFont(new java.awt.Font("Yu Gothic UI Semibold", 0, 12)); // NOI18N
+        AuthorView_Author.setForeground(new java.awt.Color(204, 204, 204));
+        AuthorView_Author.setText("Ingrese el Autor");
+        AuthorView_Author.setBorder(null);
+        AuthorView_Author.setSelectionColor(new java.awt.Color(30, 30, 30));
+        AuthorView_Author.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mousePressed(java.awt.event.MouseEvent evt) {
-                CategoryView_categoryMousePressed(evt);
+                AuthorView_AuthorMousePressed(evt);
             }
         });
-        CategoryView_category.addActionListener(new java.awt.event.ActionListener() {
+        AuthorView_Author.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                CategoryView_categoryActionPerformed(evt);
+                AuthorView_AuthorActionPerformed(evt);
             }
         });
 
@@ -95,10 +95,10 @@ public class CategoryView extends javax.swing.JFrame {
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/Logo.png"))); // NOI18N
 
-        button_SaveC.setText("Guardar");
-        button_SaveC.addActionListener(new java.awt.event.ActionListener() {
+        button_SaveA.setText("Guardar");
+        button_SaveA.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                button_SaveCActionPerformed(evt);
+                button_SaveAActionPerformed(evt);
             }
         });
 
@@ -107,46 +107,46 @@ public class CategoryView extends javax.swing.JFrame {
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(txtBookRegistration)
-                .addGap(154, 154, 154))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
                 .addGap(40, 40, 40)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addGap(1, 1, 1)
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(jSeparator3, javax.swing.GroupLayout.PREFERRED_SIZE, 261, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(CategoryView_category, javax.swing.GroupLayout.PREFERRED_SIZE, 246, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(AuthorView_Author, javax.swing.GroupLayout.PREFERRED_SIZE, 246, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(jPanel2Layout.createSequentialGroup()
-                                .addComponent(button_RegisterC, javax.swing.GroupLayout.PREFERRED_SIZE, 115, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(button_RegisterA, javax.swing.GroupLayout.PREFERRED_SIZE, 115, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(button_SaveC, javax.swing.GroupLayout.PREFERRED_SIZE, 116, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                    .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 109, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addComponent(button_SaveA, javax.swing.GroupLayout.PREFERRED_SIZE, 116, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                    .addComponent(LAutor, javax.swing.GroupLayout.PREFERRED_SIZE, 109, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 58, Short.MAX_VALUE)
                 .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(30, 30, 30))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(txtBookRegistration)
+                .addGap(180, 180, 180))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(txtBookRegistration)
-                        .addGap(18, 18, 18)
+                        .addGap(56, 56, 56)
                         .addComponent(jLabel1))
                     .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGap(82, 82, 82)
-                        .addComponent(jLabel8)
+                        .addContainerGap()
+                        .addComponent(txtBookRegistration)
+                        .addGap(44, 44, 44)
+                        .addComponent(LAutor)
                         .addGap(3, 3, 3)
-                        .addComponent(CategoryView_category, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(AuthorView_Author, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(0, 0, 0)
                         .addComponent(jSeparator3, javax.swing.GroupLayout.PREFERRED_SIZE, 3, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(button_RegisterC, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(button_SaveC, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                            .addComponent(button_RegisterA, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(button_SaveA, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addContainerGap(26, Short.MAX_VALUE))
         );
 
@@ -157,21 +157,21 @@ public class CategoryView extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void CategoryView_categoryActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CategoryView_categoryActionPerformed
+    private void AuthorView_AuthorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AuthorView_AuthorActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_CategoryView_categoryActionPerformed
+    }//GEN-LAST:event_AuthorView_AuthorActionPerformed
 
-    private void CategoryView_categoryMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_CategoryView_categoryMousePressed
+    private void AuthorView_AuthorMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_AuthorView_AuthorMousePressed
         // TODO add your handling code here:
-    }//GEN-LAST:event_CategoryView_categoryMousePressed
+    }//GEN-LAST:event_AuthorView_AuthorMousePressed
 
-    private void button_RegisterCActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button_RegisterCActionPerformed
+    private void button_RegisterAActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button_RegisterAActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_button_RegisterCActionPerformed
+    }//GEN-LAST:event_button_RegisterAActionPerformed
 
-    private void button_SaveCActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button_SaveCActionPerformed
+    private void button_SaveAActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button_SaveAActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_button_SaveCActionPerformed
+    }//GEN-LAST:event_button_SaveAActionPerformed
 
     /**
      * @param args the command line arguments
@@ -190,32 +190,34 @@ public class CategoryView extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(CategoryView.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(AuthorView.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(CategoryView.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(AuthorView.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(CategoryView.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(AuthorView.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(CategoryView.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(AuthorView.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
+        //</editor-fold>
         //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new CategoryView().setVisible(true);
+                new AuthorView().setVisible(true);
             }
         });
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JTextField CategoryView_category;
-    private javax.swing.JTable TableCategory;
-    private components.ButtonGradient_Register button_RegisterC;
-    private components.ButtonGradient_Login button_SaveC;
+    private javax.swing.JTextField AuthorView_Author;
+    private javax.swing.JLabel LAutor;
+    private javax.swing.JTable TableAuthor;
+    private components.ButtonGradient_Register button_RegisterA;
+    private components.ButtonGradient_Login button_SaveA;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel8;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JScrollPane jScrollPane2;

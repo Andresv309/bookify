@@ -33,7 +33,7 @@ public class BookView extends javax.swing.JFrame {
         jPanel2 = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
         txtADescription = new javax.swing.JTextArea();
-        buttonGradient_RegisterB = new components.ButtonGradient_Register();
+        button_RegisterB = new components.ButtonGradient_Register();
         jLabel9 = new javax.swing.JLabel();
         bookView_categorySelect = new javax.swing.JComboBox<>();
         jLabel8 = new javax.swing.JLabel();
@@ -47,6 +47,7 @@ public class BookView extends javax.swing.JFrame {
         jLabel12 = new javax.swing.JLabel();
         bookView_namebook2 = new javax.swing.JTextField();
         jSeparator4 = new javax.swing.JSeparator();
+        button_SaveB = new components.ButtonGradient_Login();
 
         jLabel5.setBackground(new java.awt.Color(0, 0, 0));
         jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/UnionRegister.png"))); // NOI18N
@@ -54,7 +55,7 @@ public class BookView extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jPanel1.setBackground(new java.awt.Color(0, 0, 0));
+        jPanel1.setBackground(new java.awt.Color(39, 37, 37));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         tableBook.setFont(new java.awt.Font("Yu Gothic UI Semibold", 0, 12)); // NOI18N
@@ -68,7 +69,7 @@ public class BookView extends javax.swing.JFrame {
         ));
         jScrollPane2.setViewportView(tableBook);
 
-        jPanel1.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 430, 850, 205));
+        jPanel1.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 440, 850, 205));
 
         jPanel2.setBackground(new java.awt.Color(255, 255, 255));
 
@@ -76,10 +77,10 @@ public class BookView extends javax.swing.JFrame {
         txtADescription.setRows(5);
         jScrollPane1.setViewportView(txtADescription);
 
-        buttonGradient_RegisterB.setText("Registrar");
-        buttonGradient_RegisterB.addActionListener(new java.awt.event.ActionListener() {
+        button_RegisterB.setText("Registrar");
+        button_RegisterB.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                buttonGradient_RegisterBActionPerformed(evt);
+                button_RegisterBActionPerformed(evt);
             }
         });
 
@@ -88,7 +89,7 @@ public class BookView extends javax.swing.JFrame {
 
         bookView_categorySelect.setFont(new java.awt.Font("Yu Gothic UI Semibold", 0, 12)); // NOI18N
         bookView_categorySelect.setForeground(new java.awt.Color(204, 204, 204));
-        bookView_categorySelect.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Cedula ( C.C )", "Tarjeta de Identidad ( T.I )", "Cedula de Extranjeria ( C.E )" }));
+        bookView_categorySelect.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Selecciona Categoría" }));
         bookView_categorySelect.setBorder(null);
         bookView_categorySelect.setFocusable(false);
         bookView_categorySelect.addActionListener(new java.awt.event.ActionListener() {
@@ -151,7 +152,7 @@ public class BookView extends javax.swing.JFrame {
 
         bookView_namebook2.setFont(new java.awt.Font("Yu Gothic UI Semibold", 0, 12)); // NOI18N
         bookView_namebook2.setForeground(new java.awt.Color(204, 204, 204));
-        bookView_namebook2.setText("Ingrese el Autor");
+        bookView_namebook2.setText("Ingrese el Precio");
         bookView_namebook2.setBorder(null);
         bookView_namebook2.setSelectionColor(new java.awt.Color(30, 30, 30));
         bookView_namebook2.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -167,25 +168,42 @@ public class BookView extends javax.swing.JFrame {
 
         jSeparator4.setForeground(new java.awt.Color(0, 0, 0));
 
+        button_SaveB.setText("Guardar");
+        button_SaveB.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                button_SaveBActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGap(22, 22, 22)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(txtBookRegistration)
+                .addGap(187, 187, 187))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addComponent(bookView_categorySelect, javax.swing.GroupLayout.PREFERRED_SIZE, 262, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, 131, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jSeparator3, javax.swing.GroupLayout.PREFERRED_SIZE, 261, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel11, javax.swing.GroupLayout.PREFERRED_SIZE, 109, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(bookView_namebook1, javax.swing.GroupLayout.PREFERRED_SIZE, 246, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 109, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                        .addComponent(bookView_namebook)
-                        .addComponent(jSeparator2, javax.swing.GroupLayout.PREFERRED_SIZE, 261, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 29, Short.MAX_VALUE)
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGap(22, 22, 22)
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(bookView_categorySelect, javax.swing.GroupLayout.PREFERRED_SIZE, 262, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, 131, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jSeparator3, javax.swing.GroupLayout.PREFERRED_SIZE, 261, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jLabel11, javax.swing.GroupLayout.PREFERRED_SIZE, 109, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(bookView_namebook1, javax.swing.GroupLayout.PREFERRED_SIZE, 246, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 109, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                .addComponent(bookView_namebook)
+                                .addComponent(jSeparator2, javax.swing.GroupLayout.PREFERRED_SIZE, 261, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 29, Short.MAX_VALUE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(button_RegisterB, javax.swing.GroupLayout.PREFERRED_SIZE, 149, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(49, 49, 49)))
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -198,14 +216,10 @@ public class BookView extends javax.swing.JFrame {
                             .addComponent(bookView_namebook2, javax.swing.GroupLayout.PREFERRED_SIZE, 246, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(21, 21, 21))
                     .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addComponent(jSeparator4, javax.swing.GroupLayout.PREFERRED_SIZE, 246, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jSeparator4, javax.swing.GroupLayout.PREFERRED_SIZE, 246, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(button_SaveB, javax.swing.GroupLayout.PREFERRED_SIZE, 148, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addContainerGap())))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                .addComponent(txtBookRegistration)
-                .addGap(187, 187, 187))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                .addComponent(buttonGradient_RegisterB, javax.swing.GroupLayout.PREFERRED_SIZE, 149, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(203, 203, 203))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -230,20 +244,21 @@ public class BookView extends javax.swing.JFrame {
                         .addComponent(jLabel11, javax.swing.GroupLayout.PREFERRED_SIZE, 14, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(bookView_namebook1, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGap(0, 0, 0)
                         .addComponent(jSeparator3, javax.swing.GroupLayout.PREFERRED_SIZE, 3, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 116, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 11, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 17, Short.MAX_VALUE)
                         .addComponent(jLabel12, javax.swing.GroupLayout.PREFERRED_SIZE, 14, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(bookView_namebook2, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jSeparator4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(1, 1, 1)))
-                .addGap(41, 41, 41)
-                .addComponent(buttonGradient_RegisterB, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(27, 27, 27))
+                        .addGap(0, 0, 0)
+                        .addComponent(jSeparator4, javax.swing.GroupLayout.PREFERRED_SIZE, 4, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(38, 38, 38)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(button_RegisterB, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(button_SaveB, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(24, 24, 24))
         );
 
         jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 40, 580, 370));
@@ -253,9 +268,9 @@ public class BookView extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void buttonGradient_RegisterBActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonGradient_RegisterBActionPerformed
+    private void button_RegisterBActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button_RegisterBActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_buttonGradient_RegisterBActionPerformed
+    }//GEN-LAST:event_button_RegisterBActionPerformed
 
     private void bookView_namebookMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_bookView_namebookMousePressed
         // TODO add your handling code here:
@@ -286,6 +301,10 @@ public class BookView extends javax.swing.JFrame {
     private void bookView_namebook2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bookView_namebook2ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_bookView_namebook2ActionPerformed
+
+    private void button_SaveBActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button_SaveBActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_button_SaveBActionPerformed
 
     /**
      * @param args the command line arguments
@@ -330,7 +349,8 @@ public class BookView extends javax.swing.JFrame {
     private javax.swing.JTextField bookView_namebook;
     private javax.swing.JTextField bookView_namebook1;
     private javax.swing.JTextField bookView_namebook2;
-    private components.ButtonGradient_Register buttonGradient_RegisterB;
+    private components.ButtonGradient_Register button_RegisterB;
+    private components.ButtonGradient_Login button_SaveB;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
