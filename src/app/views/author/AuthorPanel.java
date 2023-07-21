@@ -115,6 +115,7 @@ public class AuthorPanel extends javax.swing.JPanel {
         jToolBar1.add(jSeparator1);
 
         btnEdit.setText("Editar");
+        btnEdit.setEnabled(false);
         btnEdit.setFocusable(false);
         btnEdit.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         btnEdit.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
@@ -126,6 +127,7 @@ public class AuthorPanel extends javax.swing.JPanel {
         jToolBar1.add(btnEdit);
 
         btnDelete.setText("Borrar");
+        btnDelete.setEnabled(false);
         btnDelete.setFocusable(false);
         btnDelete.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         btnDelete.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
@@ -133,12 +135,14 @@ public class AuthorPanel extends javax.swing.JPanel {
         jToolBar1.add(jSeparator2);
 
         btnSave.setText("Guardar");
+        btnSave.setEnabled(false);
         btnSave.setFocusable(false);
         btnSave.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         btnSave.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
         jToolBar1.add(btnSave);
 
         btnCancel.setText("Cancelar");
+        btnCancel.setEnabled(false);
         btnCancel.setFocusable(false);
         btnCancel.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         btnCancel.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
