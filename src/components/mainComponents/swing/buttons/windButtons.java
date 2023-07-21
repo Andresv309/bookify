@@ -38,8 +38,8 @@ public class windButtons extends javax.swing.JPanel {
             
             @Override
             public void actionPerformed(ActionEvent ae) {  
-                System.exit(0);
                 DBSQLiteConnection.closeConnection();
+                System.exit(0);
             }
         });
         cmdMi.addActionListener(new ActionListener() {
