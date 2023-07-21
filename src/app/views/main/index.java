@@ -1,7 +1,15 @@
 package app.views.main;
 
 
+import app.dao.exceptions.DAOException;
+import app.views.author.AuthorPanel;
+import app.views.author.AuthorPanel2;
+import app.views.category.CategoryPanel;
+import app.views.sale.SalePanel;
+import components.menu.EventMenu;
 import java.awt.Color;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 
 
@@ -19,6 +27,10 @@ public class index extends javax.swing.JFrame {
     /**
      * Creates new form index
      */
+    
+    private SalePanel salePanel;
+    private AuthorPanel authorPanel;
+    
     public index() {
         initComponents();
         setBackground(new Color(0, 0, 0 , 0));
@@ -27,6 +39,23 @@ public class index extends javax.swing.JFrame {
     
     private void init () {
         header.initMoving(this, panelBackground);
+        menu.addEventMenu((int index) -> {
+            switch (index) {
+                case 0 -> mainBody.displayForm(new CategoryPanel());
+                case 1 -> mainBody.displayForm(salePanel);
+                case 2 -> mainBody.displayForm(authorPanel);
+                default -> {}
+            }
+        });
+        
+        salePanel = new SalePanel();
+        try {
+            //        authorPanel = new AuthorPanel();
+            authorPanel = new AuthorPanel();
+        } catch (DAOException ex) {
+            Logger.getLogger(index.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        mainBody.displayForm(new CategoryPanel()); 
     }
 
     /**
@@ -40,55 +69,14 @@ public class index extends javax.swing.JFrame {
 
         panelBackground = new components.mainComponents.swing.PanelBackground();
         header = new components.Header();
-        main = new javax.swing.JPanel();
-        view = new javax.swing.JPanel();
-        mainBody1 = new components.MainBody();
-        menu1 = new components.menu.Menu();
         footer = new javax.swing.JPanel();
+        menu = new components.menu.Menu();
+        mainBody = new components.MainBody();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setUndecorated(true);
 
         header.setOpaque(false);
-
-        main.setOpaque(false);
-
-        view.setOpaque(false);
-
-        javax.swing.GroupLayout viewLayout = new javax.swing.GroupLayout(view);
-        view.setLayout(viewLayout);
-        viewLayout.setHorizontalGroup(
-            viewLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(viewLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(mainBody1, javax.swing.GroupLayout.DEFAULT_SIZE, 1046, Short.MAX_VALUE)
-                .addContainerGap())
-        );
-        viewLayout.setVerticalGroup(
-            viewLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, viewLayout.createSequentialGroup()
-                .addContainerGap(14, Short.MAX_VALUE)
-                .addComponent(mainBody1, javax.swing.GroupLayout.PREFERRED_SIZE, 693, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
-        );
-
-        javax.swing.GroupLayout mainLayout = new javax.swing.GroupLayout(main);
-        main.setLayout(mainLayout);
-        mainLayout.setHorizontalGroup(
-            mainLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, mainLayout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(menu1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(view, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-        );
-        mainLayout.setVerticalGroup(
-            mainLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(view, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-            .addGroup(mainLayout.createSequentialGroup()
-                .addGap(14, 14, 14)
-                .addComponent(menu1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-        );
 
         footer.setOpaque(false);
 
@@ -108,23 +96,38 @@ public class index extends javax.swing.JFrame {
         panelBackgroundLayout.setHorizontalGroup(
             panelBackgroundLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(header, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addGroup(panelBackgroundLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(main, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addContainerGap())
             .addComponent(footer, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(panelBackgroundLayout.createSequentialGroup()
+                .addGap(4, 4, 4)
+                .addComponent(menu, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(mainBody, javax.swing.GroupLayout.DEFAULT_SIZE, 1067, Short.MAX_VALUE)
+                .addContainerGap())
         );
         panelBackgroundLayout.setVerticalGroup(
             panelBackgroundLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panelBackgroundLayout.createSequentialGroup()
                 .addComponent(header, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(main, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE)
+                .addGap(0, 0, 0)
+                .addGroup(panelBackgroundLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(menu, javax.swing.GroupLayout.PREFERRED_SIZE, 696, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(mainBody, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(footer, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
-        getContentPane().add(panelBackground, java.awt.BorderLayout.CENTER);
+        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
+        getContentPane().setLayout(layout);
+        layout.setHorizontalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(panelBackground, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+        );
+        layout.setVerticalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(panelBackground, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
+        );
 
         pack();
         setLocationRelativeTo(null);
@@ -169,10 +172,8 @@ public class index extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel footer;
     private components.Header header;
-    private javax.swing.JPanel main;
-    private components.MainBody mainBody1;
-    private components.menu.Menu menu1;
+    private components.MainBody mainBody;
+    private components.menu.Menu menu;
     private components.mainComponents.swing.PanelBackground panelBackground;
-    private javax.swing.JPanel view;
     // End of variables declaration//GEN-END:variables
 }
