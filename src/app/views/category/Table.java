@@ -1,11 +1,14 @@
 package app.views.category;
 
+import components.components.mainComponents.swing.scrollbar.ScrollBarCustom;
 import java.awt.Color;
 import java.awt.Component;
 import javax.swing.JLabel;
-import javax.swing.JScrollBar;
+import javax.swing.JPanel;
+import javax.swing.JScrollPane;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableCellRenderer;
+import javax.swing.table.DefaultTableModel;
 
 /**
  *
@@ -16,7 +19,7 @@ public class Table extends JTable{
     public Table() {
         setShowHorizontalLines(true);
         setGridColor(new Color(230,230,230));
-        setSelectionBackground(new Color(255,255,0 ));
+        setSelectionBackground(new Color(65,188,255 ));
         setRowHeight(28);
         getTableHeader().setReorderingAllowed(false);
         getTableHeader().setDefaultRenderer(new DefaultTableCellRenderer(){
@@ -36,10 +39,19 @@ public class Table extends JTable{
     }
     
     
+    public void addRow(Object[] row) {
+        DefaultTableModel model = (DefaultTableModel)getModel();
+        model.addRow(row);
+    } 
     
-//    public void fixTable (JScrollBar scroll) {
-//        scroll.get
-//    }
+    
+    public void fixTable (JScrollPane scroll) {
+        scroll.setBorder(null);
+        scroll.setViewportBorder(null);
+        scroll.getViewport().setOpaque(false);
+        scroll.setVerticalScrollBar(new ScrollBarCustom());
+        scroll.setHorizontalScrollBarPolicy(JScrollPane.HORIZONTAL_SCROLLBAR_NEVER);
+    }
     
     
 }

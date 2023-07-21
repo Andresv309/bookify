@@ -31,6 +31,4 @@ public class TableHeader extends JLabel{
         g2.drawLine(0 ,getHeight()-1,getWidth(),getHeight()-1);
         super.paintComponent(g);
     }
-   
-   
 }
