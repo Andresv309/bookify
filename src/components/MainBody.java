@@ -57,7 +57,7 @@ public class MainBody extends javax.swing.JPanel {
         panelTitleLayout.setHorizontalGroup(
             panelTitleLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelTitleLayout.createSequentialGroup()
-                .addContainerGap(1061, Short.MAX_VALUE)
+                .addContainerGap(1040, Short.MAX_VALUE)
                 .addComponent(lbTitle)
                 .addContainerGap())
         );
