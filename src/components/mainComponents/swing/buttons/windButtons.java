@@ -6,6 +6,7 @@ package components.mainComponents.swing.buttons;
 
 
 
+import app.models.connections.DBSQLiteConnection;
 import components.mainComponents.swing.PanelBackground;
 import java.awt.Color;
 import java.awt.event.ActionEvent;
@@ -38,6 +39,7 @@ public class windButtons extends javax.swing.JPanel {
             @Override
             public void actionPerformed(ActionEvent ae) {  
                 System.exit(0);
+                DBSQLiteConnection.closeConnection();
             }
         });
         cmdMi.addActionListener(new ActionListener() {

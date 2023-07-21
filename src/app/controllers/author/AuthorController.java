@@ -37,7 +37,7 @@ public class AuthorController implements ActionListener {
         this.authorPanel = view;
         
         this.tableModel = new AuthorTableModel(this.authorDAO);
-        this.updatePanelView();
+        
         this.authorPanel.getTable().setModel(this.tableModel);
         
         this.detailsModel = new AuthorDetailsController(this.authorPanel);
@@ -55,7 +55,9 @@ public class AuthorController implements ActionListener {
         this.btnDelete = authorPanel.getBtnDelete();
         this.btnSave = authorPanel.getBtnSave();
         this.btnCancel = authorPanel.getBtnCancel();       
-        this.infoTag = authorPanel.getInfoTag();       
+        this.infoTag = authorPanel.getInfoTag();
+        
+        this.updatePanelView();
     }
     
     private void editActionPerformed () {
