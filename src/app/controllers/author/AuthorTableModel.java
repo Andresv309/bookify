@@ -10,15 +10,15 @@ import javax.swing.table.AbstractTableModel;
 
 
 public class AuthorTableModel extends AbstractTableModel {
-    private AuthorDAO author;
+    private AuthorDAO entityDAO;
     private List<Author> tableData = new ArrayList<>();
     
-    public AuthorTableModel(AuthorDAO author) {
-        this.author = author;
+    public AuthorTableModel(AuthorDAO entity) {
+        this.entityDAO = entity;
     }
     
     public void updateView () throws DAOException {
-        tableData = author.getAll();
+        tableData = entityDAO.getAll();
     }
 
     @Override
@@ -42,10 +42,10 @@ public class AuthorTableModel extends AbstractTableModel {
 
     @Override
     public Object getValueAt(int rowIndex, int columnIndex) {
-        Author requestedAuthor = tableData.get(rowIndex);
+        Author requestedEntity = tableData.get(rowIndex);
         switch (columnIndex) {
-            case 0: return requestedAuthor.getId();
-            case 1: return requestedAuthor.getName();
+            case 0: return requestedEntity.getId();
+            case 1: return requestedEntity.getName();
             default: return "";
         }
     }

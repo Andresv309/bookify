@@ -8,6 +8,8 @@ import app.views.author.AuthorPanel;
 import app.models.Author;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.FocusEvent;
+import java.awt.event.FocusListener;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JButton;
@@ -17,11 +19,11 @@ import javax.swing.JTable;
 
 
 public class AuthorController {
-    private AuthorPanel authorPanel;
-    private AuthorDAO authorDAO;
+    private AuthorPanel entityPanel;
+    private AuthorDAO entityDAO;
     
-    private AuthorTableModel tableModel;
-    private AuthorDetailsController detailsModel;
+    private AuthorTableModel entityTableModel;
+    private AuthorDetailsController entityDetailsController;
     
     private JTable table;
     private JButton btnCreate;
@@ -33,29 +35,47 @@ public class AuthorController {
     
     public AuthorController(AuthorPanel view) throws DAOException {
         DAOManager DAOManager = new DAOManager();
-        this.authorDAO = DAOManager.getDAOinstance().getAuthorDAO();
-        this.authorPanel = view;
         
-        this.table = authorPanel.getTable();
-        this.btnCreate = authorPanel.getBtnCreate();
-        this.btnEdit = authorPanel.getBtnEdit();
-        this.btnDelete = authorPanel.getBtnDelete();
-        this.btnSave = authorPanel.getBtnSave();
-        this.btnCancel = authorPanel.getBtnCancel();       
-        this.infoTag = authorPanel.getInfoTag();
+        /*** Specific dao manager ***/
+        this.entityDAO = DAOManager.getDAOinstance().getAuthorDAO();
         
-        this.tableModel = new AuthorTableModel(this.authorDAO);
+        /*** Specific details controller ***/
+        this.entityDetailsController = new AuthorDetailsController(view.getDetailsPanel());
         
-        this.table.setModel(this.tableModel);
+        /*** Specific table model ***/
+        this.entityTableModel = new AuthorTableModel(this.entityDAO);
         
-        this.detailsModel = new AuthorDetailsController(this.authorPanel);
+        this.entityPanel = view;
+        
+        this.table = entityPanel.getTable();
+        this.btnCreate = entityPanel.getBtnCreate();
+        this.btnEdit = entityPanel.getBtnEdit();
+        this.btnDelete = entityPanel.getBtnDelete();
+        this.btnSave = entityPanel.getBtnSave();
+        this.btnCancel = entityPanel.getBtnCancel();       
+        this.infoTag = entityPanel.getInfoTag();
+
+        this.table.setModel(this.entityTableModel);
         
         this.table.getSelectionModel().addListSelectionListener(e -> {
             boolean validSelection = (this.table.getSelectedRow() != -1);
             this.btnEdit.setEnabled(validSelection);
             this.btnDelete.setEnabled(validSelection);
-        
+//            if (!validSelection) this.table.clearSelection();
         });
+        
+//        this.table.addFocusListener(new FocusListener() {
+//            @Override
+//            public void focusGained(FocusEvent e) {
+//                // Do nothing when the table gains focus
+//            }
+//
+//            @Override
+//            public void focusLost(FocusEvent e) {
+//                // Clear the selection when the table loses focus
+//                table.clearSelection();
+//            }
+//        });
 
         this.updatePanelView();
         this.initEvents();
@@ -67,9 +87,9 @@ public class AuthorController {
             
             @Override
             public void actionPerformed(ActionEvent ae) {  
-                detailsModel.setAuthor(null);
-                detailsModel.loadData();
-                detailsModel.setEditable(true);
+                entityDetailsController.setEntity(null);
+                entityDetailsController.loadData();
+                entityDetailsController.setEditable(true);
                 btnSave.setEnabled(true);
                 btnCancel.setEnabled(true);
             }
@@ -80,10 +100,10 @@ public class AuthorController {
             @Override
             public void actionPerformed(ActionEvent ae) {  
                 try {
-                    Author author = getRowSelected();
-                    detailsModel.setAuthor(author);
-                    detailsModel.setEditable(true);
-                    detailsModel.loadData();
+                    Author entity = getRowSelected();
+                    entityDetailsController.setEntity(entity);
+                    entityDetailsController.setEditable(true);
+                    entityDetailsController.loadData();
                     btnSave.setEnabled(true);
                     btnCancel.setEnabled(true);
                 } catch (DAOException ex) {
@@ -104,10 +124,9 @@ public class AuthorController {
                         JOptionPane.QUESTION_MESSAGE
                 ) == JOptionPane.OK_OPTION) {
                     try {
-                        Author author = getRowSelected();
-                        authorDAO.delete(author.getId());
+                        Author entity = getRowSelected();
+                        entityDAO.delete(entity.getId());
                         updatePanelView();
-//                        tableModel.fireTableDataChanged();
                         table.clearSelection();
                         btnEdit.setEnabled(false);
                         btnDelete.setEnabled(false);
@@ -125,16 +144,15 @@ public class AuthorController {
             @Override
             public void actionPerformed(ActionEvent ae) {  
                 try {
-                    detailsModel.saveData();
-                    Author author = detailsModel.getAuthor();
-                    if (author.getId() == null) {
-                        authorDAO.insert(author);
+                    entityDetailsController.saveData();
+                    Author entity = entityDetailsController.getEntity();
+                    if (entity.getId() == null) {
+                        entityDAO.insert(entity);
                     } else {
-                        authorDAO.update(author);
+                        entityDAO.update(entity);
                     }
                     updatePanelView();
                     cleanSelection();
-                    tableModel.fireTableDataChanged();
                 } catch (DAOException ex) {
                     Logger.getLogger(AuthorController.class.getName()).log(Level.SEVERE, null, ex);
                 }
@@ -152,13 +170,13 @@ public class AuthorController {
 
     private Author getRowSelected() throws DAOException {
         Long id = (Long) table.getValueAt(table.getSelectedRow(), 0);
-        return authorDAO.get(id);
+        return entityDAO.get(id);
     }
     
     private void cleanSelection() {
-        detailsModel.setAuthor(null);
-        detailsModel.setEditable(false);
-        detailsModel.loadData();
+        entityDetailsController.setEntity(null);
+        entityDetailsController.setEditable(false);
+        entityDetailsController.loadData();
         table.clearSelection();
         btnSave.setEnabled(false);
         btnCancel.setEnabled(false);
@@ -166,9 +184,9 @@ public class AuthorController {
     
     private void updatePanelView() throws DAOException {
         infoTag.setText("Actualizando modelo...");
-        tableModel.updateView();
-        tableModel.fireTableDataChanged();
-        infoTag.setText(tableModel.getRowCount() + "Registros totales.");
+        entityTableModel.updateView();
+        entityTableModel.fireTableDataChanged();
+        infoTag.setText(entityTableModel.getRowCount() + "Registros totales.");
     }
     
     

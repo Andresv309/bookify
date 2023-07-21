@@ -9,15 +9,16 @@ import javax.swing.JTextField;
 
 public class AuthorDetailsController {
     private boolean editable;
-    private AuthorDetailsPanel authorDetailsPanel;
-    private Author author;
+    private AuthorDetailsPanel entityDetailsPanel;
+    private Author entity;
     
-    private JTextField detailsName;    
+    private JTextField detailsName;   
 
-    public AuthorDetailsController(AuthorPanel authorPanel) {
-        this.authorDetailsPanel = authorPanel.getDetailsPanel();
+    public AuthorDetailsController(AuthorDetailsPanel entityDetailsPanel) {
+        this.entityDetailsPanel = entityDetailsPanel;
         
-        this.detailsName = authorDetailsPanel.getDetailsName();
+        this.detailsName = entityDetailsPanel.getDetailsName();
+        this.setEditable(false);
     }
     
     public boolean isEditable() {
@@ -26,47 +27,33 @@ public class AuthorDetailsController {
 
     public void setEditable(boolean editable) {
         this.editable = editable;
-        detailsName.setEditable(editable);
-    }
-
-    public Author getAuthor() {
-        return author;
-    }
-
-    public void setAuthor(Author author) {
-        this.author = author;
-    }
-    
-    
-    public void loadData() {
-//        if (author != null) {
-//            detailsName.setText(author.getName());
-//        } else {
-//            detailsName.setText("");
-//        }
-//        detailsName.requestFocus();
+//        detailsName.setEditable(editable);
+//        detailsName.setFocusable(editable);
+        detailsName.setEnabled(editable);
         
-        if (author == null) {
-            author = new Author("");
+    }
+
+    public Author getEntity() {
+        return entity;
+    }
+
+    public void setEntity(Author entity) {
+        this.entity = entity;
+    }
+    
+    public void loadData() {       
+        if (entity == null) {
+            entity = new Author("");
         }
-        detailsName.setText(author.getName());
+        detailsName.setText(entity.getName());
         detailsName.requestFocus();
     }
     
     public void saveData() {
-//        if (author == null) {
-//            String authorName = detailsName.getText();
-//            author = new Author(authorName);
-//        } else {
-//            detailsName.setText("");
-//        } 
-
-        if (author == null) {
-            author = new Author("");
+        if (entity == null) {
+            entity = new Author("");
         }
-        author.setName(detailsName.getText());
-//        detailsName.setFocusable(false);
-
+        entity.setName(detailsName.getText());
     }   
      
 }
