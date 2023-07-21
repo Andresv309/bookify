@@ -9,20 +9,12 @@ public class AuthorDetailsPanel extends javax.swing.JPanel {
     public AuthorDetailsPanel() {
         initComponents();
     }
-
-    public String getDetailsNameField() {
-        return detailsName.getText();
-    }
     
     public JTextField getDetailsName() {
         return detailsName;
     }
 
-    public void setDetailsNameField(String detailsName) {
-        this.detailsName.setText(detailsName);
-    }
-
-    
+   
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {

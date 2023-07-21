@@ -4,6 +4,7 @@ package app.views.author;
 import app.controllers.author.AuthorController;
 import app.dao.exceptions.DAOException;
 import javax.swing.JButton;
+import javax.swing.JLabel;
 import javax.swing.JTable;
 
 
@@ -69,6 +70,15 @@ public class AuthorPanel extends javax.swing.JPanel {
     public void setBtnSave(JButton btnSave) {
         this.btnSave = btnSave;
     }
+
+    public JLabel getInfoTag() {
+        return infoTag;
+    }
+
+    public void setInfoTag(JLabel infoTag) {
+        this.infoTag = infoTag;
+    }
+    
     
     
 
@@ -86,7 +96,7 @@ public class AuthorPanel extends javax.swing.JPanel {
         btnCancel = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         table = new javax.swing.JTable();
-        jLabel1 = new javax.swing.JLabel();
+        infoTag = new javax.swing.JLabel();
         jPanel1 = new javax.swing.JPanel();
         detailsPanel = new app.views.author.AuthorDetailsPanel();
 
@@ -147,7 +157,7 @@ public class AuthorPanel extends javax.swing.JPanel {
         ));
         jScrollPane1.setViewportView(table);
 
-        jLabel1.setText("jLabel1");
+        infoTag.setText("jLabel1");
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
 
@@ -173,7 +183,7 @@ public class AuthorPanel extends javax.swing.JPanel {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jToolBar1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(infoTag, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(layout.createSequentialGroup()
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 337, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
@@ -189,7 +199,7 @@ public class AuthorPanel extends javax.swing.JPanel {
                     .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 433, Short.MAX_VALUE)
                     .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, 39, Short.MAX_VALUE))
+                .addComponent(infoTag, javax.swing.GroupLayout.DEFAULT_SIZE, 39, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -209,7 +219,7 @@ public class AuthorPanel extends javax.swing.JPanel {
     private javax.swing.JButton btnEdit;
     private javax.swing.JButton btnSave;
     private app.views.author.AuthorDetailsPanel detailsPanel;
-    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel infoTag;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JToolBar.Separator jSeparator1;

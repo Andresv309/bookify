@@ -4,15 +4,26 @@ package app.controllers.author;
 import app.views.author.AuthorDetailsPanel;
 import app.views.author.AuthorPanel;
 import app.models.Author;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import javax.swing.JTextField;
 
 
 public class AuthorDetailsController {
     private boolean editable;
     private AuthorDetailsPanel authorDetailsPanel;
     private Author author;
+    
+    private JTextField detailsName;
+    
+    
 
     public AuthorDetailsController(AuthorPanel authorPanel) {
         this.authorDetailsPanel = authorPanel.getDetailsPanel();
+        
+        this.detailsName = authorDetailsPanel.getDetailsName();
+        
+        
     }
     
     public boolean isEditable() {
@@ -21,7 +32,7 @@ public class AuthorDetailsController {
 
     public void setEditable(boolean editable) {
         this.editable = editable;
-        authorDetailsPanel.getDetailsName().setEditable(editable);
+        detailsName.setEditable(editable);
     }
 
     public Author getAuthor() {
@@ -35,21 +46,20 @@ public class AuthorDetailsController {
     
     public void loadData() {
         if (author != null) {
-            authorDetailsPanel.setDetailsNameField(author.getName());
+            detailsName.setText(author.getName());
         } else {
-            authorDetailsPanel.setDetailsNameField("");
+            detailsName.setText("");
         }
+        detailsName.requestFocus();
     }
     
     public void saveData() {
         if (author == null) {
-            String authorName = authorDetailsPanel.getDetailsNameField();
+            String authorName = detailsName.getText();
             author = new Author(authorName);
         } else {
-            authorDetailsPanel.setDetailsNameField("");
+            detailsName.setText("");
         } 
-    }
-    
-    
-    
+    }   
+     
 }
