@@ -45,7 +45,7 @@ public class CategoryPanel extends Form{
         jPanel1 = new javax.swing.JPanel();
         panelBackground1 = new components.mainComponents.swing.PanelBackground();
         jScrollPane1 = new javax.swing.JScrollPane();
-        table = new app.views.category.Table();
+        table = new components.table.Table();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
@@ -321,6 +321,6 @@ public class CategoryPanel extends Form{
     private components.mainComponents.swing.PanelBackground panelBackground1;
     private components.mainComponents.swing.PanelBackground panelBackground2;
     private components.mainComponents.swing.PanelBackground panelBackground3;
-    private app.views.category.Table table;
+    private components.table.Table table;
     // End of variables declaration//GEN-END:variables
 }
