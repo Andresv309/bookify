@@ -24,17 +24,17 @@ import java.util.logging.Logger;
  *
  * @author Cristian Vega
  */
-public class index extends javax.swing.JFrame {
+public class Index extends javax.swing.JFrame {
 
     /**
-     * Creates new form index
+     * Creates new form Index
      */
     
     private SalePanel salePanel;
     private AuthorPanel authorPanel;
     private BookPanel bookPanel;
     
-    public index() throws DAOException {
+    public Index() throws DAOException {
         initComponents();
         setBackground(new Color(0, 0, 0 , 0));
         init();               
@@ -58,7 +58,6 @@ public class index extends javax.swing.JFrame {
         salePanel = new SalePanel();
         authorPanel = new AuthorPanel();
         bookPanel = new BookPanel();
-//      Linea Faltante 
         mainBody.displayForm(new CategoryPanel()); 
     }
     
@@ -66,7 +65,7 @@ public class index extends javax.swing.JFrame {
         try {
             return new CategoryPanel();
         } catch (DAOException ex) {
-            Logger.getLogger(index.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(Index.class.getName()).log(Level.SEVERE, null, ex);
         }
         return null;
     }
@@ -75,7 +74,7 @@ public class index extends javax.swing.JFrame {
         try {
             return new ShelvePanel();
         } catch (DAOException ex) {
-            Logger.getLogger(index.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(Index.class.getName()).log(Level.SEVERE, null, ex);
         }
         return null;
     }
@@ -84,7 +83,7 @@ public class index extends javax.swing.JFrame {
         try {
             return new AuthorPanel();
         } catch (DAOException ex) {
-            Logger.getLogger(index.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(Index.class.getName()).log(Level.SEVERE, null, ex);
         }
         return null;
     }
@@ -93,7 +92,7 @@ public class index extends javax.swing.JFrame {
         try {
             return new BookPanel();
         } catch (DAOException ex) {
-            Logger.getLogger(index.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(Index.class.getName()).log(Level.SEVERE, null, ex);
         }
         return null;
     }
@@ -102,7 +101,7 @@ public class index extends javax.swing.JFrame {
         try {
             return new StockPanel();
         } catch (DAOException ex) {
-            Logger.getLogger(index.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(Index.class.getName()).log(Level.SEVERE, null, ex);
         }
         return null;
     }
@@ -111,7 +110,7 @@ public class index extends javax.swing.JFrame {
         try {
             return new CustomerPanel();
         } catch (DAOException ex) {
-            Logger.getLogger(index.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(Index.class.getName()).log(Level.SEVERE, null, ex);
         }
         return null;
     }
@@ -120,7 +119,7 @@ public class index extends javax.swing.JFrame {
 //        try {
 //            return new SalesPanel();
 //        } catch (DAOException ex) {
-//            Logger.getLogger(index.class.getName()).log(Level.SEVERE, null, ex);
+//            Logger.getLogger(Index.class.getName()).log(Level.SEVERE, null, ex);
 //        }
 //        return null;
 //    }
@@ -217,14 +216,16 @@ public class index extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(index.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Index.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(index.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Index.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(index.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Index.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(index.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Index.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
+        //</editor-fold>
         //</editor-fold>
         //</editor-fold>
 
@@ -232,9 +233,9 @@ public class index extends javax.swing.JFrame {
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
                 try {
-                    new index().setVisible(true);
+                    new Index().setVisible(true);
                 } catch (DAOException ex) {
-                    Logger.getLogger(index.class.getName()).log(Level.SEVERE, null, ex);
+                    Logger.getLogger(Index.class.getName()).log(Level.SEVERE, null, ex);
                 }
             }
         });
