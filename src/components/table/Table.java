@@ -3,18 +3,21 @@ package components.table;
 import components.components.mainComponents.swing.scrollbar.ScrollBarCustom;
 import java.awt.Color;
 import java.awt.Component;
+import javax.swing.BorderFactory;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
+import javax.swing.SwingConstants;
 import javax.swing.table.DefaultTableCellRenderer;
 import javax.swing.table.DefaultTableModel;
+import javax.swing.table.TableColumnModel;
 
 /**
  *
  * @author Cristian Vega
  */
-public class Table extends JTable{
+public class Table extends JTable {
     
     public Table() {
         setShowHorizontalLines(true);
@@ -37,11 +40,22 @@ public class Table extends JTable{
 //                    table.getColumnModel().getColumn(1).setCellRenderer( centerRenderer );
                     
                 }
-             
+                
+//                TableColumnModel tcm = table.getColumnModel();
+//                tcm.removeColumn( tcm.getColumn(0) );
                 
                 return header;
             }
         });
+        
+//        this.setBorder(BorderFactory.createEmptyBorder(0, 50, 0, 5));
+        
+        
+        // Create a custom table header renderer for the left-aligned column
+//        DefaultTableCellRenderer leftAlignedHeaderRenderer = new DefaultTableCellRenderer();
+//        leftAlignedHeaderRenderer.setHorizontalAlignment(SwingConstants.LEFT);
+//        getColumn().setHeaderRenderer(leftAlignedHeaderRenderer);
+        
     }
     
     

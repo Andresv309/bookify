@@ -10,12 +10,18 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.FocusEvent;
 import java.awt.event.FocusListener;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.BorderFactory;
 import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
+import javax.swing.JScrollPane;
 import javax.swing.JTable;
+import javax.swing.SwingConstants;
+import javax.swing.table.DefaultTableCellRenderer;
 
 
 public class AuthorController {
@@ -61,22 +67,18 @@ public class AuthorController {
             boolean validSelection = (this.table.getSelectedRow() != -1);
             this.btnEdit.setEnabled(validSelection);
             this.btnDelete.setEnabled(validSelection);
-//            if (!validSelection) this.table.clearSelection();
+            this.btnCancel.setEnabled(validSelection);
         });
         
-//        this.table.addFocusListener(new FocusListener() {
-//            @Override
-//            public void focusGained(FocusEvent e) {
-//                // Do nothing when the table gains focus
-//            }
-//
-//            @Override
-//            public void focusLost(FocusEvent e) {
-//                // Clear the selection when the table loses focus
-//                table.clearSelection();
-//            }
-//        });
+        
+        // Set first column width shorter because corresponds to index.
+        table.getColumnModel().getColumn(1).setMaxWidth(60);
+        
 
+        // Remove dbId from the view.
+        table.removeColumn(table.getColumnModel().getColumn(0));
+        
+        
         this.updatePanelView();
         this.initEvents();
     }
@@ -169,7 +171,7 @@ public class AuthorController {
     }  
 
     private Author getRowSelected() throws DAOException {
-        Long id = (Long) table.getValueAt(table.getSelectedRow(), 0);
+        Long id = (Long) table.getModel().getValueAt(table.getSelectedRow(), 0);
         return entityDAO.get(id);
     }
     

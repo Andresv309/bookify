@@ -7,12 +7,14 @@ import components.Form;
 import components.table.Table;
 import javax.swing.JButton;
 import javax.swing.JLabel;
+import javax.swing.JScrollPane;
 
 
 public class AuthorPanel extends Form {
 
     public AuthorPanel() throws DAOException {
         initComponents();
+        table.fixTable(jScrollPaneTable);
         new AuthorController(this);
         jToolBar1.setFloatable(false);
     }
@@ -48,17 +50,19 @@ public class AuthorPanel extends Form {
     public AuthorDetailsPanel getDetailsPanel() {
         return detailsPanel;
     }
-    
-    
-    
 
+    public JScrollPane getJScrollPaneTable() {
+        return jScrollPaneTable;
+    }
+
+    
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
         panelBackground1 = new components.mainComponents.swing.PanelBackground();
-        jScrollPane1 = new javax.swing.JScrollPane();
+        jScrollPaneTable = new javax.swing.JScrollPane();
         table = new components.table.Table();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
@@ -103,7 +107,7 @@ public class AuthorPanel extends Form {
         ));
         table.setSelectionMode(javax.swing.ListSelectionModel.SINGLE_INTERVAL_SELECTION);
         table.setShowHorizontalLines(false);
-        jScrollPane1.setViewportView(table);
+        jScrollPaneTable.setViewportView(table);
 
         jLabel1.setFont(new java.awt.Font("Yu Gothic UI Semibold", 1, 36)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(65, 188, 255));
@@ -136,7 +140,7 @@ public class AuthorPanel extends Form {
                         .addComponent(jLabel3)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(infoTag, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 505, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jScrollPaneTable, javax.swing.GroupLayout.PREFERRED_SIZE, 505, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(30, 30, 30))
         );
         panelBackground1Layout.setVerticalGroup(
@@ -147,7 +151,7 @@ public class AuthorPanel extends Form {
                     .addComponent(jLabel1, javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(jLabel2, javax.swing.GroupLayout.Alignment.TRAILING))
                 .addGap(20, 20, 20)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 420, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jScrollPaneTable, javax.swing.GroupLayout.PREFERRED_SIZE, 420, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(10, 10, 10)
                 .addGroup(panelBackground1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(infoTag)
@@ -303,7 +307,7 @@ public class AuthorPanel extends Form {
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JScrollPane jScrollPaneTable;
     private javax.swing.JToolBar.Separator jSeparator1;
     private javax.swing.JToolBar.Separator jSeparator2;
     private javax.swing.JToolBar jToolBar1;
