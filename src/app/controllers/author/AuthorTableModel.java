@@ -25,7 +25,8 @@ public class AuthorTableModel extends AbstractTableModel {
     public String getColumnName(int column) {
         switch (column) {
             case 0: return "Id";
-            case 1: return "Name";
+            case 1: return "No.";
+            case 2: return "Nombre";
             default: return "";
         }
     }
@@ -37,7 +38,7 @@ public class AuthorTableModel extends AbstractTableModel {
 
     @Override
     public int getColumnCount() {
-        return 2;
+        return 3;
     }
 
     @Override
@@ -45,7 +46,8 @@ public class AuthorTableModel extends AbstractTableModel {
         Author requestedEntity = tableData.get(rowIndex);
         switch (columnIndex) {
             case 0: return requestedEntity.getId();
-            case 1: return requestedEntity.getName();
+            case 1: return rowIndex + 1;
+            case 2: return requestedEntity.getName();
             default: return "";
         }
     }
