@@ -67,7 +67,7 @@ public class SQLiteDAOManager implements IDAOManager{
     @Override
     public CustomerDAO getCustomerDAO() {
         if (customer == null) {
-            customer = new SQLiteCustomerDAO();
+            customer = new SQLiteCustomerDAO(conn);
         }
         return customer;
     }

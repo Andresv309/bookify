@@ -40,7 +40,7 @@ public class SQLiteCategoryDAO implements CategoryDAO{
         ResultSet rs = null;
         try {
             stat = conn.prepareStatement(INSERT);
-            stat.setString(1, record.getCategory());
+            stat.setString(1, record.getName());
             if (stat.executeUpdate() == 0) {
                 throw new DAOException("Record might not have been saved.");
             }
@@ -78,7 +78,7 @@ public class SQLiteCategoryDAO implements CategoryDAO{
         try {
             stat = conn.prepareStatement(UPDATE);
             stat.setLong(2, record.getId());
-            stat.setString(1, record.getCategory());
+            stat.setString(1, record.getName());
             if (stat.executeUpdate() == 0) {
                 throw new DAOException("Record id not found.");
             }

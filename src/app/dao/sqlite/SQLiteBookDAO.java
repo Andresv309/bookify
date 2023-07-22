@@ -15,11 +15,25 @@ import java.util.List;
 
 public class SQLiteBookDAO implements BookDAO {
 
-    private final String INSERT = "INSERT INTO books (name, description, price) VALUES (?, ?, ?);";
+    private final String INSERT = "INSERT INTO books (name, description, price, idCategory, idAuthor) VALUES (?, ?, ?, ?, ?);";
     private final String UPDATE = "UPDATE books SET name = ?, description = ?, price = ?, idCategory = ?, idAuthor = ? WHERE id = ?;";
     private final String DELETE = "DELETE FROM books WHERE id = ?;";
-    private final String GET = "SELECT id, name, description, price FROM books WHERE id= ?;";
-    private final String GETALL = "SELECT id, name, description, price FROM books;";
+    private final String SELECT = "SELECT id, name, description, price, idCategory, idAuthor ";
+    private final String GET = SELECT + "FROM books WHERE id= ?;";
+    private final String GETALL = SELECT + "FROM books;";
+    
+    private final String SELECTJOIN = "SELECT "
+            + "b.id as id, "
+            + "b.name as name, "
+            + "b.description as description, "
+            + "b.price as price, "
+            + "b.idCategory as idCategory, "
+            + "b.idAuthor as idAuthor, "
+            + "c.name as categoryName, "
+            + "a.name as authorName ";
+    private final String FROMJOIN = "FROM books as b INNER JOIN categories as c ON b.idCategory = c.id INNER JOIN authors as a ON b.idAuthor = a.id ";
+    private final String GETJOIN = SELECTJOIN + FROMJOIN + "WHERE b.id= ?;";
+    private final String GETJOINALL = SELECTJOIN + FROMJOIN + ";";
     
     private Connection conn;
     
@@ -33,8 +47,13 @@ public class SQLiteBookDAO implements BookDAO {
         BigDecimal price = rs.getBigDecimal("price");
         Long idCategory = rs.getLong("idCategory");
         Long idAuthor = rs.getLong("idAuthor");
-        Book book = new Book(name, idCategory, description, price, idAuthor);
+        String categoryName = rs.getString("categoryName");
+        String authorName = rs.getString("authorName");
+        
+        Book book = new Book(name, description, price, idCategory, idAuthor);
         book.setId(rs.getLong("id"));
+        book.setCategoryName(categoryName);
+        book.setAuthorName(authorName);
         return book;
     }
     
@@ -48,6 +67,8 @@ public class SQLiteBookDAO implements BookDAO {
             stat.setString(1, record.getName());
             stat.setString(2, record.getDescription());
             stat.setBigDecimal(3,record.getPrice());
+            stat.setLong(4,record.getIdCategory());
+            stat.setLong(5,record.getIdAuthor());
             if (stat.executeUpdate() == 0) {
                 throw new DAOException("Record might not have been saved.");
             }
@@ -134,7 +155,7 @@ public class SQLiteBookDAO implements BookDAO {
         ResultSet rs = null;
         Book book = null;
         try {
-            stat = conn.prepareStatement(GET);
+            stat = conn.prepareStatement(GETJOIN);
             stat.setLong(1, idRecord);
             rs = stat.executeQuery();
             if (rs.next()) {
@@ -170,7 +191,7 @@ public class SQLiteBookDAO implements BookDAO {
         ResultSet rs = null;
         List<Book> bookList = new ArrayList<>();
         try {
-            stat = conn.prepareStatement(GETALL);
+            stat = conn.prepareStatement(GETJOINALL);
             rs = stat.executeQuery();
             while (rs.next()) {
                 bookList.add(convert(rs));
