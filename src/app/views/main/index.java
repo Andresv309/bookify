@@ -2,11 +2,13 @@ package app.views.main;
 
 
 import app.dao.exceptions.DAOException;
+import app.views.book.BookPanel;
 import app.views.author.AuthorPanel;
-//import app.views.author.AuthorPanel2;
 import app.views.category.CategoryPanel;
+import app.views.customer.CustomerPanel;
 import app.views.sale.SalePanel;
-import components.menu.EventMenu;
+import app.views.shelve.ShelvePanel;
+import app.views.stock.StockPanel;
 import java.awt.Color;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -30,6 +32,7 @@ public class index extends javax.swing.JFrame {
     
     private SalePanel salePanel;
     private AuthorPanel authorPanel;
+    private BookPanel bookPanel;
     
     public index() throws DAOException {
         initComponents();
@@ -41,18 +44,86 @@ public class index extends javax.swing.JFrame {
         header.initMoving(this, panelBackground);
         menu.addEventMenu((int index) -> {
             switch (index) {
-                case 0 -> mainBody.displayForm(new CategoryPanel());
-                case 1 -> mainBody.displayForm(salePanel);
-                case 2 -> mainBody.displayForm(authorPanel);
+                case 0 -> mainBody.displayForm(getCategoryPanel());
+                case 1 -> mainBody.displayForm(getShelvePanel());
+                case 2 -> mainBody.displayForm(getAuthorPanel());
+                case 3 -> mainBody.displayForm( getBookPanel());
+                case 4 -> mainBody.displayForm( getStockPanel());
+                case 5 -> mainBody.displayForm( getCustomerPanel());
+                case 6 -> mainBody.displayForm( getBookPanel());                
                 default -> {}
             }
         });
         
         salePanel = new SalePanel();
-        //        authorPanel = new AuthorPanel1();
         authorPanel = new AuthorPanel();
-        mainBody.displayForm(new CategoryPanel()); 
+        bookPanel = new BookPanel();
+        
+//        mainBody.displayForm(new CategoryPanel1()); 
     }
+    
+    private CategoryPanel getCategoryPanel() {
+        try {
+            return new CategoryPanel();
+        } catch (DAOException ex) {
+            Logger.getLogger(index.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return null;
+    }
+    
+    private ShelvePanel getShelvePanel() {
+        try {
+            return new ShelvePanel();
+        } catch (DAOException ex) {
+            Logger.getLogger(index.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return null;
+    }
+    
+    private AuthorPanel getAuthorPanel() {
+        try {
+            return new AuthorPanel();
+        } catch (DAOException ex) {
+            Logger.getLogger(index.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return null;
+    }
+    
+    private BookPanel getBookPanel() {
+        try {
+            return new BookPanel();
+        } catch (DAOException ex) {
+            Logger.getLogger(index.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return null;
+    }
+    
+    private StockPanel getStockPanel() {
+        try {
+            return new StockPanel();
+        } catch (DAOException ex) {
+            Logger.getLogger(index.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return null;
+    }
+    
+    private CustomerPanel getCustomerPanel() {
+        try {
+            return new CustomerPanel();
+        } catch (DAOException ex) {
+            Logger.getLogger(index.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return null;
+    }
+    
+//    private SalesPanel getSalesPanel() {
+//        try {
+//            return new SalesPanel();
+//        } catch (DAOException ex) {
+//            Logger.getLogger(index.class.getName()).log(Level.SEVERE, null, ex);
+//        }
+//        return null;
+//    }
 
     /**
      * This method is called from within the constructor to initialize the form.
