@@ -3,7 +3,7 @@ package app.views.main;
 
 import app.dao.exceptions.DAOException;
 import app.views.author.AuthorPanel;
-import app.views.author.AuthorPanel2;
+//import app.views.author.AuthorPanel2;
 import app.views.category.CategoryPanel;
 import app.views.sale.SalePanel;
 import components.menu.EventMenu;
@@ -31,13 +31,13 @@ public class index extends javax.swing.JFrame {
     private SalePanel salePanel;
     private AuthorPanel authorPanel;
     
-    public index() {
+    public index() throws DAOException {
         initComponents();
         setBackground(new Color(0, 0, 0 , 0));
         init();               
     }
     
-    private void init () {
+    private void init () throws DAOException {
         header.initMoving(this, panelBackground);
         menu.addEventMenu((int index) -> {
             switch (index) {
@@ -49,12 +49,8 @@ public class index extends javax.swing.JFrame {
         });
         
         salePanel = new SalePanel();
-        try {
-            //        authorPanel = new AuthorPanel();
-            authorPanel = new AuthorPanel();
-        } catch (DAOException ex) {
-            Logger.getLogger(index.class.getName()).log(Level.SEVERE, null, ex);
-        }
+        //        authorPanel = new AuthorPanel1();
+        authorPanel = new AuthorPanel();
         mainBody.displayForm(new CategoryPanel()); 
     }
 
@@ -164,7 +160,11 @@ public class index extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new index().setVisible(true);
+                try {
+                    new index().setVisible(true);
+                } catch (DAOException ex) {
+                    Logger.getLogger(index.class.getName()).log(Level.SEVERE, null, ex);
+                }
             }
         });
     }

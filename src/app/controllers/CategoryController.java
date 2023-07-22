@@ -4,14 +4,14 @@
  */
 package app.controllers;
 
-import app.dao.sqlite.SQLiteCategoryDAO;
+import app.dao.sqlite.SQLiteCategoryDAO1;
 import app.views.category.CategoryFrame;
 
 public class CategoryController {
     private CategoryFrame categoryView;
-    private SQLiteCategoryDAO categoryDAO;
+    private SQLiteCategoryDAO1 categoryDAO;
 
-    public CategoryController(CategoryFrame categoryView, SQLiteCategoryDAO categoryDAO) {
+    public CategoryController(CategoryFrame categoryView, SQLiteCategoryDAO1 categoryDAO) {
         this.categoryView = categoryView;
         this.categoryDAO = categoryDAO;
     }

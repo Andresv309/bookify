@@ -51,7 +51,7 @@ public class SQLiteDAOManager implements IDAOManager{
     @Override
     public BookDAO getBookDAO() {
         if (book == null) {
-            book = new SQLiteBookDAO();
+            book = new SQLiteBookDAO(conn);
         }
         return book;
     }
@@ -59,7 +59,7 @@ public class SQLiteDAOManager implements IDAOManager{
     @Override
     public CategoryDAO getCategoryDAO() {
         if (category == null) {
-            category = new SQLiteCategoryDAO();
+            category = new SQLiteCategoryDAO(conn);
         }
         return category;
     }
@@ -83,7 +83,7 @@ public class SQLiteDAOManager implements IDAOManager{
     @Override
     public ShelveDAO getShelveDAO() {
         if (shelve == null) {
-            shelve = new SQLiteShelveDAO();
+            shelve = new SQLiteShelveDAO(conn);
         }
         return shelve;
     }
@@ -91,7 +91,7 @@ public class SQLiteDAOManager implements IDAOManager{
     @Override
     public StockDAO getStockDAO() {
         if (stock == null) {
-            stock = new SQLiteStockDAO();
+            stock = new SQLiteStockDAO(conn);
         }
         return stock;
     }
@@ -99,7 +99,7 @@ public class SQLiteDAOManager implements IDAOManager{
     @Override
     public CardTypeDAO getCardTypeDAO() {
         if (cardType == null) {
-            cardType = new SQLiteCardTypeDAO();
+            cardType = new SQLiteCardTypeDAO(conn);
         }
         return cardType;
     }
@@ -107,7 +107,7 @@ public class SQLiteDAOManager implements IDAOManager{
     @Override
     public SaleItemsDAO getSaleItemsDAO() {
         if (saleItems == null) {
-            saleItems = new SQLiteSaleItemsDAO();
+            saleItems = new SQLiteSaleItemsDAO(conn);
         }
         return saleItems;
     }

@@ -1,91 +1,190 @@
 
 package app.dao.sqlite;
 
-import app.dao.interfaces.CategoryDAO;
 import app.dao.exceptions.DAOException;
-import app.models.Category;
-import app.models.connections.DBConnection1;
-import java.util.List;
-
-import java.sql.*;
+import app.dao.interfaces.CategoryDAO;
+import app.models.Shelv;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
 
-public class SQLiteCategoryDAO implements CategoryDAO {
-    public void createCategory(Category category) {
-        try (Connection connection = DBConnection1.getConnection();
-             PreparedStatement preparedStatement = connection.prepareStatement("INSERT INTO Category (category) VALUES (?)")) {
-            preparedStatement.setString(1, category.getCategory());
-            preparedStatement.executeUpdate();
-            System.out.println("Categoría creada correctamente.");
-        } catch (SQLException e) {
-            System.out.println("Error al crear la categoría: " + e.getMessage());
-        }
+public class SQLiteCategoryDAO implements CategoryDAO{
+    
+    private final String INSERT = "INSERT INTO categories (name) VALUES (?);";
+    private final String UPDATE = "UPDATE categories SET name = ? WHERE id = ?;";
+    private final String DELETE = "DELETE FROM categories WHERE id = ?;";
+    private final String GET = "SELECT id, name FROM categories WHERE id = ?;";
+    private final String GETALL = "SELECT id, name FROM categories;";
+    
+    private Connection conn;
+    
+    public SQLiteCategoryDAO(Connection conn) {
+        this.conn = conn;
     }
-
-    public List<Category> getAllCategories() {
-        List<Category> categories = new ArrayList<>();
-        try (Connection connection = DBConnection1.getConnection();
-             Statement statement = connection.createStatement();
-             ResultSet resultSet = statement.executeQuery("SELECT * FROM Category")) {
-            while (resultSet.next()) {
-                int id = resultSet.getInt("id");
-                String category = resultSet.getString("category");
-                Category categoryObj = new Category(id, category);
-                categories.add(categoryObj);
+    
+    private Shelv convert(ResultSet rs) throws SQLException {
+        String name = rs.getString("name");
+        Shelv category = new Shelv(name);
+        category.setId(rs.getLong("id"));
+        return category;
+    }
+    
+    
+    @Override
+    public void insert(Shelv record) throws DAOException {
+        PreparedStatement stat = null;
+        ResultSet rs = null;
+        try {
+            stat = conn.prepareStatement(INSERT);
+            stat.setString(1, record.getCategory());
+            if (stat.executeUpdate() == 0) {
+                throw new DAOException("Record might not have been saved.");
             }
-        } catch (SQLException e) {
-            System.out.println("Error al obtener las categorías: " + e.getMessage());
-        }
-        return categories;
-    }
-
-    public void updateCategory(Category category) {
-        try (Connection connection = DBConnection1.getConnection();
-             PreparedStatement preparedStatement = connection.prepareStatement("UPDATE Category SET category = ? WHERE id = ?")) {
-            preparedStatement.setString(1, category.getCategory());
-            preparedStatement.setInt(2, category.getId());
-            preparedStatement.executeUpdate();
-            System.out.println("Categoría actualizada correctamente.");
-        } catch (SQLException e) {
-            System.out.println("Error al actualizar la categoría: " + e.getMessage());
-        }
-    }
-
-    public void deleteCategory(int categoryId) {
-        try (Connection connection = DBConnection1.getConnection();
-             PreparedStatement preparedStatement = connection.prepareStatement("DELETE FROM Category WHERE id = ?")) {
-            preparedStatement.setInt(1, categoryId);
-            preparedStatement.executeUpdate();
-            System.out.println("Categoría eliminada correctamente.");
-        } catch (SQLException e) {
-            System.out.println("Error al eliminar la categoría: " + e.getMessage());
+            
+            rs = stat.getGeneratedKeys();
+            if (rs.next()) {
+                rs.getLong(1);
+            } else {
+                throw new DAOException("Couldn't assign id to record.");
+            }
+            
+        } catch (SQLException ex) {
+            throw new DAOException("SQL Error.", ex);
+        } finally {
+            if (rs != null) {
+                try {
+                    rs.close();
+                } catch (SQLException ex) {
+                    throw new DAOException("Couldn't close resultSet.", ex);
+                }
+            }
+            if (stat != null) {
+                try {
+                    stat.close();
+                } catch (SQLException ex) {
+                    throw new DAOException("SQL Error.", ex);
+                }
+            }
         }
     }
 
     @Override
-    public void insert(Category record) throws DAOException {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
-    }
-
-    @Override
-    public void update(Category record) throws DAOException {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    public void update(Shelv record) throws DAOException {
+        PreparedStatement stat = null;
+        try {
+            stat = conn.prepareStatement(UPDATE);
+            stat.setLong(2, record.getId());
+            stat.setString(1, record.getCategory());
+            if (stat.executeUpdate() == 0) {
+                throw new DAOException("Record id not found.");
+            }
+        } catch (SQLException ex) {
+            throw new DAOException("SQL Error.", ex);
+        } finally {
+            if (stat != null) {
+                try {
+                    stat.close();
+                } catch (SQLException ex) {
+                    throw new DAOException("SQL Error.", ex);
+                }
+            }
+        }
     }
 
     @Override
     public void delete(Long idRecord) throws DAOException {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        PreparedStatement stat = null;
+        try {
+            stat = conn.prepareStatement(DELETE);
+            stat.setLong(1, idRecord);
+            if (stat.executeUpdate() == 0) {
+                throw new DAOException("Record id not found.");
+            }
+        } catch (SQLException ex) {
+            throw new DAOException("SQL Error.", ex);
+        } finally {
+            if (stat != null) {
+                try {
+                    stat.close();
+                } catch (SQLException ex) {
+                    throw new DAOException("SQL Error.", ex);
+                }
+            }
+        }
     }
 
     @Override
-    public Category get(Long idRecord) throws DAOException {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    public Shelv get(Long idRecord) throws DAOException {
+        PreparedStatement stat = null;
+        ResultSet rs = null;
+        Shelv category = null;
+        try {
+            stat = conn.prepareStatement(GET);
+            stat.setLong(1, idRecord);
+            rs = stat.executeQuery();
+            if (rs.next()) {
+                category = convert(rs);
+            } else {
+                throw new DAOException("Record id not found.");
+            }
+        } catch (SQLException ex) {
+            throw new DAOException("SQL Error.", ex);
+        } finally {
+            if (rs != null) {
+                try {
+                    rs.close();
+                } catch (SQLException ex) {
+                    throw new DAOException("Couldn't close resultSet.", ex);
+                }
+            }
+            if (stat != null) {
+                try {
+                    stat.close();
+                } catch (SQLException ex) {
+                    throw new DAOException("Couldn't close prepareStatement.", ex);
+                }
+            }
+        }
+        
+        return category;
     }
 
     @Override
-    public List<Category> getAll() throws DAOException {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    public List<Shelv> getAll() throws DAOException {
+        PreparedStatement stat = null;
+        ResultSet rs = null;
+        List<Shelv> categoryList = new ArrayList<>();
+        try {
+            stat = conn.prepareStatement(GETALL);
+            rs = stat.executeQuery();
+            while (rs.next()) {
+                categoryList.add(convert(rs));
+            }
+        } catch (SQLException ex) {
+            throw new DAOException("SQL Error.", ex);
+        } finally {
+            if (rs != null) {
+                try {
+                    rs.close();
+                } catch (SQLException ex) {
+                    throw new DAOException("Couldn't close resultSet.", ex);
+                }
+            }
+            if (stat != null) {
+                try {
+                    stat.close();
+                } catch (SQLException ex) {
+                    throw new DAOException("Couldn't close prepareStatement.", ex);
+                }
+            }
+        }
+        
+        return categoryList;
+    
     }
+    
 }

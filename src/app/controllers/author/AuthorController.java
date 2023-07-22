@@ -186,7 +186,7 @@ public class AuthorController {
         infoTag.setText("Actualizando modelo...");
         entityTableModel.updateView();
         entityTableModel.fireTableDataChanged();
-        infoTag.setText(entityTableModel.getRowCount() + "Registros totales.");
+        infoTag.setText(Integer.toString(entityTableModel.getRowCount()));
     }
     
     

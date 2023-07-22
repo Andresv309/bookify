@@ -1,4 +1,4 @@
-package app.views.category;
+package components.table;
 
 import java.awt.Color;
 import java.awt.Font;
@@ -17,9 +17,10 @@ public class TableHeader extends JLabel{
    public TableHeader(String text ) {
        super(text);
        setOpaque(true);
-       setBackground(Color.WHITE);
+       setBackground(Color.DARK_GRAY);
        setFont(new Font("sansserif",1, 12));
-       setForeground(new Color(102,102,102));
+//       setForeground(new Color(102,102,102));
+       setForeground(new Color(255,255,255));
        setBorder(new EmptyBorder(10,5,10,5));
    }
 
