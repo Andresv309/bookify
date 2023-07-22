@@ -8,8 +8,8 @@ public class Category {
     private Long id = null;
     private String name;
 
-    public Category(String category) {
-        this.name = category;
+    public Category(String name) {
+        this.name = name;
     }
 
     public Long getId() {
@@ -20,13 +20,14 @@ public class Category {
         this.id = id;
     }
 
-    public String getCategory() {
+    public String getName() {
         return name;
     }
 
-    public void setCategory(String category) {
-        this.name = category;
+    public void setName(String name) {
+        this.name = name;
     }
+
 
     @Override
     public int hashCode() {
@@ -56,6 +57,6 @@ public class Category {
 
     @Override
     public String toString() {
-        return "Category{" + "id=" + id + ", name=" + name + '}';
+        return name;
     }
 }

@@ -9,6 +9,8 @@ public class Customer {
     private String name;
     private Long idCardType;
     private String cardNumber;
+    private String cardType;
+    private String createdAt;
 
     public Customer(String name, Long idCardType, String cardNumber) {
         this.name = name;
@@ -48,13 +50,31 @@ public class Customer {
         this.cardNumber = cardNumber;
     }
 
+    public String getCardType() {
+        return cardType;
+    }
+
+    public void setCardType(String cardType) {
+        this.cardType = cardType;
+    }
+
+    public String getCreatedAt() {
+        return createdAt;
+    }
+
+    public void setCreatedAt(String createdAt) {
+        this.createdAt = createdAt;
+    }
+
     @Override
     public int hashCode() {
-        int hash = 3;
-        hash = 41 * hash + Objects.hashCode(this.id);
-        hash = 41 * hash + Objects.hashCode(this.name);
-        hash = 41 * hash + Objects.hashCode(this.idCardType);
-        hash = 41 * hash + Objects.hashCode(this.cardNumber);
+        int hash = 7;
+        hash = 97 * hash + Objects.hashCode(this.id);
+        hash = 97 * hash + Objects.hashCode(this.name);
+        hash = 97 * hash + Objects.hashCode(this.idCardType);
+        hash = 97 * hash + Objects.hashCode(this.cardNumber);
+        hash = 97 * hash + Objects.hashCode(this.cardType);
+        hash = 97 * hash + Objects.hashCode(this.createdAt);
         return hash;
     }
 
@@ -76,6 +96,12 @@ public class Customer {
         if (!Objects.equals(this.cardNumber, other.cardNumber)) {
             return false;
         }
+        if (!Objects.equals(this.cardType, other.cardType)) {
+            return false;
+        }
+        if (!Objects.equals(this.createdAt, other.createdAt)) {
+            return false;
+        }
         if (!Objects.equals(this.id, other.id)) {
             return false;
         }
@@ -84,6 +110,6 @@ public class Customer {
 
     @Override
     public String toString() {
-        return "Customer{" + "id=" + id + ", name=" + name + ", idCardType=" + idCardType + ", cardNumber=" + cardNumber + '}';
-    }
+        return "Customer{" + "id=" + id + ", name=" + name + ", idCardType=" + idCardType + ", cardNumber=" + cardNumber + ", cardType=" + cardType + ", createdAt=" + createdAt + '}';
+    } 
 }
