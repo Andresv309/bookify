@@ -4,12 +4,12 @@ package app.models;
 import java.util.Objects;
 
 
-public class CardType {
+public class Shelv {
     private Long id = null;
-    private String type;
+    private String name;
 
-    public CardType(String tpe) {
-        this.type = tpe;
+    public Shelv(String category) {
+        this.name = category;
     }
 
     public Long getId() {
@@ -20,19 +20,19 @@ public class CardType {
         this.id = id;
     }
 
-    public String getType() {
-        return type;
+    public String getCategory() {
+        return name;
     }
 
-    public void setType(String type) {
-        this.type = type;
+    public void setCategory(String category) {
+        this.name = category;
     }
 
     @Override
     public int hashCode() {
         int hash = 5;
-        hash = 23 * hash + Objects.hashCode(this.id);
-        hash = 23 * hash + Objects.hashCode(this.type);
+        hash = 17 * hash + Objects.hashCode(this.id);
+        hash = 17 * hash + Objects.hashCode(this.name);
         return hash;
     }
 
@@ -47,15 +47,16 @@ public class CardType {
         if (getClass() != obj.getClass()) {
             return false;
         }
-        final CardType other = (CardType) obj;
-        if (!Objects.equals(this.type, other.type)) {
+        final Shelv other = (Shelv) obj;
+        if (!Objects.equals(this.name, other.name)) {
             return false;
         }
         return Objects.equals(this.id, other.id);
     }
+   
 
     @Override
     public String toString() {
-        return "CardType{" + "id=" + id + ", tpe=" + type + '}';
-    }
+        return "Category{" + "id=" + id + ", category=" + name + '}';
+    } 
 }
