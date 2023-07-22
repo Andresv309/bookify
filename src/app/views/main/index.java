@@ -58,8 +58,7 @@ public class index extends javax.swing.JFrame {
         salePanel = new SalePanel();
         authorPanel = new AuthorPanel();
         bookPanel = new BookPanel();
-        
-//        mainBody.displayForm(new CategoryPanel1()); 
+        mainBody.displayForm(new CategoryPanel()); 
     }
     
     private CategoryPanel getCategoryPanel() {
