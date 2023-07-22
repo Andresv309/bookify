@@ -2,7 +2,6 @@
 package app.controllers.author;
 
 import app.views.author.AuthorDetailsPanel;
-import app.views.author.AuthorPanel;
 import app.models.Author;
 import javax.swing.JTextField;
 
@@ -27,8 +26,6 @@ public class AuthorDetailsController {
 
     public void setEditable(boolean editable) {
         this.editable = editable;
-//        detailsName.setEditable(editable);
-//        detailsName.setFocusable(editable);
         detailsName.setEnabled(editable);
         
     }

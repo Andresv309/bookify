@@ -8,20 +8,12 @@ import app.views.author.AuthorPanel;
 import app.models.Author;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.awt.event.FocusEvent;
-import java.awt.event.FocusListener;
-import java.awt.event.MouseAdapter;
-import java.awt.event.MouseEvent;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import javax.swing.BorderFactory;
 import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
-import javax.swing.JScrollPane;
 import javax.swing.JTable;
-import javax.swing.SwingConstants;
-import javax.swing.table.DefaultTableCellRenderer;
 
 
 public class AuthorController {
@@ -189,7 +181,5 @@ public class AuthorController {
         entityTableModel.updateView();
         entityTableModel.fireTableDataChanged();
         infoTag.setText(Integer.toString(entityTableModel.getRowCount()));
-    }
-    
-    
+    } 
 }
