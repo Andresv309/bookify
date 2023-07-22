@@ -5,19 +5,18 @@ import java.util.Objects;
 
 
 public class Category {
-    private int id;
+    private Long id = null;
     private String name;
 
-    public Category(int id, String category) {
-        this.id = id;
+    public Category(String category) {
         this.name = category;
     }
 
-    public int getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(Long id) {
         this.id = id;
     }
 
@@ -32,8 +31,8 @@ public class Category {
     @Override
     public int hashCode() {
         int hash = 7;
-        hash = 97 * hash + this.id;
-        hash = 97 * hash + Objects.hashCode(this.name);
+        hash = 47 * hash + Objects.hashCode(this.id);
+        hash = 47 * hash + Objects.hashCode(this.name);
         return hash;
     }
 
@@ -49,14 +48,14 @@ public class Category {
             return false;
         }
         final Category other = (Category) obj;
-        if (this.id != other.id) {
+        if (!Objects.equals(this.name, other.name)) {
             return false;
         }
-        return Objects.equals(this.name, other.name);
+        return Objects.equals(this.id, other.id);
     }
 
     @Override
     public String toString() {
-        return "Category{" + "id=" + id + ", category=" + name + '}';
-    } 
+        return "Category{" + "id=" + id + ", name=" + name + '}';
+    }
 }

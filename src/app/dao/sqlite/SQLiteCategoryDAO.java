@@ -3,7 +3,7 @@ package app.dao.sqlite;
 
 import app.dao.exceptions.DAOException;
 import app.dao.interfaces.CategoryDAO;
-import app.models.Shelv;
+import app.models.Category;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -26,16 +26,16 @@ public class SQLiteCategoryDAO implements CategoryDAO{
         this.conn = conn;
     }
     
-    private Shelv convert(ResultSet rs) throws SQLException {
+    private Category convert(ResultSet rs) throws SQLException {
         String name = rs.getString("name");
-        Shelv category = new Shelv(name);
+        Category category = new Category(name);
         category.setId(rs.getLong("id"));
         return category;
     }
     
     
     @Override
-    public void insert(Shelv record) throws DAOException {
+    public void insert(Category record) throws DAOException {
         PreparedStatement stat = null;
         ResultSet rs = null;
         try {
@@ -73,7 +73,7 @@ public class SQLiteCategoryDAO implements CategoryDAO{
     }
 
     @Override
-    public void update(Shelv record) throws DAOException {
+    public void update(Category record) throws DAOException {
         PreparedStatement stat = null;
         try {
             stat = conn.prepareStatement(UPDATE);
@@ -118,10 +118,10 @@ public class SQLiteCategoryDAO implements CategoryDAO{
     }
 
     @Override
-    public Shelv get(Long idRecord) throws DAOException {
+    public Category get(Long idRecord) throws DAOException {
         PreparedStatement stat = null;
         ResultSet rs = null;
-        Shelv category = null;
+        Category category = null;
         try {
             stat = conn.prepareStatement(GET);
             stat.setLong(1, idRecord);
@@ -154,10 +154,10 @@ public class SQLiteCategoryDAO implements CategoryDAO{
     }
 
     @Override
-    public List<Shelv> getAll() throws DAOException {
+    public List<Category> getAll() throws DAOException {
         PreparedStatement stat = null;
         ResultSet rs = null;
-        List<Shelv> categoryList = new ArrayList<>();
+        List<Category> categoryList = new ArrayList<>();
         try {
             stat = conn.prepareStatement(GETALL);
             rs = stat.executeQuery();
