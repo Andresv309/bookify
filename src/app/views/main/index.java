@@ -58,6 +58,7 @@ public class index extends javax.swing.JFrame {
         salePanel = new SalePanel();
         authorPanel = new AuthorPanel();
         bookPanel = new BookPanel();
+//      Linea Faltante 
         mainBody.displayForm(new CategoryPanel()); 
     }
     
