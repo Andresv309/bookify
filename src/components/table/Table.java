@@ -1,4 +1,4 @@
-package app.views.category;
+package components.table;
 
 import components.components.mainComponents.swing.scrollbar.ScrollBarCustom;
 import java.awt.Color;
@@ -27,11 +27,17 @@ public class Table extends JTable{
             public Component getTableCellRendererComponent(JTable table, Object value, boolean isSelected, boolean hasFocus, int row, int column) {
                 TableHeader header = new TableHeader(value + "");
                 
-                if(column == 4) {
+                if(column <= 2) {
                     
                     header.setHorizontalAlignment(JLabel.CENTER);
                     
+//                    DefaultTableCellRenderer centerRenderer = new DefaultTableCellRenderer();
+//                    centerRenderer.setHorizontalAlignment( JLabel.CENTER );
+//                    table.getColumnModel().getColumn(0).setCellRenderer( centerRenderer );
+//                    table.getColumnModel().getColumn(1).setCellRenderer( centerRenderer );
+                    
                 }
+             
                 
                 return header;
             }
