@@ -11,9 +11,9 @@ public class Book {
     private Long idCategory;
     private String description;
     private BigDecimal price;
-    private String idAuthor;
+    private Long idAuthor;
 
-    public Book(String name, Long idCategory, String description, BigDecimal price, String idAuthor) {
+    public Book(String name, Long idCategory, String description, BigDecimal price, Long idAuthor) {
         this.name = name;
         this.idCategory = idCategory;
         this.description = description;
@@ -61,11 +61,11 @@ public class Book {
         this.price = price;
     }
 
-    public String getIdAuthor() {
+    public Long getIdAuthor() {
         return idAuthor;
     }
 
-    public void setIdAuthor(String idAuthor) {
+    public void setIdAuthor(Long idAuthor) {
         this.idAuthor = idAuthor;
     }
 

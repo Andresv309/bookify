@@ -6,10 +6,10 @@ import java.util.Objects;
 
 public class CardType {
     private Long id = null;
-    private String tpe;
+    private String type;
 
     public CardType(String tpe) {
-        this.tpe = tpe;
+        this.type = tpe;
     }
 
     public Long getId() {
@@ -20,19 +20,19 @@ public class CardType {
         this.id = id;
     }
 
-    public String getTpe() {
-        return tpe;
+    public String getType() {
+        return type;
     }
 
-    public void setTpe(String tpe) {
-        this.tpe = tpe;
+    public void setType(String type) {
+        this.type = type;
     }
 
     @Override
     public int hashCode() {
         int hash = 5;
         hash = 23 * hash + Objects.hashCode(this.id);
-        hash = 23 * hash + Objects.hashCode(this.tpe);
+        hash = 23 * hash + Objects.hashCode(this.type);
         return hash;
     }
 
@@ -48,7 +48,7 @@ public class CardType {
             return false;
         }
         final CardType other = (CardType) obj;
-        if (!Objects.equals(this.tpe, other.tpe)) {
+        if (!Objects.equals(this.type, other.type)) {
             return false;
         }
         return Objects.equals(this.id, other.id);
@@ -56,6 +56,6 @@ public class CardType {
 
     @Override
     public String toString() {
-        return "CardType{" + "id=" + id + ", tpe=" + tpe + '}';
+        return "CardType{" + "id=" + id + ", tpe=" + type + '}';
     }
 }
