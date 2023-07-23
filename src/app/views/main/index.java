@@ -126,7 +126,13 @@ public class Index extends javax.swing.JFrame {
     }
     
     private ProfitsPanel getProfitsPanel() {
-       return new ProfitsPanel();
+        try {
+            return new ProfitsPanel();
+        } catch (DAOException ex) {
+            Logger.getLogger(Index.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+        return null;
     } 
     
     
