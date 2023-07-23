@@ -1,5 +1,6 @@
 package components.mainComponents.swing;
 
+import components.mainComponents.theme.SystemTheme;
 import java.awt.AlphaComposite;
 import java.awt.Color;
 import java.awt.Cursor;
@@ -47,7 +48,7 @@ public class Button extends JButton {
     public Button() {
         setContentAreaFilled(false);
         setBorder(new EmptyBorder(5, 10, 5, 10));
-        setBackground(Color.WHITE);
+        setBackground(SystemTheme.mainColor);
         setCursor(new Cursor(Cursor.HAND_CURSOR));
         addMouseListener(new MouseAdapter() {
             @Override

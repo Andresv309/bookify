@@ -64,6 +64,10 @@ public class ButtonGradient extends JButton{
         super.paintComponent(grphcs);
         
     }
+
+    public void setColor(Color mainColor) {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
     
     
     
