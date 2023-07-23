@@ -6,6 +6,7 @@ import app.views.book.BookPanel;
 import app.views.author.AuthorPanel;
 import app.views.category.CategoryPanel;
 import app.views.customer.CustomerPanel;
+import app.views.marketplace.MarketPlacePanel;
 import app.views.sale.SalePanel;
 import app.views.shelve.ShelvePanel;
 import app.views.stock.StockPanel;
@@ -30,9 +31,8 @@ public class Index extends javax.swing.JFrame {
      * Creates new form Index
      */
     
-    private SalePanel salePanel;
-    private AuthorPanel authorPanel;
-    private BookPanel bookPanel;
+  
+    private MarketPlacePanel marketPlacePanel;
     
     public Index() throws DAOException {
         initComponents();
@@ -50,14 +50,12 @@ public class Index extends javax.swing.JFrame {
                 case 3 -> mainBody.displayForm( getBookPanel());
                 case 4 -> mainBody.displayForm( getStockPanel());
                 case 5 -> mainBody.displayForm( getCustomerPanel());
-                case 6 -> mainBody.displayForm( getBookPanel());                
+                case 6 -> mainBody.displayForm( getMarketPlacePanel());                
                 default -> {}
             }
         });
         
-        salePanel = new SalePanel();
-        authorPanel = new AuthorPanel();
-        bookPanel = new BookPanel();
+        
         mainBody.displayForm(new CategoryPanel()); 
     }
     
@@ -115,6 +113,13 @@ public class Index extends javax.swing.JFrame {
         return null;
     }
     
+    
+    private MarketPlacePanel getMarketPlacePanel() {
+        return new MarketPlacePanel();
+    }
+    
+    
+    
 //    private SalesPanel getSalesPanel() {
 //        try {
 //            return new SalesPanel();
@@ -154,31 +159,33 @@ public class Index extends javax.swing.JFrame {
         );
         footerLayout.setVerticalGroup(
             footerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 41, Short.MAX_VALUE)
+            .addGap(0, 29, Short.MAX_VALUE)
         );
 
         javax.swing.GroupLayout panelBackgroundLayout = new javax.swing.GroupLayout(panelBackground);
         panelBackground.setLayout(panelBackgroundLayout);
         panelBackgroundLayout.setHorizontalGroup(
             panelBackgroundLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(header, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(header, javax.swing.GroupLayout.DEFAULT_SIZE, 1273, Short.MAX_VALUE)
             .addComponent(footer, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(panelBackgroundLayout.createSequentialGroup()
                 .addGap(4, 4, 4)
                 .addComponent(menu, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(mainBody, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addContainerGap())
+                .addComponent(mainBody, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         panelBackgroundLayout.setVerticalGroup(
             panelBackgroundLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panelBackgroundLayout.createSequentialGroup()
                 .addComponent(header, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, 0)
-                .addGroup(panelBackgroundLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(menu, javax.swing.GroupLayout.PREFERRED_SIZE, 696, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(mainBody, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(panelBackgroundLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(panelBackgroundLayout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(mainBody, javax.swing.GroupLayout.DEFAULT_SIZE, 729, Short.MAX_VALUE))
+                    .addGroup(panelBackgroundLayout.createSequentialGroup()
+                        .addGap(21, 21, 21)
+                        .addComponent(menu, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(footer, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
