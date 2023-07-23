@@ -7,7 +7,7 @@ import app.views.author.AuthorPanel;
 import app.views.category.CategoryPanel;
 import app.views.customer.CustomerPanel;
 import app.views.marketplace.MarketPlacePanel;
-import app.views.sale.SalePanel;
+import app.views.profits.ProfitsPanel;
 import app.views.shelve.ShelvePanel;
 import app.views.stock.StockPanel;
 import java.awt.Color;
@@ -51,6 +51,7 @@ public class Index extends javax.swing.JFrame {
                 case 4 -> mainBody.displayForm( getStockPanel());
                 case 5 -> mainBody.displayForm( getCustomerPanel());
                 case 6 -> mainBody.displayForm( getMarketPlacePanel());                
+                case 7 -> mainBody.displayForm( getProfitsPanel());                
                 default -> {}
             }
         });
@@ -115,8 +116,18 @@ public class Index extends javax.swing.JFrame {
     
     
     private MarketPlacePanel getMarketPlacePanel() {
-        return new MarketPlacePanel();
+        try {
+            return new MarketPlacePanel();
+        } catch (DAOException ex) {
+            Logger.getLogger(Index.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+        return null;
     }
+    
+    private ProfitsPanel getProfitsPanel() {
+       return new ProfitsPanel();
+    } 
     
     
     
