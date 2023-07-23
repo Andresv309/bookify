@@ -31,6 +31,7 @@ public class BookTableModel extends AbstractTableModel {
             case 4: return "Author";
             case 5: return "Precio";
             case 6: return "Descripción";
+            case 7: return "Ruta";
             default: return "";
         }
     }
@@ -42,7 +43,7 @@ public class BookTableModel extends AbstractTableModel {
 
     @Override
     public int getColumnCount() {
-        return 7;
+        return 8;
     }
 
     @Override
@@ -56,6 +57,7 @@ public class BookTableModel extends AbstractTableModel {
             case 4: return requestedEntity.getAuthorName();
             case 5: return "$ " + requestedEntity.getPrice();
             case 6: return requestedEntity.getDescription();
+            case 7: return requestedEntity.getImgPath();
             default: return "";
         }
     }

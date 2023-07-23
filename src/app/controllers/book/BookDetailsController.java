@@ -30,6 +30,7 @@ public class BookDetailsController {
     private JComboBox<Category> detailsCategory;
     private JTextArea detailsDescription;
     private JFormattedTextField detailsPrice;
+    private JTextField detailsImgPath;
     
 
     public BookDetailsController(BookDetailsPanel entityDetailsPanel, CategoryDAO categoryDAO, AuthorDAO authorDAO) throws DAOException {
@@ -43,6 +44,7 @@ public class BookDetailsController {
         this.detailsPrice = entityDetailsPanel.getDetailsPrice();
         this.detailsCategory = entityDetailsPanel.getDetailsCategory();
         this.detailsAuthor = entityDetailsPanel.getDetailsAuthor();
+        this.detailsImgPath = entityDetailsPanel.getDetailsImgPath();
         
         this.detailsCategory.setModel(categoryComboBoxModel);
         this.detailsAuthor.setModel(authorComboBoxModel);
@@ -61,6 +63,7 @@ public class BookDetailsController {
         detailsPrice.setEnabled(editable);
         detailsCategory.setEnabled(editable);
         detailsAuthor.setEnabled(editable);
+        detailsImgPath.setEnabled(editable);
     }
 
     public Book getEntity() {
@@ -73,11 +76,12 @@ public class BookDetailsController {
     
     public void loadData() throws ParseException {       
         if (entity == null) {
-            entity = new Book("", "", new BigDecimal(0), 0L, 0L);
+            entity = new Book("", "", new BigDecimal(0), 0L, 0L, "");
         }
         detailsName.setText(entity.getName());
         detailsDescription.setText(entity.getDescription());
         detailsPrice.setValue(entity.getPrice());
+        detailsImgPath.setText(entity.getImgPath());
         
         Category categoryItem;
         for (int i = 0; i < detailsCategory.getItemCount(); i++) {
@@ -102,7 +106,7 @@ public class BookDetailsController {
     
     public void saveData() {
         if (entity == null) {
-            entity = new Book("", "", new BigDecimal(0), 0L, 0L);
+            entity = new Book("", "", new BigDecimal(0), 0L, 0L, "");
         }
         entity.setName(detailsName.getText());
         Category category = (Category) categoryComboBoxModel.getSelectedItem();
@@ -116,6 +120,7 @@ public class BookDetailsController {
                 )
         );
         entity.setDescription(detailsDescription.getText());
+        entity.setImgPath(detailsImgPath.getText());
         
  
     }
