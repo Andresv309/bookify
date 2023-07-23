@@ -6,6 +6,7 @@ import app.views.book.BookPanel;
 import app.views.author.AuthorPanel;
 import app.views.category.CategoryPanel;
 import app.views.customer.CustomerPanel;
+import app.views.marketplace.MarketPlacePanel;
 import app.views.sale.SalePanel;
 import app.views.shelve.ShelvePanel;
 import app.views.stock.StockPanel;
@@ -24,17 +25,16 @@ import java.util.logging.Logger;
  *
  * @author Cristian Vega
  */
-public class index extends javax.swing.JFrame {
+public class Index extends javax.swing.JFrame {
 
     /**
-     * Creates new form index
+     * Creates new form Index
      */
     
-    private SalePanel salePanel;
-    private AuthorPanel authorPanel;
-    private BookPanel bookPanel;
+  
+    private MarketPlacePanel marketPlacePanel;
     
-    public index() throws DAOException {
+    public Index() throws DAOException {
         initComponents();
         setBackground(new Color(0, 0, 0 , 0));
         init();               
@@ -50,15 +50,12 @@ public class index extends javax.swing.JFrame {
                 case 3 -> mainBody.displayForm( getBookPanel());
                 case 4 -> mainBody.displayForm( getStockPanel());
                 case 5 -> mainBody.displayForm( getCustomerPanel());
-                case 6 -> mainBody.displayForm( getBookPanel());                
+                case 6 -> mainBody.displayForm( getMarketPlacePanel());                
                 default -> {}
             }
         });
         
-        salePanel = new SalePanel();
-        authorPanel = new AuthorPanel();
-        bookPanel = new BookPanel();
-//      Linea Faltante 
+        
         mainBody.displayForm(new CategoryPanel()); 
     }
     
@@ -66,7 +63,7 @@ public class index extends javax.swing.JFrame {
         try {
             return new CategoryPanel();
         } catch (DAOException ex) {
-            Logger.getLogger(index.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(Index.class.getName()).log(Level.SEVERE, null, ex);
         }
         return null;
     }
@@ -75,7 +72,7 @@ public class index extends javax.swing.JFrame {
         try {
             return new ShelvePanel();
         } catch (DAOException ex) {
-            Logger.getLogger(index.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(Index.class.getName()).log(Level.SEVERE, null, ex);
         }
         return null;
     }
@@ -84,7 +81,7 @@ public class index extends javax.swing.JFrame {
         try {
             return new AuthorPanel();
         } catch (DAOException ex) {
-            Logger.getLogger(index.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(Index.class.getName()).log(Level.SEVERE, null, ex);
         }
         return null;
     }
@@ -93,7 +90,7 @@ public class index extends javax.swing.JFrame {
         try {
             return new BookPanel();
         } catch (DAOException ex) {
-            Logger.getLogger(index.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(Index.class.getName()).log(Level.SEVERE, null, ex);
         }
         return null;
     }
@@ -102,7 +99,7 @@ public class index extends javax.swing.JFrame {
         try {
             return new StockPanel();
         } catch (DAOException ex) {
-            Logger.getLogger(index.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(Index.class.getName()).log(Level.SEVERE, null, ex);
         }
         return null;
     }
@@ -111,16 +108,23 @@ public class index extends javax.swing.JFrame {
         try {
             return new CustomerPanel();
         } catch (DAOException ex) {
-            Logger.getLogger(index.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(Index.class.getName()).log(Level.SEVERE, null, ex);
         }
         return null;
     }
+    
+    
+    private MarketPlacePanel getMarketPlacePanel() {
+        return new MarketPlacePanel();
+    }
+    
+    
     
 //    private SalesPanel getSalesPanel() {
 //        try {
 //            return new SalesPanel();
 //        } catch (DAOException ex) {
-//            Logger.getLogger(index.class.getName()).log(Level.SEVERE, null, ex);
+//            Logger.getLogger(Index.class.getName()).log(Level.SEVERE, null, ex);
 //        }
 //        return null;
 //    }
@@ -155,31 +159,33 @@ public class index extends javax.swing.JFrame {
         );
         footerLayout.setVerticalGroup(
             footerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 41, Short.MAX_VALUE)
+            .addGap(0, 29, Short.MAX_VALUE)
         );
 
         javax.swing.GroupLayout panelBackgroundLayout = new javax.swing.GroupLayout(panelBackground);
         panelBackground.setLayout(panelBackgroundLayout);
         panelBackgroundLayout.setHorizontalGroup(
             panelBackgroundLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(header, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(header, javax.swing.GroupLayout.DEFAULT_SIZE, 1273, Short.MAX_VALUE)
             .addComponent(footer, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(panelBackgroundLayout.createSequentialGroup()
                 .addGap(4, 4, 4)
                 .addComponent(menu, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(mainBody, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addContainerGap())
+                .addComponent(mainBody, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         panelBackgroundLayout.setVerticalGroup(
             panelBackgroundLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panelBackgroundLayout.createSequentialGroup()
                 .addComponent(header, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, 0)
-                .addGroup(panelBackgroundLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(menu, javax.swing.GroupLayout.PREFERRED_SIZE, 696, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(mainBody, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(panelBackgroundLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(panelBackgroundLayout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(mainBody, javax.swing.GroupLayout.DEFAULT_SIZE, 729, Short.MAX_VALUE))
+                    .addGroup(panelBackgroundLayout.createSequentialGroup()
+                        .addGap(21, 21, 21)
+                        .addComponent(menu, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(footer, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
@@ -217,14 +223,16 @@ public class index extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(index.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Index.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(index.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Index.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(index.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Index.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(index.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Index.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
+        //</editor-fold>
         //</editor-fold>
         //</editor-fold>
 
@@ -232,9 +240,9 @@ public class index extends javax.swing.JFrame {
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
                 try {
-                    new index().setVisible(true);
+                    new Index().setVisible(true);
                 } catch (DAOException ex) {
-                    Logger.getLogger(index.class.getName()).log(Level.SEVERE, null, ex);
+                    Logger.getLogger(Index.class.getName()).log(Level.SEVERE, null, ex);
                 }
             }
         });
