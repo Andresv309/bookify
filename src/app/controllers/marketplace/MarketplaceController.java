@@ -34,13 +34,8 @@ public class MarketplaceController {
 
     private void updatePanelView() throws DAOException {
         fetchBooks();
-        for (Book book : booksList) {
-            
-            System.out.println(book);
-            
-            portrait.add(new BookView("/Images/portadas/" + book.getImgPath()));
-            
-            System.out.println("si estoy funcionando");
+        for (Book book : booksList) {   
+            portrait.add(new BookView(book.getImgPath()));
         }
             portrait.updateUI();
     } 

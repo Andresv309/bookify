@@ -104,12 +104,12 @@ public class MarketPlacePanel extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnNewBookActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNewBookActionPerformed
-        BookView book = new BookView("/Images/portadas/portadaLibro_" + index + ".jpg");
-        portrait.add(book);
-        portrait.updateUI();
-
-        System.out.println("si estoy funcionando");
-        index ++;
+//        BookView book = new BookView("/Images/portadas/portadaLibro_" + index + ".jpg");
+//        portrait.add(book);
+//        portrait.updateUI();
+//
+//        System.out.println("si estoy funcionando");
+//        index ++;
     }//GEN-LAST:event_btnNewBookActionPerformed
 
 
