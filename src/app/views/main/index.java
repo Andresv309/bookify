@@ -114,20 +114,15 @@ public class Index extends javax.swing.JFrame {
     }
     
     
-    private MarketPlacePanel getMarketPlacePanel() {
-        return new MarketPlacePanel();
+    private MarketPlacePanel getMarketPlacePanel() {        
+        try {
+            return new MarketPlacePanel();
+        } catch (DAOException ex) {
+            Logger.getLogger(Index.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return null;
     }
-    
-    
-    
-//    private SalesPanel getSalesPanel() {
-//        try {
-//            return new SalesPanel();
-//        } catch (DAOException ex) {
-//            Logger.getLogger(Index.class.getName()).log(Level.SEVERE, null, ex);
-//        }
-//        return null;
-//    }
+
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -231,6 +226,18 @@ public class Index extends javax.swing.JFrame {
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
             java.util.logging.Logger.getLogger(Index.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
         //</editor-fold>
         //</editor-fold>
         //</editor-fold>
