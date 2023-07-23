@@ -26,11 +26,6 @@ import java.util.logging.Logger;
  * @author Cristian Vega
  */
 public class Index extends javax.swing.JFrame {
-
-    /**
-     * Creates new form Index
-     */
-    
   
     private MarketPlacePanel marketPlacePanel;
     
@@ -41,7 +36,8 @@ public class Index extends javax.swing.JFrame {
     }
     
     private void init () throws DAOException {
-        header.initMoving(this, panelBackground);
+        header.initMoving(this);
+        header.initEvent(this, panelBackground);
         menu.addEventMenu((int index) -> {
             switch (index) {
                 case 0 -> mainBody.displayForm(getCategoryPanel());

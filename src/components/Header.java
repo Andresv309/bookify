@@ -1,22 +1,52 @@
 package components;
 
 import components.mainComponents.swing.PanelBackground;
-import components.mainComponents.swing.buttons.windButtons;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
+import java.awt.event.MouseMotionAdapter;
 import javax.swing.JFrame;
+import javax.swing.SwingUtilities;
 
-/**
- *
- * @author Cristian Vega
- */
+
 public class Header extends javax.swing.JPanel {
 
     public Header() {
         initComponents();
     }
 
-    public void initMoving (JFrame parentFrame, PanelBackground parentPanel) {
-        windButtons.initEvent(parentFrame, parentPanel);
-    }   
+//    public void initMoving (JFrame parentFrame, PanelBackground parentPanel) {
+//        windButtons.initEvent(parentFrame, parentPanel);
+//    } 
+    
+    
+    
+    
+    public void initEvent(JFrame fram, PanelBackground panel) {
+        windButtons.initEvent(fram, panel);
+    }
+    private int x;
+    private int y;
+
+    public void initMoving(JFrame fram) {
+        this.addMouseListener(new MouseAdapter() {
+            @Override
+            public void mousePressed(MouseEvent me) {
+                if (fram.getExtendedState() != JFrame.MAXIMIZED_BOTH && SwingUtilities.isLeftMouseButton(me)) {
+                    x = me.getX();
+                    y = me.getY();
+                }
+            }
+
+        });
+        this.addMouseMotionListener(new MouseMotionAdapter() {
+            @Override
+            public void mouseDragged(MouseEvent me) {
+                if (fram.getExtendedState() != JFrame.MAXIMIZED_BOTH && SwingUtilities.isLeftMouseButton(me)) {
+                    fram.setLocation(me.getXOnScreen() - x, me.getYOnScreen() - y);
+                }
+            }
+        });
+    }
     
     
     

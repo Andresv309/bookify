@@ -20,7 +20,6 @@ public class MarketPlacePanel extends javax.swing.JPanel {
         addScroll();
         books = new ArrayList<>();
         index = 0;
-        
         new MarketplaceController(this);
         
     }
