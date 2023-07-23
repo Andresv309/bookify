@@ -109,7 +109,7 @@ public class BookPanel extends Form {
         jScrollPaneTable.setViewportView(table);
 
         jLabel1.setFont(new java.awt.Font("Yu Gothic UI Semibold", 1, 36)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(65, 188, 255));
+        jLabel1.setForeground(new java.awt.Color(54, 149, 255));
         jLabel1.setText("Libros ");
 
         jLabel2.setFont(new java.awt.Font("Yu Gothic UI Semibold", 1, 36)); // NOI18N
@@ -121,7 +121,7 @@ public class BookPanel extends Form {
         jLabel3.setText("Registros Totales:");
 
         infoTag.setFont(new java.awt.Font("Yu Gothic UI Semibold", 1, 12)); // NOI18N
-        infoTag.setForeground(new java.awt.Color(65, 188, 255));
+        infoTag.setForeground(new java.awt.Color(54, 149, 255));
         infoTag.setText("15");
 
         javax.swing.GroupLayout panelBackground1Layout = new javax.swing.GroupLayout(panelBackground1);
