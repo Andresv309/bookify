@@ -29,6 +29,8 @@ public class SQLiteStockDAO implements StockDAO {
     private final String GETJOIN = SELECTJOIN + FROMJOIN + "WHERE st.id= ?;";
     private final String GETJOINALL = SELECTJOIN + FROMJOIN + ";";
     
+    private final String GETSTOCKCOUNT = "SELECT SUM(quantity) as stockCount FROM stocks;";
+    
     
     private Connection conn;
     
@@ -140,6 +142,39 @@ public class SQLiteStockDAO implements StockDAO {
         }
         
         return stockList;
+    }
+
+    @Override
+    public int getStockCountForAllBooks() throws DAOException {
+        PreparedStatement stat = null;
+        ResultSet rs = null;
+        int stockCountForAllBooks = 0;
+        try {
+            stat = conn.prepareStatement(GETSTOCKCOUNT);
+            rs = stat.executeQuery();
+            while (rs.next()) {
+                stockCountForAllBooks = rs.getInt("stockCount");
+            }
+        } catch (SQLException ex) {
+            throw new DAOException("SQL Error.", ex);
+        } finally {
+            if (rs != null) {
+                try {
+                    rs.close();
+                } catch (SQLException ex) {
+                    throw new DAOException("Couldn't close resultSet.", ex);
+                }
+            }
+            if (stat != null) {
+                try {
+                    stat.close();
+                } catch (SQLException ex) {
+                    throw new DAOException("Couldn't close prepareStatement.", ex);
+                }
+            }
+        }
+        
+        return stockCountForAllBooks;
     }
     
 }
