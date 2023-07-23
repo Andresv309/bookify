@@ -9,4 +9,5 @@ public interface StockDAO {
     void update(Stock record) throws DAOException;
     Stock get(Long idRecord) throws DAOException;
     List<Stock> getAll() throws DAOException;
+    int getStockCountForAllBooks() throws DAOException;
 }
