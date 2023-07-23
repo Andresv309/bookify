@@ -51,7 +51,6 @@ public class SQLiteStockDAO implements StockDAO {
 
     @Override
     public void update(Stock record) throws DAOException {
-        System.out.println(record);
         PreparedStatement stat = null;
         try {
             stat = conn.prepareStatement(UPDATE);

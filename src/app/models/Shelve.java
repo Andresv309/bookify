@@ -56,6 +56,6 @@ public class Shelve {
 
     @Override
     public String toString() {
-        return "Shelve{" + "id=" + id + ", name=" + name + '}';
+        return name;
     }
 }
