@@ -185,7 +185,7 @@
               <Font name="Yu Gothic UI Semibold" size="36" style="1"/>
             </Property>
             <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-              <Color blue="ff" green="bc" red="41" type="rgb"/>
+              <Color blue="ff" green="95" red="36" type="rgb"/>
             </Property>
             <Property name="text" type="java.lang.String" value="Tienda"/>
           </Properties>
@@ -218,7 +218,7 @@
               <Font name="Yu Gothic UI Semibold" size="12" style="1"/>
             </Property>
             <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-              <Color blue="ff" green="bc" red="41" type="rgb"/>
+              <Color blue="ff" green="95" red="36" type="rgb"/>
             </Property>
             <Property name="text" type="java.lang.String" value="15"/>
           </Properties>
