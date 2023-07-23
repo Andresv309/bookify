@@ -12,15 +12,17 @@ public class Book {
     private String description;
     private BigDecimal price;
     private Long idAuthor;
+    private String imgPath;
     private String categoryName;
     private String authorName;
 
-    public Book(String name, String description, BigDecimal price, Long idCategory, Long idAuthor) {
+    public Book(String name, String description, BigDecimal price, Long idCategory, Long idAuthor, String imgPath) {
         this.name = name;
         this.idCategory = idCategory;
         this.description = description;
         this.price = price;
         this.idAuthor = idAuthor;
+        this.imgPath = imgPath;
     }
 
     public Long getId() {
@@ -71,6 +73,14 @@ public class Book {
         this.idAuthor = idAuthor;
     }
 
+    public String getImgPath() {
+        return imgPath;
+    }
+
+    public void setImgPath(String imgPath) {
+        this.imgPath = imgPath;
+    }
+
     public String getCategoryName() {
         return categoryName;
     }
@@ -89,15 +99,16 @@ public class Book {
 
     @Override
     public int hashCode() {
-        int hash = 3;
-        hash = 41 * hash + Objects.hashCode(this.id);
-        hash = 41 * hash + Objects.hashCode(this.name);
-        hash = 41 * hash + Objects.hashCode(this.idCategory);
-        hash = 41 * hash + Objects.hashCode(this.description);
-        hash = 41 * hash + Objects.hashCode(this.price);
-        hash = 41 * hash + Objects.hashCode(this.idAuthor);
-        hash = 41 * hash + Objects.hashCode(this.categoryName);
-        hash = 41 * hash + Objects.hashCode(this.authorName);
+        int hash = 7;
+        hash = 61 * hash + Objects.hashCode(this.id);
+        hash = 61 * hash + Objects.hashCode(this.name);
+        hash = 61 * hash + Objects.hashCode(this.idCategory);
+        hash = 61 * hash + Objects.hashCode(this.description);
+        hash = 61 * hash + Objects.hashCode(this.price);
+        hash = 61 * hash + Objects.hashCode(this.idAuthor);
+        hash = 61 * hash + Objects.hashCode(this.imgPath);
+        hash = 61 * hash + Objects.hashCode(this.categoryName);
+        hash = 61 * hash + Objects.hashCode(this.authorName);
         return hash;
     }
 
@@ -117,6 +128,9 @@ public class Book {
             return false;
         }
         if (!Objects.equals(this.description, other.description)) {
+            return false;
+        }
+        if (!Objects.equals(this.imgPath, other.imgPath)) {
             return false;
         }
         if (!Objects.equals(this.categoryName, other.categoryName)) {
@@ -139,6 +153,6 @@ public class Book {
 
     @Override
     public String toString() {
-        return "Book{" + "id=" + id + ", name=" + name + ", idCategory=" + idCategory + ", description=" + description + ", price=" + price + ", idAuthor=" + idAuthor + ", categoryName=" + categoryName + ", authorName=" + authorName + '}';
+        return "Book{" + "id=" + id + ", name=" + name + ", idCategory=" + idCategory + ", description=" + description + ", price=" + price + ", idAuthor=" + idAuthor + ", imgPath=" + imgPath + ", categoryName=" + categoryName + ", authorName=" + authorName + '}';
     }
 }

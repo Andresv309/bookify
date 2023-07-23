@@ -14,7 +14,7 @@ import java.util.List;
 
 public class SQLiteStockDAO implements StockDAO {
     
-    private final String UPDATE = "UPDATE stocks SET quantity = ? WHERE id = ?;";
+    private final String UPDATE = "UPDATE stocks SET quantity = ?, idShelve = ? WHERE id = ?;";
     private final String GET = "SELECT id, quantity, idShelve, idBook FROM stocks WHERE id= ?;";
     private final String GETALL = "SELECT id, quantity, idShelve, idBook FROM stocks;";
     
@@ -25,8 +25,8 @@ public class SQLiteStockDAO implements StockDAO {
             + "st.idBook as idBook, "
             + "sh.name as shelveName, "
             + "b.name as bookName ";
-    private final String FROMJOIN = "FROM stocks as st INNER JOIN shelves as sh ON st.idShelve = sh.id INNER JOIN books AS b ON st.idBook = b.id";
-    private final String GETJOIN = SELECTJOIN + FROMJOIN + "WHERE c.id= ?;";
+    private final String FROMJOIN = "FROM stocks as st INNER JOIN shelves as sh ON st.idShelve = sh.id INNER JOIN books AS b ON st.idBook = b.id ";
+    private final String GETJOIN = SELECTJOIN + FROMJOIN + "WHERE st.id= ?;";
     private final String GETJOINALL = SELECTJOIN + FROMJOIN + ";";
     
     
@@ -54,8 +54,9 @@ public class SQLiteStockDAO implements StockDAO {
         PreparedStatement stat = null;
         try {
             stat = conn.prepareStatement(UPDATE);
-            stat.setLong(2, record.getId());
+            stat.setLong(3, record.getId());
             stat.setLong(1, record.getQuantity());
+            stat.setLong(2, record.getIdShelve());
             if (stat.executeUpdate() == 0) {
                 throw new DAOException("Record id not found.");
             }

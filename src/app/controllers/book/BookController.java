@@ -69,7 +69,7 @@ public class BookController {
         
         
         // Set first column width shorter because corresponds to index.
-        table.getColumnModel().getColumn(1).setMaxWidth(60);
+        table.getColumnModel().getColumn(1).setMaxWidth(40);
         
 
         // Remove dbId from the view.
@@ -181,7 +181,6 @@ public class BookController {
 
     private Book getRowSelected() throws DAOException {
         Long id = (Long) table.getModel().getValueAt(table.getSelectedRow(), 0);
-        System.out.println(id);
         return entityDAO.get(id);
     }
     

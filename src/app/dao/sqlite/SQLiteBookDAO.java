@@ -15,10 +15,10 @@ import java.util.List;
 
 public class SQLiteBookDAO implements BookDAO {
 
-    private final String INSERT = "INSERT INTO books (name, description, price, idCategory, idAuthor) VALUES (?, ?, ?, ?, ?);";
-    private final String UPDATE = "UPDATE books SET name = ?, description = ?, price = ?, idCategory = ?, idAuthor = ? WHERE id = ?;";
+    private final String INSERT = "INSERT INTO books (name, description, price, idCategory, idAuthor, imgPath) VALUES (?, ?, ?, ?, ?, ?);";
+    private final String UPDATE = "UPDATE books SET name = ?, description = ?, price = ?, idCategory = ?, idAuthor = ?, imgPath = ? WHERE id = ?;";
     private final String DELETE = "DELETE FROM books WHERE id = ?;";
-    private final String SELECT = "SELECT id, name, description, price, idCategory, idAuthor ";
+    private final String SELECT = "SELECT id, name, description, price, idCategory, idAuthor,imgPath ";
     private final String GET = SELECT + "FROM books WHERE id= ?;";
     private final String GETALL = SELECT + "FROM books;";
     
@@ -29,6 +29,7 @@ public class SQLiteBookDAO implements BookDAO {
             + "b.price as price, "
             + "b.idCategory as idCategory, "
             + "b.idAuthor as idAuthor, "
+            + "b.imgPath as imgPath, "
             + "c.name as categoryName, "
             + "a.name as authorName ";
     private final String FROMJOIN = "FROM books as b INNER JOIN categories as c ON b.idCategory = c.id INNER JOIN authors as a ON b.idAuthor = a.id ";
@@ -49,8 +50,9 @@ public class SQLiteBookDAO implements BookDAO {
         Long idAuthor = rs.getLong("idAuthor");
         String categoryName = rs.getString("categoryName");
         String authorName = rs.getString("authorName");
+        String imgPath = rs.getString("imgPath");
         
-        Book book = new Book(name, description, price, idCategory, idAuthor);
+        Book book = new Book(name, description, price, idCategory, idAuthor, imgPath);
         book.setId(rs.getLong("id"));
         book.setCategoryName(categoryName);
         book.setAuthorName(authorName);
@@ -69,6 +71,7 @@ public class SQLiteBookDAO implements BookDAO {
             stat.setBigDecimal(3,record.getPrice());
             stat.setLong(4,record.getIdCategory());
             stat.setLong(5,record.getIdAuthor());
+            stat.setString(6,record.getImgPath());
             if (stat.executeUpdate() == 0) {
                 throw new DAOException("Record might not have been saved.");
             }
@@ -105,12 +108,13 @@ public class SQLiteBookDAO implements BookDAO {
         PreparedStatement stat = null;
         try {
             stat = conn.prepareStatement(UPDATE);
-            stat.setLong(6, record.getId());
+            stat.setLong(7, record.getId());
             stat.setString(1, record.getName());
             stat.setString(2, record.getDescription());
             stat.setBigDecimal(3, record.getPrice());
             stat.setLong(4, record.getIdCategory());
             stat.setLong(5, record.getIdAuthor());
+            stat.setString(6, record.getImgPath());
             if (stat.executeUpdate() == 0) {
                 throw new DAOException("Record id not found.");
             }

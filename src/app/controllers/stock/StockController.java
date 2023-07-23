@@ -12,7 +12,6 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JButton;
 import javax.swing.JLabel;
-import javax.swing.JOptionPane;
 import javax.swing.JTable;
 
 
@@ -38,7 +37,10 @@ public class StockController {
         this.entityDAO = DAOManager.getDAOinstance().getStockDAO();
         
         /*** Specific details controller ***/
-        this.entityDetailsController = new StockDetailsController(view.getDetailsPanel());
+        this.entityDetailsController = new StockDetailsController(
+                view.getDetailsPanel(),
+                DAOManager.getDAOinstance().getShelveDAO()
+        );
         
         /*** Specific table model ***/
         this.entityTableModel = new StockTableModel(this.entityDAO);

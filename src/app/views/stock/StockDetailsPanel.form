@@ -24,6 +24,7 @@
               <Group type="103" groupAlignment="0" max="-2" attributes="0">
                   <Component id="detailsQuantity" pref="262" max="32767" attributes="0"/>
                   <Component id="jLabel6" max="32767" attributes="0"/>
+                  <Component id="detailsShelve" alignment="0" max="32767" attributes="0"/>
               </Group>
               <EmptySpace pref="31" max="32767" attributes="0"/>
           </Group>
@@ -36,7 +37,9 @@
               <Component id="jLabel6" min="-2" max="-2" attributes="0"/>
               <EmptySpace type="unrelated" max="-2" attributes="0"/>
               <Component id="detailsQuantity" min="-2" pref="30" max="-2" attributes="0"/>
-              <EmptySpace pref="289" max="32767" attributes="0"/>
+              <EmptySpace type="separate" max="-2" attributes="0"/>
+              <Component id="detailsShelve" min="-2" pref="34" max="-2" attributes="0"/>
+              <EmptySpace pref="237" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -54,6 +57,19 @@
       </Properties>
     </Component>
     <Component class="javax.swing.JSpinner" name="detailsQuantity">
+    </Component>
+    <Component class="javax.swing.JComboBox" name="detailsShelve">
+      <Properties>
+        <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
+          <StringArray count="0"/>
+        </Property>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="detailsShelveActionPerformed"/>
+      </Events>
+      <AuxValues>
+        <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;Shelve&gt;"/>
+      </AuxValues>
     </Component>
   </SubComponents>
 </Form>

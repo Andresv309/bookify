@@ -35,6 +35,9 @@ public class BookDetailsPanel extends javax.swing.JPanel {
         return detailsPrice;
     }
 
+    public JTextField getDetailsImgPath() {
+        return detailsImgPath;
+    }
     
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
@@ -48,6 +51,7 @@ public class BookDetailsPanel extends javax.swing.JPanel {
         jScrollPane1 = new javax.swing.JScrollPane();
         detailsDescription = new javax.swing.JTextArea();
         detailsPrice = new javax.swing.JFormattedTextField();
+        detailsImgPath = new javax.swing.JTextField();
 
         setOpaque(false);
 
@@ -91,6 +95,28 @@ public class BookDetailsPanel extends javax.swing.JPanel {
 
         detailsPrice.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.NumberFormatter(new java.text.DecimalFormat("#,##0.00"))));
 
+        detailsImgPath.setBackground(new java.awt.Color(255, 255, 255));
+        detailsImgPath.setFont(new java.awt.Font("Yu Gothic UI Semibold", 0, 12)); // NOI18N
+        detailsImgPath.setForeground(new java.awt.Color(204, 204, 204));
+        detailsImgPath.setText("Ingrese el Nombre del Libro");
+        detailsImgPath.setBorder(javax.swing.BorderFactory.createEmptyBorder(4, 4, 4, 8));
+        detailsImgPath.setSelectionColor(new java.awt.Color(30, 30, 30));
+        detailsImgPath.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                detailsImgPathFocusGained(evt);
+            }
+        });
+        detailsImgPath.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                detailsImgPathMousePressed(evt);
+            }
+        });
+        detailsImgPath.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                detailsImgPathActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
@@ -104,7 +130,10 @@ public class BookDetailsPanel extends javax.swing.JPanel {
                     .addComponent(detailsName)
                     .addComponent(detailsCategory, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(detailsAuthor, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(detailsPrice))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(detailsPrice, javax.swing.GroupLayout.PREFERRED_SIZE, 118, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(detailsImgPath, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)))
                 .addContainerGap(31, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -121,7 +150,11 @@ public class BookDetailsPanel extends javax.swing.JPanel {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(detailsAuthor, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(detailsPrice, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(detailsPrice, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(detailsImgPath)
+                        .addGap(3, 3, 3)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(23, Short.MAX_VALUE))
@@ -145,11 +178,24 @@ public class BookDetailsPanel extends javax.swing.JPanel {
         // TODO add your handling code here:
     }//GEN-LAST:event_detailsAuthorActionPerformed
 
+    private void detailsImgPathFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_detailsImgPathFocusGained
+        // TODO add your handling code here:
+    }//GEN-LAST:event_detailsImgPathFocusGained
+
+    private void detailsImgPathMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_detailsImgPathMousePressed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_detailsImgPathMousePressed
+
+    private void detailsImgPathActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_detailsImgPathActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_detailsImgPathActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JComboBox<Author> detailsAuthor;
     private javax.swing.JComboBox<Category> detailsCategory;
     private javax.swing.JTextArea detailsDescription;
+    private javax.swing.JTextField detailsImgPath;
     private javax.swing.JTextField detailsName;
     private javax.swing.JFormattedTextField detailsPrice;
     private javax.swing.JLabel jLabel6;
