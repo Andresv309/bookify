@@ -14,9 +14,9 @@ import javax.xml.transform.Source;
 public class app {
     public static void main(String[] args) {
         
-        LoginFrame login = new LoginFrame();
+//        LoginFrame login = new LoginFrame();
         
-        login.setVisible(true);
+//        login.setVisible(true);
         
         //DBConnection con  = new DBConnection();
         //con.getConnection();
