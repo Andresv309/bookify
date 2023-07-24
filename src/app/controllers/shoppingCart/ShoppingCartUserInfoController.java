@@ -40,10 +40,9 @@ public class ShoppingCartUserInfoController {
     }
     
     public void resetData() {
-        if (entity == null) {
-            entity = new Customer("", 0L, "");
-        }
-        detailsCardNumber.setText("");
+        entity = new Customer("", 0L, "");
+        detailsCardNumber.setText("Ingrese N° Documento");
+        detailsCardNumber.setForeground(new java.awt.Color(204,204,204));
         detailsCardType.setSelectedIndex(0);
     }
     

@@ -55,7 +55,7 @@ public class ShoppingCartUserInfoPanel extends javax.swing.JPanel {
         detailsCardNumber.setBackground(new java.awt.Color(255, 255, 255));
         detailsCardNumber.setFont(new java.awt.Font("Yu Gothic UI Semibold", 0, 12)); // NOI18N
         detailsCardNumber.setForeground(new java.awt.Color(204, 204, 204));
-        detailsCardNumber.setText("Ingrse N° Documento");
+        detailsCardNumber.setText("Ingrese N° Documento");
         detailsCardNumber.setBorder(null);
         detailsCardNumber.setSelectionColor(new java.awt.Color(30, 30, 30));
         detailsCardNumber.addMouseListener(new java.awt.event.MouseAdapter() {
