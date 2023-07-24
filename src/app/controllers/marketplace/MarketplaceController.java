@@ -14,7 +14,12 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JButton;
+import javax.swing.JSpinner;
+import javax.swing.event.ChangeEvent;
+import javax.swing.event.ChangeListener;
 
 
 public class MarketplaceController {
@@ -87,6 +92,8 @@ public class MarketplaceController {
         return listOfBooksAddedToShopCard;
     }
 
+    
+    
     public void addClickEventListener(BookView bookView) {
         Book bookItem = bookView.getBookItem();
         JButton addButton = bookView.getDetailsBtnAddBookItem();
@@ -99,14 +106,24 @@ public class MarketplaceController {
                 
                 if (!booksInShopCart.contains(bookItem)) {
                     booksInShopCart.add(bookItem);
-                    
+     
                     ShoppingCartBookPanel bookPanel = new ShoppingCartBookPanel(bookItem);
+                    addChangeEventListener(bookPanel.getDetailsItemAmount());
+//                    addRemoveEventListener("iojdsiojdosij");
                     
                     listOfBooksAddedToShopCard.add(bookPanel);
 
                     portraitItemsInShopCart.add(bookPanel);
                     portraitItemsInShopCart.updateUI();
-                    btnOpenShopCart.setText(String.format("%d", booksInShopCart.size()));
+                    btnOpenShopCart.setText(String.format("%d", listOfBooksAddedToShopCard.size()));
+                    
+                    
+                    try {
+                        // Recalculate bill
+                        shoppingCartFrameInstance.getShoppingCartController().createCustomerBill();
+                    } catch (DAOException ex) {
+                        Logger.getLogger(MarketplaceController.class.getName()).log(Level.SEVERE, null, ex);
+                    }    
                 }
                 
 //                for (Book booktre : listOfBooksAddedToShopCard) {
@@ -116,7 +133,52 @@ public class MarketplaceController {
         });
     }
 
-   
+    public void setBooksInShopCart(List<Book> booksInShopCart) {
+        this.booksInShopCart = booksInShopCart;
+    }
+
+    
+    public void setListOfBooksAddedToShopCard(List<ShoppingCartBookPanel> listOfBooksAddedToShopCard) {
+        this.listOfBooksAddedToShopCard = listOfBooksAddedToShopCard;
+    }
+
+    public void setPortraitItemsInShopCart(PanelBackground portraitItemsInShopCart) {
+        this.portraitItemsInShopCart = portraitItemsInShopCart;
+    }
+
+    public PanelBackground getPortraitItemsInShopCart() {
+        return portraitItemsInShopCart;
+    }
+    
+    private void addChangeEventListener(JSpinner jspinner) {
+        jspinner.addChangeListener(new ChangeListener() {
+
+        @Override
+        public void stateChanged(ChangeEvent e) {
+            try {
+                shoppingCartFrameInstance.getShoppingCartController().createCustomerBill();
+            } catch (DAOException ex) {
+                Logger.getLogger(MarketplaceController.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
+    });
+    }
+    
+    private void addRemoveEventListener(JButton jbutton, Book bookItem, ShoppingCartBookPanel bookPanel) {
+        jbutton.addActionListener(new ActionListener() {
+            
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                booksInShopCart.remove(bookItem);
+                listOfBooksAddedToShopCard.remove(bookPanel);
+                portraitItemsInShopCart.remove(bookPanel);
+                portraitItemsInShopCart.updateUI();
+                btnOpenShopCart.setText(String.format("%d", listOfBooksAddedToShopCard.size()));
+            }
+        });
+    }
     
     
+    
+
 }

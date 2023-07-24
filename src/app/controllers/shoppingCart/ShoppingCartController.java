@@ -49,6 +49,7 @@ public class ShoppingCartController {
     
     private MarketplaceController marketPlaceController;
     private LinkedHashMap<Book, Integer> saleBill = new LinkedHashMap<>();
+    private List<ShoppingCartBookPanel> listOfBooksAddedToShopCard;
     
     private Customer customerFound = null;
     
@@ -80,7 +81,8 @@ public class ShoppingCartController {
         this.btnConfirmSale = entityFrame.getDetailsBtnConfirmSale();
         this.btnCleanCart = entityFrame.getDetailsBtnCleanCart();
 
-//        this.updatePanelView();
+//        this.listOfBooksAddedToShopCard = marketPlaceController.getListOfBooksAddedToShopCard();
+
         this.initEvents();
     }
     
@@ -99,7 +101,8 @@ public class ShoppingCartController {
                         JOptionPane.YES_NO_OPTION,
                         JOptionPane.QUESTION_MESSAGE
                     ) == JOptionPane.OK_OPTION) {
-                        dispatchCustomerSale();
+                        createCustomerBill();
+                        saveBill();
                         
                     }
                 } catch (DAOException ex) {
@@ -148,7 +151,7 @@ public class ShoppingCartController {
             @Override
             public void actionPerformed(ActionEvent ae) {  
                 try {
-                    cleanSelection();
+                    cleanShopCart();
                 } catch (ParseException ex) {
                     Logger.getLogger(ShoppingCartController.class.getName()).log(Level.SEVERE, null, ex);
                 }
@@ -157,10 +160,22 @@ public class ShoppingCartController {
     }  
 
 
-    private void cleanSelection() throws ParseException {
-        entityDetailsController.setEntity(null);
+    private void cleanShopCart() throws ParseException {
+        // Clear Customer
         entityDetailsController.resetData();
-//        marketPlaceController.portraitItemsInShopCart
+        
+        // Clear shopping cart view, list Of added and list of pair(book: units)
+        marketPlaceController.setBooksInShopCart(new ArrayList<>());
+        marketPlaceController.setListOfBooksAddedToShopCard(new ArrayList<>());
+        saleBill = new LinkedHashMap<>();
+        
+        PanelBackground shoppingCartPanel = marketPlaceController.getPortraitItemsInShopCart();
+        shoppingCartPanel.removeAll();
+        shoppingCartPanel.revalidate();
+        shoppingCartPanel.repaint();
+        
+        detailsCustomerName.setText("Nombre Cliente");
+        detailsTotalPrice.setText("Total de la Compra");
 
 //        table.clearSelection();
 //        btnSave.setEnabled(false);
@@ -188,7 +203,7 @@ public class ShoppingCartController {
         }
     } 
     
-    private void dispatchCustomerSale() throws DAOException {
+    public void createCustomerBill() throws DAOException {
         List<ShoppingCartBookPanel> listOfBooksAddedToShopCard = marketPlaceController.getListOfBooksAddedToShopCard();
         BigDecimal totalPrice = new BigDecimal(0);
         
@@ -220,7 +235,6 @@ public class ShoppingCartController {
         
         System.out.println(totalPrice);
         detailsTotalPrice.setText(String.format("$ %,.2f", totalPrice));
-        saveBill();
     }
     
     private void consultAndSaveCustomer() {
@@ -274,5 +288,11 @@ public class ShoppingCartController {
         }
     }
     
+    
+    
+//    public void recalculatePrice() {
+
+//    }
+//    
     
 }

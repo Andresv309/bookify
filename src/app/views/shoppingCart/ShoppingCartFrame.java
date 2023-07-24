@@ -17,6 +17,8 @@ import javax.swing.JScrollPane;
 
 public class ShoppingCartFrame extends javax.swing.JFrame {
     
+    private ShoppingCartController shoppingCartController = null;
+    
     public ShoppingCartFrame() throws DAOException {
         initComponents();
         init();
@@ -31,7 +33,7 @@ public class ShoppingCartFrame extends javax.swing.JFrame {
         addScroll();
         setBackground(new Color(0, 0, 0 , 0));
         
-        new ShoppingCartController(this, marketplaceController);
+        this.shoppingCartController = new ShoppingCartController(this, marketplaceController);
     } 
     
     private void init() {
@@ -47,6 +49,10 @@ public class ShoppingCartFrame extends javax.swing.JFrame {
         scroll.setHorizontalScrollBarPolicy(JScrollPane.HORIZONTAL_SCROLLBAR_NEVER);
     }
 
+    public ShoppingCartController getShoppingCartController() {
+        return shoppingCartController;
+    }
+    
     public ButtonGradient getDetailsBtnConfirmSale() {
         return detailsBtnConfirmSale;
     }
