@@ -45,8 +45,11 @@
               <Component id="header" alignment="0" pref="1273" max="32767" attributes="0"/>
               <Component id="footer" alignment="1" max="32767" attributes="0"/>
               <Group type="102" alignment="0" attributes="0">
-                  <EmptySpace min="-2" pref="4" max="-2" attributes="0"/>
-                  <Component id="menu" min="-2" max="-2" attributes="0"/>
+                  <EmptySpace max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="0" attributes="0">
+                      <Component id="menu" min="-2" max="-2" attributes="0"/>
+                      <Component id="user1" alignment="0" min="-2" max="-2" attributes="0"/>
+                  </Group>
                   <EmptySpace max="-2" attributes="0"/>
                   <Component id="mainBody" max="32767" attributes="0"/>
               </Group>
@@ -56,14 +59,14 @@
           <Group type="103" groupAlignment="0" attributes="0">
               <Group type="102" attributes="0">
                   <Component id="header" min="-2" max="-2" attributes="0"/>
+                  <EmptySpace max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
+                      <Component id="mainBody" pref="729" max="32767" attributes="0"/>
                       <Group type="102" attributes="0">
+                          <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                          <Component id="menu" min="-2" pref="633" max="-2" attributes="0"/>
                           <EmptySpace max="-2" attributes="0"/>
-                          <Component id="mainBody" pref="729" max="32767" attributes="0"/>
-                      </Group>
-                      <Group type="102" attributes="0">
-                          <EmptySpace min="-2" pref="21" max="-2" attributes="0"/>
-                          <Component id="menu" max="32767" attributes="0"/>
+                          <Component id="user1" min="-2" max="-2" attributes="0"/>
                       </Group>
                   </Group>
                   <EmptySpace max="-2" attributes="0"/>
@@ -99,6 +102,8 @@
         <Component class="components.menu.Menu" name="menu">
         </Component>
         <Component class="components.MainBody" name="mainBody">
+        </Component>
+        <Component class="components.menu.User" name="user1">
         </Component>
       </SubComponents>
     </Container>
