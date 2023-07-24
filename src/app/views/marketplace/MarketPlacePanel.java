@@ -5,6 +5,7 @@ import app.dao.exceptions.DAOException;
 import app.views.shoppingCart.ShoppingCartFrame;
 import components.components.mainComponents.swing.scrollbar.ScrollBarCustom;
 import components.mainComponents.swing.PanelBackground;
+import java.awt.Cursor;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.logging.Level;
@@ -27,6 +28,7 @@ public class MarketPlacePanel extends javax.swing.JPanel {
         books = new ArrayList<>();
         index = 0;
         new MarketplaceController(this);
+        btnOpenShopCart.setCursor(new Cursor(Cursor.HAND_CURSOR));
         
     }
         
