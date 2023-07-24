@@ -78,9 +78,9 @@ public class CategoryPanel extends Form {
         btnSave = new javax.swing.JButton();
         btnCancel = new javax.swing.JButton();
         panelBackground3 = new components.mainComponents.swing.PanelBackground();
-        jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
         detailsPanel = new app.views.category.CategoryDetailsPanel();
+        jLabel6 = new javax.swing.JLabel();
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -250,16 +250,37 @@ public class CategoryPanel extends Form {
                 .addContainerGap())
         );
 
-        panelBackground3.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        jLabel4.setFont(new java.awt.Font("Yu Gothic UI Semibold", 1, 29)); // NOI18N
-        jLabel4.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel4.setText("Formulario");
-        panelBackground3.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 20, 150, -1));
-
         jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/Pet.png"))); // NOI18N
-        panelBackground3.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 36, -1, -1));
-        panelBackground3.add(detailsPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 130, -1, -1));
+
+        jLabel6.setFont(new java.awt.Font("Yu Gothic UI Semibold", 1, 29)); // NOI18N
+        jLabel6.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel6.setText("Formulario");
+
+        javax.swing.GroupLayout panelBackground3Layout = new javax.swing.GroupLayout(panelBackground3);
+        panelBackground3.setLayout(panelBackground3Layout);
+        panelBackground3Layout.setHorizontalGroup(
+            panelBackground3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panelBackground3Layout.createSequentialGroup()
+                .addGap(40, 40, 40)
+                .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addGroup(panelBackground3Layout.createSequentialGroup()
+                .addGap(10, 10, 10)
+                .addComponent(detailsPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addGroup(panelBackground3Layout.createSequentialGroup()
+                .addGap(120, 120, 120)
+                .addComponent(jLabel5))
+        );
+        panelBackground3Layout.setVerticalGroup(
+            panelBackground3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panelBackground3Layout.createSequentialGroup()
+                .addGap(20, 20, 20)
+                .addComponent(jLabel6)
+                .addGap(70, 70, 70)
+                .addComponent(detailsPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addGroup(panelBackground3Layout.createSequentialGroup()
+                .addGap(36, 36, 36)
+                .addComponent(jLabel5))
+        );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -304,8 +325,8 @@ public class CategoryPanel extends Form {
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPaneTable;
     private javax.swing.JToolBar.Separator jSeparator1;
