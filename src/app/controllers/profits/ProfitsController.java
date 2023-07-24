@@ -58,7 +58,7 @@ public class ProfitsController {
         card2.getLbDescription().setText("Tus ingresos por ventas.");
         card2.getLbValues().setText(String.format("$ %,.2f",salesProfit));
         
-        card3.getLbTitle().setText("No. de libros en stock");
+        card3.getLbTitle().setText("No. de Libros en Stock");
         card3.getLbDescription().setText("La suma de todos los libros.");
         card3.getLbValues().setText(Integer.toString(stockCount));
   
