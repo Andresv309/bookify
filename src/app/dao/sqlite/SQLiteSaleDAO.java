@@ -3,6 +3,7 @@ package app.dao.sqlite;
 
 import app.dao.exceptions.DAOException;
 import app.dao.interfaces.SaleDAO;
+import app.models.Customer;
 import app.models.Sale;
 import java.math.BigDecimal;
 import java.util.List;
@@ -36,6 +37,8 @@ public class SQLiteSaleDAO implements SaleDAO {
     private final String GETCOUNT = "SELECT COUNT(*) as count FROM sales WHERE idSaleParent IS NULL;";
     private final String GETPROFIT = "SELECT SUM(salePrice) as profit FROM sales;";
     
+    private final String GETCUSTOMER = "SELECT id, name, idCardType, cardNumber FROM customers WHERE idCardType = ? AND cardNumber = ?;";
+  
     private Connection conn;
     
     public SQLiteSaleDAO(Connection conn) {
@@ -63,22 +66,27 @@ public class SQLiteSaleDAO implements SaleDAO {
     
     
     @Override
-    public void insert(Sale record) throws DAOException {
+    public long insert(Sale record) throws DAOException {
         PreparedStatement stat = null;
         ResultSet rs = null;
         try {
+            boolean hasRegisteredCostumerId = record.getIdCustomer() != null;
+            boolean hasParentSaleId = record.getIdSaleParent() != null;
+
             stat = conn.prepareStatement(INSERT);
-            stat.setLong(1, record.getIdBook());
-            stat.setLong(2, record.getIdCustomer());
+            stat.setLong(1, record.getIdBook());         
             stat.setBigDecimal(3,record.getSalePrice());
-            stat.setLong(4,record.getIdSaleParent());
+            
+            if (hasRegisteredCostumerId) stat.setLong(2, record.getIdCustomer());
+            if (hasParentSaleId) stat.setLong(4,record.getIdSaleParent());
+            
             if (stat.executeUpdate() == 0) {
                 throw new DAOException("Record might not have been saved.");
             }
             
             rs = stat.getGeneratedKeys();
             if (rs.next()) {
-                rs.getLong(1);
+                return rs.getLong(1);
             } else {
                 throw new DAOException("Couldn't assign id to record.");
             }
@@ -236,5 +244,52 @@ public class SQLiteSaleDAO implements SaleDAO {
         }
         
         return profit;
+    }
+
+    private Customer convertCustomer(ResultSet rs) throws SQLException {
+        String name = rs.getString("name");
+        Long idCardType = rs.getLong("idCardType");
+        String cardNumber = rs.getString("cardNumber");
+
+        Customer customer = new Customer(name, idCardType, cardNumber);
+        customer.setId(rs.getLong("id"));
+        return customer;
+    }
+    
+    
+    
+    @Override
+    public Customer getCustomer(Long cardTypeId, String cardNumber) throws DAOException {
+        PreparedStatement stat = null;
+        ResultSet rs = null;
+        Customer customer = null;
+        try {
+            stat = conn.prepareStatement(GETCUSTOMER);
+            stat.setLong(1, cardTypeId);
+            stat.setString(2, cardNumber);
+            rs = stat.executeQuery();
+            if (rs.next()) {
+                customer = convertCustomer(rs);
+            }
+        } catch (SQLException ex) {
+            throw new DAOException("SQL Error.", ex);
+        } finally {
+            if (rs != null) {
+                try {
+                    rs.close();
+                } catch (SQLException ex) {
+                    throw new DAOException("Couldn't close resultSet.", ex);
+                }
+            }
+            if (stat != null) {
+                try {
+                    stat.close();
+                } catch (SQLException ex) {
+                    throw new DAOException("Couldn't close prepareStatement.", ex);
+                }
+            }
+        }
+        
+        return customer;
     }
 }
