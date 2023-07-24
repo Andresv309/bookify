@@ -9,4 +9,5 @@ import app.models.User;
 public interface UserDAO {
     User get(Long idRecord) throws DAOException;
     List<User> getAll() throws DAOException;
+    User valitate(String username, String password) throws DAOException;
 }

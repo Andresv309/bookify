@@ -115,7 +115,7 @@ public class SQLiteDAOManager implements IDAOManager{
     @Override
     public UserDAO getUserDao() {
         if (user == null) {
-            user = new SQLiteUserDAO();
+            user = new SQLiteUserDAO(conn);
         }
         return user;
     }
