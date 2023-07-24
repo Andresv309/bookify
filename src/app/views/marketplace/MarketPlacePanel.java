@@ -2,10 +2,14 @@ package app.views.marketplace;
 
 import app.controllers.marketplace.MarketplaceController;
 import app.dao.exceptions.DAOException;
+import app.views.shoppingCart.ShoppingCartFrame;
 import components.components.mainComponents.swing.scrollbar.ScrollBarCustom;
 import components.mainComponents.swing.PanelBackground;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.JButton;
 import javax.swing.JScrollPane;
 
 
@@ -13,6 +17,8 @@ public class MarketPlacePanel extends javax.swing.JPanel {
 
     private List<BookView> books;
     private int index;
+//    private ShoppingCartFrame shoppingCartFrameInstance = null;
+//    private boolean isShowing = false;
     
    
     public MarketPlacePanel() throws DAOException{
@@ -35,8 +41,7 @@ public class MarketPlacePanel extends javax.swing.JPanel {
     public PanelBackground getPortrait() {
         return portrait;
     }
-    
-    
+
 
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
@@ -44,6 +49,7 @@ public class MarketPlacePanel extends javax.swing.JPanel {
 
         panelBackground1 = new components.mainComponents.swing.PanelBackground();
         btnNewBook = new components.ButtonGradient();
+        btnOpenShopCart = new javax.swing.JButton();
         scroll = new javax.swing.JScrollPane();
         portrait = new components.mainComponents.swing.PanelBackground();
 
@@ -60,6 +66,13 @@ public class MarketPlacePanel extends javax.swing.JPanel {
             }
         });
 
+        btnOpenShopCart.setText("Abrir Carrito");
+        btnOpenShopCart.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnOpenShopCartActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout panelBackground1Layout = new javax.swing.GroupLayout(panelBackground1);
         panelBackground1.setLayout(panelBackground1Layout);
         panelBackground1Layout.setHorizontalGroup(
@@ -67,13 +80,17 @@ public class MarketPlacePanel extends javax.swing.JPanel {
             .addGroup(panelBackground1Layout.createSequentialGroup()
                 .addGap(17, 17, 17)
                 .addComponent(btnNewBook, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(814, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 692, Short.MAX_VALUE)
+                .addComponent(btnOpenShopCart, javax.swing.GroupLayout.PREFERRED_SIZE, 108, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(14, 14, 14))
         );
         panelBackground1Layout.setVerticalGroup(
             panelBackground1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelBackground1Layout.createSequentialGroup()
                 .addContainerGap(7, Short.MAX_VALUE)
-                .addComponent(btnNewBook, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(panelBackground1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btnNewBook, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnOpenShopCart))
                 .addContainerGap())
         );
 
@@ -111,9 +128,28 @@ public class MarketPlacePanel extends javax.swing.JPanel {
 //        index ++;
     }//GEN-LAST:event_btnNewBookActionPerformed
 
+    private void btnOpenShopCartActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnOpenShopCartActionPerformed
+//        if (shoppingCartFrameInstance == null) {
+//            try {
+//                shoppingCartFrameInstance = new ShoppingCartFrame();
+//            } catch (DAOException ex) {
+//                Logger.getLogger(MarketPlacePanel.class.getName()).log(Level.SEVERE, null, ex);
+//            }
+//        }
+//        isShowing = !isShowing;
+//        shoppingCartFrameInstance.setVisible(isShowing);
+    }//GEN-LAST:event_btnOpenShopCartActionPerformed
 
+    public JButton getBtnOpenShopCart() {
+        return btnOpenShopCart;
+    }
+
+    
+    
+    
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private components.ButtonGradient btnNewBook;
+    private javax.swing.JButton btnOpenShopCart;
     private components.mainComponents.swing.PanelBackground panelBackground1;
     private components.mainComponents.swing.PanelBackground portrait;
     private javax.swing.JScrollPane scroll;

@@ -1,24 +1,35 @@
 package app.views.marketplace;
 
+import components.ButtonGradient;
 import components.mainComponents.theme.SystemTheme;
 import java.awt.Cursor;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
+import app.models.Book;
 
 
 public class BookView extends javax.swing.JPanel {
 
+    private Book bookItem;
+    
     public BookView() {
         initComponents();
         paintButton();
-        btnBuy.setCursor(new Cursor(Cursor.HAND_CURSOR));
+        detailsBtnAddBookItem.setCursor(new Cursor(Cursor.HAND_CURSOR));
+    }
+    
+    public BookView(Book book) {
+        initComponents();
+        detailsBtnAddBookItem.setCursor(new Cursor(Cursor.HAND_CURSOR));
+        
+        this.bookItem = book;
+        drawBookPortrait(book.getImgPath());
     }
     
     
-    public BookView(String imgName) {
-        initComponents();
-        btnBuy.setCursor(new Cursor(Cursor.HAND_CURSOR));
+    public void drawBookPortrait(String imgName) {
+        detailsBtnAddBookItem.setCursor(new Cursor(Cursor.HAND_CURSOR));
 
         String imgPath = System.getProperty("user.dir") +
                             "\\src\\Images\\portadas\\" +
@@ -40,10 +51,20 @@ public class BookView extends javax.swing.JPanel {
             );
         }
     }
+
+    public Book getBookItem() {
+        return bookItem;
+    }
     
+ 
+
+    public ButtonGradient getDetailsBtnAddBookItem() {
+        return detailsBtnAddBookItem;
+    }
+
     
     public void paintButton() {
-        btnBuy.setColor(SystemTheme.mainColor);
+        detailsBtnAddBookItem.setColor(SystemTheme.mainColor);
     } 
 
     /**
@@ -57,7 +78,7 @@ public class BookView extends javax.swing.JPanel {
 
         bookPortrait = new javax.swing.JLabel();
         pagesPlaceholder = new javax.swing.JLabel();
-        btnBuy = new components.ButtonGradient();
+        detailsBtnAddBookItem = new components.ButtonGradient();
 
         setOpaque(false);
 
@@ -65,15 +86,15 @@ public class BookView extends javax.swing.JPanel {
 
         pagesPlaceholder.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/portadas/bordeLibro.png"))); // NOI18N
 
-        btnBuy.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/Shop.png"))); // NOI18N
-        btnBuy.setText("Add");
-        btnBuy.setFont(new java.awt.Font("Yu Gothic UI Semibold", 1, 12)); // NOI18N
-        btnBuy.setGradientColor1(new java.awt.Color(54, 149, 255));
-        btnBuy.setGradientColor2(new java.awt.Color(54, 149, 255));
-        btnBuy.setIconTextGap(2);
-        btnBuy.addActionListener(new java.awt.event.ActionListener() {
+        detailsBtnAddBookItem.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/Shop.png"))); // NOI18N
+        detailsBtnAddBookItem.setText("Add");
+        detailsBtnAddBookItem.setFont(new java.awt.Font("Yu Gothic UI Semibold", 1, 12)); // NOI18N
+        detailsBtnAddBookItem.setGradientColor1(new java.awt.Color(54, 149, 255));
+        detailsBtnAddBookItem.setGradientColor2(new java.awt.Color(54, 149, 255));
+        detailsBtnAddBookItem.setIconTextGap(2);
+        detailsBtnAddBookItem.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnBuyActionPerformed(evt);
+                detailsBtnAddBookItemActionPerformed(evt);
             }
         });
 
@@ -86,7 +107,7 @@ public class BookView extends javax.swing.JPanel {
                 .addComponent(bookPortrait))
             .addGroup(layout.createSequentialGroup()
                 .addGap(80, 80, 80)
-                .addComponent(btnBuy, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addComponent(detailsBtnAddBookItem, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
             .addGroup(layout.createSequentialGroup()
                 .addGap(40, 40, 40)
                 .addComponent(pagesPlaceholder, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -100,7 +121,7 @@ public class BookView extends javax.swing.JPanel {
                         .addComponent(bookPortrait, javax.swing.GroupLayout.PREFERRED_SIZE, 229, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(266, 266, 266)
-                        .addComponent(btnBuy, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(detailsBtnAddBookItem, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(10, 10, 10)
                         .addComponent(pagesPlaceholder, javax.swing.GroupLayout.PREFERRED_SIZE, 268, javax.swing.GroupLayout.PREFERRED_SIZE)))
@@ -108,14 +129,14 @@ public class BookView extends javax.swing.JPanel {
         );
     }// </editor-fold>//GEN-END:initComponents
 
-    private void btnBuyActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuyActionPerformed
+    private void detailsBtnAddBookItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_detailsBtnAddBookItemActionPerformed
         System.out.println("Compra Exitosa");
-    }//GEN-LAST:event_btnBuyActionPerformed
+    }//GEN-LAST:event_detailsBtnAddBookItemActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel bookPortrait;
-    private components.ButtonGradient btnBuy;
+    private components.ButtonGradient detailsBtnAddBookItem;
     private javax.swing.JLabel pagesPlaceholder;
     // End of variables declaration//GEN-END:variables
 }
