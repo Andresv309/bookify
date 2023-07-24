@@ -1,6 +1,7 @@
 package app.views.shoppingCart;
 
 import app.models.Book;
+import javax.swing.JButton;
 import javax.swing.JSpinner;
 
 
@@ -34,6 +35,10 @@ public class ShoppingCartBookPanel extends javax.swing.JPanel {
         return book;
     }
 
+    public JButton getDetailsBtnRemoveBookItem() {
+        return detailsBtnRemoveBookItem;
+    }
+
     
     
     @SuppressWarnings("unchecked")
@@ -49,6 +54,7 @@ public class ShoppingCartBookPanel extends javax.swing.JPanel {
         detailsItemBookPortrait = new javax.swing.JLabel();
         pagesPlaceholder = new javax.swing.JLabel();
         jSeparator1 = new javax.swing.JSeparator();
+        detailsBtnRemoveBookItem = new javax.swing.JButton();
 
         setOpaque(false);
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -89,10 +95,16 @@ public class ShoppingCartBookPanel extends javax.swing.JPanel {
 
         jSeparator1.setBackground(new java.awt.Color(0, 0, 0));
         add(jSeparator1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 360, 190, 20));
+
+        detailsBtnRemoveBookItem.setBackground(new java.awt.Color(204, 0, 0));
+        detailsBtnRemoveBookItem.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/icon/clear.png"))); // NOI18N
+        detailsBtnRemoveBookItem.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
+        add(detailsBtnRemoveBookItem, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 10, 30, 30));
     }// </editor-fold>//GEN-END:initComponents
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton detailsBtnRemoveBookItem;
     private javax.swing.JSpinner detailsItemAmount;
     private javax.swing.JLabel detailsItemBookName;
     private javax.swing.JLabel detailsItemBookPortrait;

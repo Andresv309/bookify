@@ -12,7 +12,9 @@ import app.views.shoppingCart.ShoppingCartFrame;
 import components.mainComponents.swing.PanelBackground;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.text.ParseException;
 import java.util.ArrayList;
+import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -109,7 +111,10 @@ public class MarketplaceController {
      
                     ShoppingCartBookPanel bookPanel = new ShoppingCartBookPanel(bookItem);
                     addChangeEventListener(bookPanel.getDetailsItemAmount());
-//                    addRemoveEventListener("iojdsiojdosij");
+                    addRemoveEventListener(
+                            bookItem,
+                            bookPanel
+                    );
                     
                     listOfBooksAddedToShopCard.add(bookPanel);
 
@@ -156,21 +161,43 @@ public class MarketplaceController {
         @Override
         public void stateChanged(ChangeEvent e) {
             try {
+                jspinner.commitEdit();
                 shoppingCartFrameInstance.getShoppingCartController().createCustomerBill();
             } catch (DAOException ex) {
+                Logger.getLogger(MarketplaceController.class.getName()).log(Level.SEVERE, null, ex);
+            } catch (ParseException ex) {
                 Logger.getLogger(MarketplaceController.class.getName()).log(Level.SEVERE, null, ex);
             }
         }
     });
     }
     
-    private void addRemoveEventListener(JButton jbutton, Book bookItem, ShoppingCartBookPanel bookPanel) {
-        jbutton.addActionListener(new ActionListener() {
+    private void addRemoveEventListener(Book bookItem, ShoppingCartBookPanel bookPanel) {
+        JButton btnRemoveBookItem = bookPanel.getDetailsBtnRemoveBookItem();
+        
+        btnRemoveBookItem.addActionListener(new ActionListener() {
             
             @Override
             public void actionPerformed(ActionEvent e) {
+                // Remove from marketplace list
                 booksInShopCart.remove(bookItem);
+                
+                // Remove from shopping cart list
                 listOfBooksAddedToShopCard.remove(bookPanel);
+                
+                // Remove from shopping cart bill
+                LinkedHashMap<Book, Integer> saleBill = shoppingCartFrameInstance.getShoppingCartController().getSaleBill();
+                saleBill.remove(bookItem);
+                
+                // Recalculate bill
+                try {
+                    shoppingCartFrameInstance.getShoppingCartController().createCustomerBill();
+                } catch (DAOException ex) {
+                    Logger.getLogger(MarketplaceController.class.getName()).log(Level.SEVERE, null, ex);
+                }
+                
+                
+                // Remove from shopping cart view
                 portraitItemsInShopCart.remove(bookPanel);
                 portraitItemsInShopCart.updateUI();
                 btnOpenShopCart.setText(String.format("%d", listOfBooksAddedToShopCard.size()));

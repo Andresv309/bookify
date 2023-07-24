@@ -215,7 +215,7 @@ public class ShoppingCartController {
             try {
                 bookItemUnitsSelect.commitEdit();
                 unitsPerItem = (Integer) bookItemUnitsSelect.getValue();
-                System.out.println("unidades por item" + unitsPerItem);
+//                System.out.println("unidades por item" + unitsPerItem);
             } catch (NumberFormatException ex) {
                 System.out.println("Not valid number");
             } catch (ParseException ex) {
@@ -287,12 +287,11 @@ public class ShoppingCartController {
 //            entityDAO.insert(record);
         }
     }
-    
-    
-    
-//    public void recalculatePrice() {
 
-//    }
-//    
+    public LinkedHashMap<Book, Integer> getSaleBill() {
+        return saleBill;
+    }
+    
+    
     
 }
