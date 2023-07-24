@@ -48,7 +48,7 @@
                   <EmptySpace max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Component id="menu" min="-2" max="-2" attributes="0"/>
-                      <Component id="user1" alignment="0" min="-2" max="-2" attributes="0"/>
+                      <Component id="mainUserInfo" alignment="0" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace max="-2" attributes="0"/>
                   <Component id="mainBody" max="32767" attributes="0"/>
@@ -64,7 +64,7 @@
                       <Group type="102" attributes="0">
                           <Component id="menu" max="32767" attributes="0"/>
                           <EmptySpace max="-2" attributes="0"/>
-                          <Component id="user1" min="-2" max="-2" attributes="0"/>
+                          <Component id="mainUserInfo" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <Component id="mainBody" pref="763" max="32767" attributes="0"/>
                   </Group>
@@ -102,7 +102,7 @@
         </Component>
         <Component class="components.MainBody" name="mainBody">
         </Component>
-        <Component class="components.menu.User" name="user1">
+        <Component class="components.menu.User" name="mainUserInfo">
         </Component>
       </SubComponents>
     </Container>

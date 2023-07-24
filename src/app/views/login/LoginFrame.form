@@ -148,7 +148,7 @@
                               </Group>
                               <Group type="102" attributes="0">
                                   <EmptySpace min="20" pref="20" max="-2" attributes="0"/>
-                                  <Component id="login_userNameInput" min="-2" pref="171" max="-2" attributes="0"/>
+                                  <Component id="loginUserNameInput" min="-2" pref="171" max="-2" attributes="0"/>
                               </Group>
                               <Group type="102" attributes="0">
                                   <EmptySpace min="20" pref="20" max="-2" attributes="0"/>
@@ -160,7 +160,7 @@
                               </Group>
                               <Group type="102" attributes="0">
                                   <EmptySpace min="20" pref="20" max="-2" attributes="0"/>
-                                  <Component id="login_passwordInput" min="-2" pref="166" max="-2" attributes="0"/>
+                                  <Component id="loginPasswordInput" min="-2" pref="166" max="-2" attributes="0"/>
                               </Group>
                               <Group type="102" attributes="0">
                                   <EmptySpace min="20" pref="20" max="-2" attributes="0"/>
@@ -173,7 +173,7 @@
                               </Group>
                               <Group type="102" alignment="0" attributes="0">
                                   <EmptySpace min="-2" pref="72" max="-2" attributes="0"/>
-                                  <Component id="buttonGradient1" min="-2" pref="124" max="-2" attributes="0"/>
+                                  <Component id="loginBtnValidateUser" min="-2" pref="124" max="-2" attributes="0"/>
                               </Group>
                           </Group>
                         </DimensionLayout>
@@ -185,17 +185,17 @@
                                   <EmptySpace min="-2" pref="54" max="-2" attributes="0"/>
                                   <Component id="jLabel6" min="-2" pref="14" max="-2" attributes="0"/>
                                   <EmptySpace min="6" pref="6" max="-2" attributes="0"/>
-                                  <Component id="login_userNameInput" min="-2" max="-2" attributes="0"/>
+                                  <Component id="loginUserNameInput" min="-2" max="-2" attributes="0"/>
                                   <EmptySpace min="4" pref="4" max="-2" attributes="0"/>
                                   <Component id="jSeparator2" min="-2" pref="10" max="-2" attributes="0"/>
                                   <EmptySpace min="30" pref="30" max="-2" attributes="0"/>
                                   <Component id="jLabel7" min="-2" pref="14" max="-2" attributes="0"/>
                                   <EmptySpace min="6" pref="6" max="-2" attributes="0"/>
-                                  <Component id="login_passwordInput" min="-2" pref="20" max="-2" attributes="0"/>
+                                  <Component id="loginPasswordInput" min="-2" pref="20" max="-2" attributes="0"/>
                                   <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
                                   <Component id="jSeparator3" min="-2" pref="10" max="-2" attributes="0"/>
                                   <EmptySpace min="-2" pref="50" max="-2" attributes="0"/>
-                                  <Component id="buttonGradient1" min="-2" pref="37" max="-2" attributes="0"/>
+                                  <Component id="loginBtnValidateUser" min="-2" pref="37" max="-2" attributes="0"/>
                                   <EmptySpace pref="35" max="32767" attributes="0"/>
                               </Group>
                           </Group>
@@ -213,7 +213,7 @@
                             <Property name="text" type="java.lang.String" value="Usuario "/>
                           </Properties>
                         </Component>
-                        <Component class="javax.swing.JTextField" name="login_userNameInput">
+                        <Component class="javax.swing.JTextField" name="loginUserNameInput">
                           <Properties>
                             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                               <Color blue="ff" green="ff" red="ff" type="rgb"/>
@@ -233,8 +233,8 @@
                             </Property>
                           </Properties>
                           <Events>
-                            <EventHandler event="mousePressed" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="login_userNameInputMousePressed"/>
-                            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="login_userNameInputActionPerformed"/>
+                            <EventHandler event="mousePressed" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="loginUserNameInputMousePressed"/>
+                            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="loginUserNameInputActionPerformed"/>
                           </Events>
                         </Component>
                         <Component class="javax.swing.JSeparator" name="jSeparator2">
@@ -262,7 +262,7 @@
                             </Property>
                           </Properties>
                         </Component>
-                        <Component class="javax.swing.JPasswordField" name="login_passwordInput">
+                        <Component class="javax.swing.JPasswordField" name="loginPasswordInput">
                           <Properties>
                             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                               <Color blue="ff" green="ff" red="ff" type="rgb"/>
@@ -279,12 +279,12 @@
                             </Property>
                           </Properties>
                           <Events>
-                            <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="login_passwordInputMouseClicked"/>
-                            <EventHandler event="mousePressed" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="login_passwordInputMousePressed"/>
-                            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="login_passwordInputActionPerformed"/>
+                            <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="loginPasswordInputMouseClicked"/>
+                            <EventHandler event="mousePressed" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="loginPasswordInputMousePressed"/>
+                            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="loginPasswordInputActionPerformed"/>
                           </Events>
                         </Component>
-                        <Component class="components.ButtonGradient" name="buttonGradient1">
+                        <Component class="components.ButtonGradient" name="loginBtnValidateUser">
                           <Properties>
                             <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
                               <Border info="null"/>
@@ -298,7 +298,7 @@
                             </Property>
                           </Properties>
                           <Events>
-                            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="buttonGradient1ActionPerformed"/>
+                            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="loginBtnValidateUserActionPerformed"/>
                           </Events>
                         </Component>
                         <Component class="javax.swing.JLabel" name="jLabel8">

@@ -2,6 +2,7 @@ package app.views.main;
 
 
 import app.dao.exceptions.DAOException;
+import app.models.User;
 import app.views.book.BookPanel;
 import app.views.author.AuthorPanel;
 import app.views.category.CategoryPanel;
@@ -33,6 +34,14 @@ public class Index extends javax.swing.JFrame {
         initComponents();
         setBackground(new Color(0, 0, 0 , 0));
         init();               
+    }
+    
+    public Index(User user) throws DAOException {
+        initComponents();
+        setBackground(new Color(0, 0, 0 , 0));
+        init();
+        
+        mainUserInfo.getMainUsername().setText(user.getUsername());
     }
     
     private void init () throws DAOException {
@@ -156,7 +165,7 @@ public class Index extends javax.swing.JFrame {
         footer = new javax.swing.JPanel();
         menu = new components.menu.Menu();
         mainBody = new components.MainBody();
-        user1 = new components.menu.User();
+        mainUserInfo = new components.menu.User();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setUndecorated(true);
@@ -186,7 +195,7 @@ public class Index extends javax.swing.JFrame {
                 .addContainerGap()
                 .addGroup(panelBackgroundLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(menu, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(user1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(mainUserInfo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(mainBody, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
@@ -199,7 +208,7 @@ public class Index extends javax.swing.JFrame {
                     .addGroup(panelBackgroundLayout.createSequentialGroup()
                         .addComponent(menu, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(user1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(mainUserInfo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(mainBody, javax.swing.GroupLayout.DEFAULT_SIZE, 763, Short.MAX_VALUE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(footer, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -280,8 +289,8 @@ public class Index extends javax.swing.JFrame {
     private javax.swing.JPanel footer;
     private components.Header header;
     private components.MainBody mainBody;
+    private components.menu.User mainUserInfo;
     private components.menu.Menu menu;
     private components.mainComponents.swing.PanelBackground panelBackground;
-    private components.menu.User user1;
     // End of variables declaration//GEN-END:variables
 }
