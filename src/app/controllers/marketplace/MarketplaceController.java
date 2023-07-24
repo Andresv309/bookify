@@ -27,6 +27,7 @@ public class MarketplaceController {
     private ShoppingCartFrame shoppingCartFrameInstance = null;
     private boolean isShowing = false;
  
+    private List<Book> booksInShopCart = new ArrayList<>();
     private List<ShoppingCartBookPanel> listOfBooksAddedToShopCard = new ArrayList<>();
     private PanelBackground portraitItemsInShopCart = null;
     
@@ -96,7 +97,9 @@ public class MarketplaceController {
 //                System.out.println("soy un boton");
 //                System.out.println(bookItem);
                 
-                if (!listOfBooksAddedToShopCard.contains(bookItem)) {
+                if (!booksInShopCart.contains(bookItem)) {
+                    booksInShopCart.add(bookItem);
+                    
                     ShoppingCartBookPanel bookPanel = new ShoppingCartBookPanel(bookItem);
                     
                     listOfBooksAddedToShopCard.add(bookPanel);
