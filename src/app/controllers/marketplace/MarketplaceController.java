@@ -106,6 +106,7 @@ public class MarketplaceController {
 
                     portraitItemsInShopCart.add(bookPanel);
                     portraitItemsInShopCart.updateUI();
+                    btnOpenShopCart.setText(String.format("%d", booksInShopCart.size()));
                 }
                 
 //                for (Book booktre : listOfBooksAddedToShopCard) {
@@ -114,8 +115,8 @@ public class MarketplaceController {
             }
         });
     }
-    
-    
+
+   
     
     
 }

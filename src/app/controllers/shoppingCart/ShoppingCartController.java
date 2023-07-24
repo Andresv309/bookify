@@ -45,8 +45,8 @@ public class ShoppingCartController {
     private JLabel detailsTotalPrice;
     private JButton btnConfirmSale;
     private JButton btnConsultClient;
+    private JButton btnCleanCart;
     
-//    private List<Book> booksList = new ArrayList<>();
     private MarketplaceController marketPlaceController;
     private LinkedHashMap<Book, Integer> saleBill = new LinkedHashMap<>();
     
@@ -78,6 +78,7 @@ public class ShoppingCartController {
         this.detailsTotalPrice = entityFrame.getDetailsTotalPrice();
         this.btnConsultClient = entityFrame.getDetailsBtnConsultClient();
         this.btnConfirmSale = entityFrame.getDetailsBtnConfirmSale();
+        this.btnCleanCart = entityFrame.getDetailsBtnCleanCart();
 
 //        this.updatePanelView();
         this.initEvents();
@@ -85,38 +86,22 @@ public class ShoppingCartController {
     
 
     public void initEvents() {
-//        btnConsultClient.addActionListener(new ActionListener() {
-//            
-//            @Override
-//            public void actionPerformed(ActionEvent ae) {  
-//                try {
-////                    entityDetailsController.setEntity(null);
-////                    entityDetailsController.loadData();
-////                    entityDetailsController.setEditable(true);
-////                    btnSave.setEnabled(true);
-////                    btnCancel.setEnabled(true);
-//                } catch (ParseException ex) {
-//                    Logger.getLogger(ShoppingCartController.class.getName()).log(Level.SEVERE, null, ex);
-//                }
-//            }
-//        });
-        
         btnConfirmSale.addActionListener(new ActionListener() {
             
             @Override
             public void actionPerformed(ActionEvent ae) {  
-//                try {
-//                    Book entity = getRowSelected();
-//                    entityDetailsController.setEntity(entity);
-//                    entityDetailsController.setEditable(true);
-//                    entityDetailsController.loadData();
-//                    btnSave.setEnabled(true);
-//                    btnCancel.setEnabled(true);
-
                     consultAndSaveCustomer();
                 try {
-                    dispatchCustomerSale();
-
+                    if (JOptionPane.showConfirmDialog(
+                        null,
+                        "¿Confirmar Compra?",
+                        "Confirmar Compra",
+                        JOptionPane.YES_NO_OPTION,
+                        JOptionPane.QUESTION_MESSAGE
+                    ) == JOptionPane.OK_OPTION) {
+                        dispatchCustomerSale();
+                        
+                    }
                 } catch (DAOException ex) {
                     Logger.getLogger(ShoppingCartController.class.getName()).log(Level.SEVERE, null, ex);
                 }
@@ -158,28 +143,25 @@ public class ShoppingCartController {
             }
         });
         
-//        btnCancel.addActionListener(new ActionListener() {
-//            
-//            @Override
-//            public void actionPerformed(ActionEvent ae) {  
-//                try {
-//                    cleanSelection();
-//                } catch (ParseException ex) {
-//                    Logger.getLogger(ShoppingCartController.class.getName()).log(Level.SEVERE, null, ex);
-//                }
-//            }
-//        });
+        btnCleanCart.addActionListener(new ActionListener() {
+            
+            @Override
+            public void actionPerformed(ActionEvent ae) {  
+                try {
+                    cleanSelection();
+                } catch (ParseException ex) {
+                    Logger.getLogger(ShoppingCartController.class.getName()).log(Level.SEVERE, null, ex);
+                }
+            }
+        });
     }  
 
-//    private Book getRowSelected() throws DAOException {
-//        Long id = (Long) table.getModel().getValueAt(table.getSelectedRow(), 0);
-//        return entityDAO.get(id);
-//    }
-    
+
     private void cleanSelection() throws ParseException {
         entityDetailsController.setEntity(null);
-//        entityDetailsController.setEditable(false);
-//        entityDetailsController.loadData();
+        entityDetailsController.resetData();
+//        marketPlaceController.portraitItemsInShopCart
+
 //        table.clearSelection();
 //        btnSave.setEnabled(false);
 //        btnCancel.setEnabled(false);
