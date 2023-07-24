@@ -124,32 +124,33 @@ public class ShoppingCartFrame extends javax.swing.JFrame {
         detailsCustomerName.setForeground(new java.awt.Color(0, 0, 0));
         detailsCustomerName.setText("Nombre Cliente");
 
-        detailsBtnConsultClient.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/icon/Book.png"))); // NOI18N
+        detailsBtnConsultClient.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/icon/search.png"))); // NOI18N
         detailsBtnConsultClient.setText("Consultar Cliente");
         detailsBtnConsultClient.setFont(new java.awt.Font("Yu Gothic UI Semibold", 1, 12)); // NOI18N
         detailsBtnConsultClient.setGradientColor1(new java.awt.Color(54, 149, 255));
         detailsBtnConsultClient.setGradientColor2(new java.awt.Color(54, 149, 255));
+        detailsBtnConsultClient.setIconTextGap(10);
         detailsBtnConsultClient.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 detailsBtnConsultClientActionPerformed(evt);
             }
         });
 
-        detailsBtnConfirmSale.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/icon/Book.png"))); // NOI18N
+        detailsBtnConfirmSale.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/icon/shop.png"))); // NOI18N
         detailsBtnConfirmSale.setText("Confimar ");
         detailsBtnConfirmSale.setFont(new java.awt.Font("Yu Gothic UI Semibold", 1, 12)); // NOI18N
         detailsBtnConfirmSale.setGradientColor1(new java.awt.Color(54, 149, 255));
-        detailsBtnConfirmSale.setGradientColor2(new java.awt.Color(54, 149, 255));
+        detailsBtnConfirmSale.setGradientColor2(new java.awt.Color(54, 233, 255));
         detailsBtnConfirmSale.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 detailsBtnConfirmSaleActionPerformed(evt);
             }
         });
 
-        detailsBtnCleanCart.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/icon/4.png"))); // NOI18N
+        detailsBtnCleanCart.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/icon/clear.png"))); // NOI18N
         detailsBtnCleanCart.setFont(new java.awt.Font("Yu Gothic UI Semibold", 1, 12)); // NOI18N
         detailsBtnCleanCart.setGradientColor1(new java.awt.Color(54, 149, 255));
-        detailsBtnCleanCart.setGradientColor2(new java.awt.Color(54, 149, 255));
+        detailsBtnCleanCart.setGradientColor2(new java.awt.Color(54, 233, 255));
         detailsBtnCleanCart.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 detailsBtnCleanCartActionPerformed(evt);
@@ -178,19 +179,19 @@ public class ShoppingCartFrame extends javax.swing.JFrame {
                                     .addGroup(panelBackgroundLayout.createSequentialGroup()
                                         .addComponent(jLabel9)
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(detailsCustomerName))))
-                            .addGroup(panelBackgroundLayout.createSequentialGroup()
-                                .addGap(85, 85, 85)
-                                .addComponent(detailsBtnConfirmSale, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                        .addComponent(detailsCustomerName))
+                                    .addGroup(panelBackgroundLayout.createSequentialGroup()
+                                        .addGap(6, 6, 6)
+                                        .addComponent(detailsBtnConfirmSale, javax.swing.GroupLayout.PREFERRED_SIZE, 143, javax.swing.GroupLayout.PREFERRED_SIZE))))
                             .addGroup(panelBackgroundLayout.createSequentialGroup()
                                 .addGap(24, 24, 24)
-                                .addGroup(panelBackgroundLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                .addGroup(panelBackgroundLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                     .addComponent(scroll, javax.swing.GroupLayout.PREFERRED_SIZE, 251, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addGroup(panelBackgroundLayout.createSequentialGroup()
                                         .addComponent(detailsBtnConsultClient, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addGap(18, 18, 18)
-                                        .addComponent(detailsBtnCleanCart, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)))))
-                        .addGap(0, 107, Short.MAX_VALUE)))
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                        .addComponent(detailsBtnCleanCart, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                        .addGap(0, 19, Short.MAX_VALUE)))
                 .addContainerGap())
         );
         panelBackgroundLayout.setVerticalGroup(
@@ -199,12 +200,12 @@ public class ShoppingCartFrame extends javax.swing.JFrame {
                 .addComponent(headerShoppingCardView, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(detailsUserInfoShopCartPanel, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(12, 12, 12)
-                .addGroup(panelBackgroundLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(detailsBtnConsultClient, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(detailsBtnCleanCart, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(scroll, javax.swing.GroupLayout.PREFERRED_SIZE, 555, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(20, 20, 20)
+                .addGroup(panelBackgroundLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(detailsBtnCleanCart, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(detailsBtnConsultClient, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
+                .addGap(18, 18, 18)
+                .addComponent(scroll, javax.swing.GroupLayout.PREFERRED_SIZE, 549, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(15, 15, 15)
                 .addGroup(panelBackgroundLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel8)
@@ -215,7 +216,7 @@ public class ShoppingCartFrame extends javax.swing.JFrame {
                     .addComponent(detailsCustomerName))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(detailsBtnConfirmSale, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(15, Short.MAX_VALUE))
+                .addContainerGap(24, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -226,10 +227,12 @@ public class ShoppingCartFrame extends javax.swing.JFrame {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(panelBackground, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(panelBackground, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
 
-        setBounds(1600, 130, 300, 845);
+        setBounds(1600, 95, 300, 868);
     }// </editor-fold>//GEN-END:initComponents
 
     private void detailsBtnConsultClientActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_detailsBtnConsultClientActionPerformed
