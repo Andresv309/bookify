@@ -203,7 +203,7 @@ public class ShoppingCartFrame extends javax.swing.JFrame {
             .addComponent(panelBackground, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
-        setBounds(1600, 130, 300, 845);
+        setBounds(1600, 95, 300, 845);
     }// </editor-fold>//GEN-END:initComponents
 
     private void detailsBtnConsultClientActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_detailsBtnConsultClientActionPerformed
