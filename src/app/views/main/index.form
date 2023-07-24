@@ -61,13 +61,12 @@
                   <Component id="header" min="-2" max="-2" attributes="0"/>
                   <EmptySpace max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
-                      <Component id="mainBody" pref="729" max="32767" attributes="0"/>
                       <Group type="102" attributes="0">
-                          <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
-                          <Component id="menu" min="-2" pref="633" max="-2" attributes="0"/>
+                          <Component id="menu" max="32767" attributes="0"/>
                           <EmptySpace max="-2" attributes="0"/>
                           <Component id="user1" min="-2" max="-2" attributes="0"/>
                       </Group>
+                      <Component id="mainBody" pref="763" max="32767" attributes="0"/>
                   </Group>
                   <EmptySpace max="-2" attributes="0"/>
                   <Component id="footer" min="-2" max="-2" attributes="0"/>
