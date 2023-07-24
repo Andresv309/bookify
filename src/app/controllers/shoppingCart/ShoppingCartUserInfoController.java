@@ -7,7 +7,6 @@ import app.dao.interfaces.CardTypeDAO;
 import app.models.CardType;
 import app.models.Customer;
 import app.views.shoppingCart.ShoppingCartUserInfoPanel;
-import app.controllers.shoppingCart.ShoppingCartUserInfoModel;
 import javax.swing.JComboBox;
 import javax.swing.JTextField;
 
