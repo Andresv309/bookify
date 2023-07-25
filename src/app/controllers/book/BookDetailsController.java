@@ -5,7 +5,7 @@ import app.dao.exceptions.DAOException;
 import app.dao.interfaces.AuthorDAO;
 import app.dao.interfaces.CategoryDAO;
 import app.models.Author;
-import app.views.book.BookDetailsPanel1;
+import app.views.book.BookDetailsPanel;
 import app.models.Book;
 import app.models.Category;
 import java.awt.Graphics2D;
@@ -33,7 +33,7 @@ import java.awt.image.RenderedImage;
 
 public class BookDetailsController {
     private boolean editable;
-    private BookDetailsPanel1 entityDetailsPanel;
+    private BookDetailsPanel entityDetailsPanel;
     private Book entity;
     
     private BookCategoryComboBoxModel categoryComboBoxModel;
@@ -44,11 +44,11 @@ public class BookDetailsController {
     private JComboBox<Category> detailsCategory;
     private JTextArea detailsDescription;
     private JFormattedTextField detailsPrice;
-    private JTextField detailsImgPath;
+//    private JTextField detailsImgPath;
     private JButton detailsBtnLoadImage;
     
 
-    public BookDetailsController(BookDetailsPanel1 entityDetailsPanel, CategoryDAO categoryDAO, AuthorDAO authorDAO) throws DAOException {
+    public BookDetailsController(BookDetailsPanel entityDetailsPanel, CategoryDAO categoryDAO, AuthorDAO authorDAO) throws DAOException {
         this.entityDetailsPanel = entityDetailsPanel;
         
         this.categoryComboBoxModel = new BookCategoryComboBoxModel(categoryDAO);
@@ -59,7 +59,7 @@ public class BookDetailsController {
         this.detailsPrice = entityDetailsPanel.getDetailsPrice();
         this.detailsCategory = entityDetailsPanel.getDetailsCategory();
         this.detailsAuthor = entityDetailsPanel.getDetailsAuthor();
-        this.detailsImgPath = entityDetailsPanel.getDetailsImgPath();
+//        this.detailsImgPath = entityDetailsPanel.getDetailsImgPath();
         this.detailsBtnLoadImage = entityDetailsPanel.getDetailsBtnLoadImage();
         
         this.detailsCategory.setModel(categoryComboBoxModel);
@@ -81,7 +81,7 @@ public class BookDetailsController {
         detailsPrice.setEnabled(editable);
         detailsCategory.setEnabled(editable);
         detailsAuthor.setEnabled(editable);
-        detailsImgPath.setEnabled(editable);
+//        detailsImgPath.setEnabled(editable);
     }
 
     public Book getEntity() {
@@ -99,7 +99,7 @@ public class BookDetailsController {
         detailsName.setText(entity.getName());
         detailsDescription.setText(entity.getDescription());
         detailsPrice.setValue(entity.getPrice());
-        detailsImgPath.setText(entity.getImgPath());
+//        detailsImgPath.setText(entity.getImgPath());
         
         Category categoryItem;
         for (int i = 0; i < detailsCategory.getItemCount(); i++) {
@@ -138,7 +138,7 @@ public class BookDetailsController {
                 )
         );
         entity.setDescription(detailsDescription.getText());
-        entity.setImgPath(detailsImgPath.getText());
+//        entity.setImgPath(detailsImgPath.getText());
         
  
     }
