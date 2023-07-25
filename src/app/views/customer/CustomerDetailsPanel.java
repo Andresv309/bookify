@@ -74,7 +74,7 @@ public class CustomerDetailsPanel extends javax.swing.JPanel {
 
         detailsCardNumber.setBackground(new java.awt.Color(255, 255, 255));
         detailsCardNumber.setBorder(null);
-        detailsCardNumber.setForeground(new java.awt.Color(204, 204, 204));
+        detailsCardNumber.setForeground(new java.awt.Color(0, 0, 0));
         detailsCardNumber.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.NumberFormatter(java.text.NumberFormat.getIntegerInstance())));
         detailsCardNumber.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {

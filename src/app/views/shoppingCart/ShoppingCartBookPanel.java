@@ -85,7 +85,7 @@ public class ShoppingCartBookPanel extends javax.swing.JPanel {
         detailsItemBookPortrait = new javax.swing.JLabel();
         pagesPlaceholder = new javax.swing.JLabel();
         jSeparator1 = new javax.swing.JSeparator();
-        detailsBtnRemoveBookItem = new javax.swing.JButton();
+        detailsBtnRemoveBookItem = new components.mainComponents.swing.buttons.Button();
 
         setOpaque(false);
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -127,15 +127,24 @@ public class ShoppingCartBookPanel extends javax.swing.JPanel {
         jSeparator1.setBackground(new java.awt.Color(0, 0, 0));
         add(jSeparator1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 360, 190, 20));
 
-        detailsBtnRemoveBookItem.setBackground(new java.awt.Color(204, 0, 0));
-        detailsBtnRemoveBookItem.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/icon/clear.png"))); // NOI18N
-        detailsBtnRemoveBookItem.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
-        add(detailsBtnRemoveBookItem, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 10, 30, 30));
+        detailsBtnRemoveBookItem.setBackground(new java.awt.Color(255, 102, 102));
+        detailsBtnRemoveBookItem.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/icon/Delete.png"))); // NOI18N
+        detailsBtnRemoveBookItem.setPreferredSize(new java.awt.Dimension(25, 25));
+        detailsBtnRemoveBookItem.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                detailsBtnRemoveBookItemActionPerformed(evt);
+            }
+        });
+        add(detailsBtnRemoveBookItem, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 10, 25, 25));
     }// </editor-fold>//GEN-END:initComponents
+
+    private void detailsBtnRemoveBookItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_detailsBtnRemoveBookItemActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_detailsBtnRemoveBookItemActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton detailsBtnRemoveBookItem;
+    private components.mainComponents.swing.buttons.Button detailsBtnRemoveBookItem;
     private javax.swing.JSpinner detailsItemAmount;
     private javax.swing.JLabel detailsItemBookName;
     private javax.swing.JLabel detailsItemBookPortrait;
