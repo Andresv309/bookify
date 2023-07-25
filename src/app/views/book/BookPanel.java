@@ -46,7 +46,7 @@ public class BookPanel extends Form {
         return infoTag;
     }
 
-    public BookDetailsPanel1 getDetailsPanel() {
+    public BookDetailsPanel getDetailsPanel() {
         return detailsPanel;
     }
 
@@ -79,7 +79,7 @@ public class BookPanel extends Form {
         panelBackground3 = new components.mainComponents.swing.PanelBackground();
         jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
-        detailsPanel = new app.views.book.BookDetailsPanel1();
+        detailsPanel = new app.views.book.BookDetailsPanel();
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -145,7 +145,7 @@ public class BookPanel extends Form {
         panelBackground1Layout.setVerticalGroup(
             panelBackground1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panelBackground1Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGap(6, 6, 6)
                 .addGroup(panelBackground1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel1, javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(jLabel2, javax.swing.GroupLayout.Alignment.TRAILING))
@@ -254,11 +254,11 @@ public class BookPanel extends Form {
         jLabel4.setFont(new java.awt.Font("Yu Gothic UI Semibold", 1, 29)); // NOI18N
         jLabel4.setForeground(new java.awt.Color(0, 0, 0));
         jLabel4.setText("Formulario");
-        panelBackground3.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 20, 150, -1));
+        panelBackground3.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 10, 150, 60));
 
         jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/Pet.png"))); // NOI18N
-        panelBackground3.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 36, -1, -1));
-        panelBackground3.add(detailsPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 140, -1, -1));
+        panelBackground3.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 30, 220, 160));
+        panelBackground3.add(detailsPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 160, 330, 410));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -283,7 +283,7 @@ public class BookPanel extends Form {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(panelBackground3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(panelBackground1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addContainerGap(51, Short.MAX_VALUE))
+                .addContainerGap(28, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -298,7 +298,7 @@ public class BookPanel extends Form {
     private javax.swing.JButton btnDelete;
     private javax.swing.JButton btnEdit;
     private javax.swing.JButton btnSave;
-    private app.views.book.BookDetailsPanel1 detailsPanel;
+    private app.views.book.BookDetailsPanel detailsPanel;
     private javax.swing.JLabel infoTag;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
