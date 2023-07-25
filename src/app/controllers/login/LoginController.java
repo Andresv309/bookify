@@ -6,7 +6,7 @@ import app.dao.exceptions.DAOException;
 import app.dao.interfaces.UserDAO;
 import app.models.User;
 import app.views.login.LoginFrame;
-import app.views.main.Index;
+import app.views.main.Main;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.logging.Level;
@@ -56,8 +56,8 @@ public class LoginController {
                     
                     if (user != null) {
                         System.out.println("entre");
-                        Index index = new Index(user);
-                        index.setVisible(true);
+                        Main main = new Main(user);
+                        main.setVisible(true);
                         
                         loginFrame.dispose();
                     }
