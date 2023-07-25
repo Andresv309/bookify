@@ -65,7 +65,7 @@ public class BookDetailsPanel extends javax.swing.JPanel {
         return bookDetailsStep3.getDetailsBtnLoadImage();
     }
     
-    public JLabel getDetailsImgPath() {
+    public JLabel getDetailsItemBookPortrait() {
         return bookDetailsStep3.getDetailsItemBookPortrait();
     }
     

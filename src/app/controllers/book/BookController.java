@@ -8,6 +8,10 @@ import app.views.book.BookPanel;
 import app.models.Book;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.File;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.text.ParseException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -131,6 +135,7 @@ public class BookController {
                     try {
                         Book entity = getRowSelected();
                         entityDAO.delete(entity.getId());
+                        deleteImagePortrait(entity.getImgPath());
                         updatePanelView();
                         table.clearSelection();
                         btnEdit.setEnabled(false);
@@ -199,4 +204,17 @@ public class BookController {
         entityTableModel.fireTableDataChanged();
         infoTag.setText(Integer.toString(entityTableModel.getRowCount()));
     } 
+    
+    private void deleteImagePortrait(String imgName) {
+        final String bookPortraitsBasePath = System.getProperty("user.dir") + "\\src\\Images\\portadas\\";
+        String imgPortraitFullPath = bookPortraitsBasePath + imgName;
+
+        Path path = Paths.get(imgPortraitFullPath);
+        if (Files.exists(path) && !imgName.isBlank()){
+            System.out.println("Borrando" + imgPortraitFullPath);
+            File f = new File(imgPortraitFullPath);
+            f.delete();
+        }
+    }
+    
 }

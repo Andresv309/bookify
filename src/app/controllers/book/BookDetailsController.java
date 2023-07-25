@@ -33,6 +33,8 @@ import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.UUID;
 import javax.swing.JLabel;
+import java.awt.Graphics;
+import javax.swing.filechooser.FileNameExtensionFilter;
 
 
 public class BookDetailsController {
@@ -71,7 +73,7 @@ public class BookDetailsController {
         this.detailsCategory = entityDetailsPanel.getDetailsCategory();
         this.detailsAuthor = entityDetailsPanel.getDetailsAuthor();
 //        this.detailsImgPath = entityDetailsPanel.getDetailsImgPath();
-//        this.detailsBookPortraitPreview = entityDetailsPanel.getDetailsImgPath();
+        this.detailsBookPortraitPreview = entityDetailsPanel.getDetailsItemBookPortrait();
         this.detailsBtnLoadImage = entityDetailsPanel.getDetailsBtnLoadImage();
         
         this.detailsCategory.setModel(categoryComboBoxModel);
@@ -109,7 +111,11 @@ public class BookDetailsController {
         if (entity == null) {
             entity = new Book("", "", new BigDecimal(0), 0L, 0L, "");
         }
+        
+        // Reset imagePreview graphic and path
         clearRenderedImageGraphics2D();
+        choosenBookImageFileAbsolutePath = null;
+        
         detailsName.setText(entity.getName());
         detailsDescription.setText(entity.getDescription());
         detailsPrice.setValue(entity.getPrice());
@@ -128,7 +134,7 @@ public class BookDetailsController {
         Author authorItem;
         for (int i = 0; i < detailsAuthor.getItemCount(); i++) {
             authorItem = detailsAuthor.getItemAt(i);
-            if (Objects.equals(authorItem.getId(), entity.getIdCategory())){
+            if (Objects.equals(authorItem.getId(), entity.getIdAuthor())){
                 detailsAuthor.setSelectedIndex(i);
                 break;
             }
@@ -184,8 +190,10 @@ public class BookDetailsController {
         detailsBtnLoadImage.addActionListener(new ActionListener() {
             
             @Override
-            public void actionPerformed(ActionEvent ae) {  
+            public void actionPerformed(ActionEvent ae) { 
+                FileNameExtensionFilter filter = new FileNameExtensionFilter("Image Files", "jpg", "png", "gif", "jpeg");
                 JFileChooser jFileChooser = new JFileChooser();
+                jFileChooser.setFileFilter(filter);
                 int jfileChooserState = jFileChooser.showOpenDialog(null);
 
                 // Return if not file choosen
@@ -219,7 +227,7 @@ public class BookDetailsController {
                    BOOK_ITEM_PORTRAIT_HEIGHT,
                     type
             );
-            resizedImage.createGraphics();
+//            resizedImage.createGraphics();
             Graphics2D g = resizedImage.createGraphics();   
             g.drawImage(bufferedImage, 0, 0, BOOK_ITEM_PORTRAIT_WIDTH, BOOK_ITEM_PORTRAIT_HEIGHT, null);
             g.dispose();
@@ -248,9 +256,12 @@ public class BookDetailsController {
                    BOOK_ITEM_PORTRAIT_HEIGHT,
                     type
             );
-            resizedImage.createGraphics();
+//            resizedImage.createGraphics();
             renderedImageGraphics2D = resizedImage.createGraphics();   
             renderedImageGraphics2D.drawImage(bufferedImage, 0, 0, BOOK_ITEM_PORTRAIT_WIDTH, BOOK_ITEM_PORTRAIT_HEIGHT, null);  
+            detailsBookPortraitPreview.setIcon(
+                new javax.swing.ImageIcon(resizedImage)
+            );
             
         } catch (IOException ex) {
             Logger.getLogger(BookDetailsController.class.getName()).log(Level.SEVERE, null, ex);
@@ -278,5 +289,5 @@ public class BookDetailsController {
         }
     }
     
-    
+       
 }
