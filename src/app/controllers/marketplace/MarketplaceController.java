@@ -204,8 +204,9 @@ public class MarketplaceController {
             }
         });
     }
-    
-    
-    
 
+    public JButton getBtnOpenShopCart() {
+        return btnOpenShopCart;
+    }
+    
 }

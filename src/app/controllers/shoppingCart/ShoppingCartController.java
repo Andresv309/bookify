@@ -168,6 +168,7 @@ public class ShoppingCartController {
         marketPlaceController.setBooksInShopCart(new ArrayList<>());
         marketPlaceController.setListOfBooksAddedToShopCard(new ArrayList<>());
         saleBill = new LinkedHashMap<>();
+        marketPlaceController.getBtnOpenShopCart().setText("");
         
         PanelBackground shoppingCartPanel = marketPlaceController.getPortraitItemsInShopCart();
         shoppingCartPanel.removeAll();
