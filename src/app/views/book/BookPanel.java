@@ -46,7 +46,7 @@ public class BookPanel extends Form {
         return infoTag;
     }
 
-    public BookDetailsPanel getDetailsPanel() {
+    public BookDetailsPanel1 getDetailsPanel() {
         return detailsPanel;
     }
 
@@ -79,7 +79,7 @@ public class BookPanel extends Form {
         panelBackground3 = new components.mainComponents.swing.PanelBackground();
         jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
-        detailsPanel = new app.views.book.BookDetailsPanel();
+        detailsPanel = new app.views.book.BookDetailsPanel1();
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -298,7 +298,7 @@ public class BookPanel extends Form {
     private javax.swing.JButton btnDelete;
     private javax.swing.JButton btnEdit;
     private javax.swing.JButton btnSave;
-    private app.views.book.BookDetailsPanel detailsPanel;
+    private app.views.book.BookDetailsPanel1 detailsPanel;
     private javax.swing.JLabel infoTag;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;

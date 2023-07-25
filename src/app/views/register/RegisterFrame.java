@@ -43,6 +43,7 @@ public class RegisterFrame extends javax.swing.JFrame {
         cardForm = new javax.swing.JPanel();
         cardForm1 = new javax.swing.JPanel();
         progressIndicator = new components.progressindicator.ProgressIndicator();
+        button1 = new components.mainComponents.swing.buttons.Button();
         panelSlider = new components.progressindicator.PanelSlider();
         back = new components.ButtonGradient_blue();
         next = new components.ButtonGradient_blue();
@@ -77,6 +78,14 @@ public class RegisterFrame extends javax.swing.JFrame {
         progressIndicator.setProgressColor(new java.awt.Color(51, 153, 255));
         progressIndicator.setProgressColorGradient(new java.awt.Color(204, 51, 255));
         progressIndicator.setProgressFont(new java.awt.Font("Segoe UI Symbol", 1, 17)); // NOI18N
+
+        button1.setText("button1");
+        button1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                button1ActionPerformed(evt);
+            }
+        });
+        progressIndicator.add(button1);
 
         panelSlider.setOpaque(false);
 
@@ -185,6 +194,10 @@ public class RegisterFrame extends javax.swing.JFrame {
         
     }//GEN-LAST:event_nextActionPerformed
 
+    private void button1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_button1ActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -230,6 +243,7 @@ public class RegisterFrame extends javax.swing.JFrame {
     
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private components.ButtonGradient_blue back;
+    private components.mainComponents.swing.buttons.Button button1;
     private javax.swing.JPanel cardForm;
     private javax.swing.JPanel cardForm1;
     private javax.swing.JEditorPane jEditorPane1;

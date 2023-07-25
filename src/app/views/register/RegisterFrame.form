@@ -151,6 +151,16 @@
                       <Font name="Segoe UI Symbol" size="17" style="1"/>
                     </Property>
                   </Properties>
+                  <SubComponents>
+                    <Component class="components.mainComponents.swing.buttons.Button" name="button1">
+                      <Properties>
+                        <Property name="text" type="java.lang.String" value="button1"/>
+                      </Properties>
+                      <Events>
+                        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="button1ActionPerformed"/>
+                      </Events>
+                    </Component>
+                  </SubComponents>
                 </Container>
                 <Container class="components.progressindicator.PanelSlider" name="panelSlider">
                   <Properties>
