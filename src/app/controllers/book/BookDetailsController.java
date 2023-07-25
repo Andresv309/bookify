@@ -8,8 +8,10 @@ import app.models.Author;
 import app.views.book.BookDetailsPanel1;
 import app.models.Book;
 import app.models.Category;
+import java.awt.Graphics2D;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
 import java.math.BigDecimal;
@@ -18,12 +20,15 @@ import java.text.ParseException;
 import java.util.Objects;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.imageio.ImageIO;
 import javax.swing.JButton;
 import javax.swing.JComboBox;
 import javax.swing.JFileChooser;
 import javax.swing.JFormattedTextField;
 import javax.swing.JTextArea;
 import javax.swing.JTextField;
+import java.awt.Image;
+import java.awt.image.RenderedImage;
 
 
 public class BookDetailsController {
@@ -161,8 +166,6 @@ public class BookDetailsController {
             
             @Override
             public void actionPerformed(ActionEvent ae) {  
-                final int BOOK_ITEM_PORTRAIT_WIDTH = 145;
-                final int BOOK_ITEM_PORTRAIT_HEIGHT = 232; 
                 final String bookPortraitsBasePath = System.getProperty("user.dir") + "\\src\\Images\\portadas\\";
 
                 JFileChooser jFileChooser = new JFileChooser();
@@ -174,7 +177,9 @@ public class BookDetailsController {
                 File bookImageFile = jFileChooser.getSelectedFile();
                 String bookImageFilePath = bookImageFile.getAbsolutePath();
 
-                String extension = bookImageFilePath.substring(bookImageFilePath.lastIndexOf("."));
+                String extension = bookImageFilePath.substring(bookImageFilePath.lastIndexOf(".") + 1);
+                
+                System.out.println(bookImageFilePath);
 
 
                 File sourceFile = new File(bookImageFilePath);
@@ -183,12 +188,30 @@ public class BookDetailsController {
                 try {
                     Files.copy(sourceFile.toPath(), destinationFile.toPath());
                 } catch (IOException ex) {
-                    Logger.getLogger(BookDetailsPanel1.class.getName()).log(Level.SEVERE, null, ex);
+                    Logger.getLogger(BookDetailsPanel.class.getName()).log(Level.SEVERE, null, ex);
                 }
             
-            
-     
-            
+                BufferedImage resizeBookImagePortrait = resizeBookPortrait(sourceFile);
+//                    BufferedImage bufferedImage = ImageIO.read(sourceFile);
+//                    ImageIO.write(
+//                            bufferedImage,
+//                            "jpg",
+//                            new File(bookPortraitsBasePath + "holafsdngfnfg" + "." + extension)
+//                    );
+//                    ImageIO.write(
+//                            resizeBookImagePortrait,
+//                            extension,
+//                            destinationFile
+//                    );
+//                resizeAndSaveBookPortrait(sourceFile);
+// Return if resize didn't work.
+//                if (resizeBookImagePortrait == null) return;
+//                File destinationFile = new File();
+//                try {
+//                    Files.copy(sourceFile.toPath(), destinationFile.toPath());
+//                } catch (IOException ex) {
+//                    Logger.getLogger(BookDetailsPanel.class.getName()).log(Level.SEVERE, null, ex);
+//                }
 //                try {
 //                    entityDetailsController.setEntity(null);
 //                    entityDetailsController.loadData();
@@ -198,25 +221,67 @@ public class BookDetailsController {
 //                } catch (ParseException ex) {
 //                    Logger.getLogger(BookController.class.getName()).log(Level.SEVERE, null, ex);
 //                }
-            
-            
-     
-            
-//                try {
-//                    entityDetailsController.setEntity(null);
-//                    entityDetailsController.loadData();
-//                    entityDetailsController.setEditable(true);
-//                    btnSave.setEnabled(true);
-//                    btnCancel.setEnabled(true);
-//                } catch (ParseException ex) {
-//                    Logger.getLogger(BookController.class.getName()).log(Level.SEVERE, null, ex);
-//                }
+    
+                
+                
             }
         });
     }
     
-    private void resizeBookPortrait() {
+    private BufferedImage resizeBookPortrait(File sourceFile) {
+        final int BOOK_ITEM_PORTRAIT_WIDTH = 145;
+        final int BOOK_ITEM_PORTRAIT_HEIGHT = 232; 
+        BufferedImage bufferedImage;
+        BufferedImage resizedImage = null;
+        Image image = null;
+//        try {  
+//            bufferedImage = ImageIO.read(sourceFile);
+//            image = bufferedImage.getScaledInstance(BOOK_ITEM_PORTRAIT_WIDTH, BOOK_ITEM_PORTRAIT_HEIGHT, Image.SCALE_DEFAULT);
+//            
+//            
+//            final String bookPortraitsBasePath = System.getProperty("user.dir") + "\\src\\Images\\portadas\\";
+//            
+//            ImageIO.write((RenderedImage) image,
+//                "jpg",
+//                new File(bookPortraitsBasePath + "holafsdngfnfg" + "." + "jpg")
+//            );
+//            
+//            
+//            
+//            
+//            
+//        } catch (IOException ex) {
+//            Logger.getLogger(BookDetailsController.class.getName()).log(Level.SEVERE, null, ex);
+//        }
+////        return image;
+//        
         
+
+
+
+        try {  
+            bufferedImage = ImageIO.read(sourceFile);
+            int type = bufferedImage.getType() == 0 ? BufferedImage.TYPE_INT_ARGB : bufferedImage.getType();
+            
+            resizedImage = new BufferedImage(
+                    BOOK_ITEM_PORTRAIT_WIDTH,
+                   BOOK_ITEM_PORTRAIT_HEIGHT,
+                    type
+            );
+            resizedImage.createGraphics();
+            Graphics2D g = resizedImage.createGraphics();   
+//            g.drawImage(sourceFile, 0, 0, BOOK_ITEM_PORTRAIT_WIDTH, BOOK_ITEM_PORTRAIT_HEIGHT, null);
+            g.dispose();
+     
+            ImageIO.write(resizedImage, "jpg", new File("c:\\images\\testresized.jpg"));
+            
+        } catch (IOException ex) {
+            Logger.getLogger(BookDetailsController.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+        
+        
+        return resizedImage;
     }
     
     
