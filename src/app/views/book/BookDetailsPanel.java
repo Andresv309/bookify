@@ -3,9 +3,9 @@ package app.views.book;
 
 import app.models.Author;
 import app.models.Category;
-import components.register.formSteps.Step1;
-import components.register.formSteps.Step2;
-import components.register.formSteps.Step3;
+import components.bookView.formSteps.Step1;
+import components.bookView.formSteps.Step2;
+import components.bookView.formSteps.Step3;
 import java.awt.Color;
 import java.awt.Component;
 import java.util.concurrent.CompletableFuture;
