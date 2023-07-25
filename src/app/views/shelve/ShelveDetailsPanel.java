@@ -27,12 +27,12 @@ public class ShelveDetailsPanel extends javax.swing.JPanel {
 
         jLabel6.setFont(new java.awt.Font("Yu Gothic UI Semibold", 0, 14)); // NOI18N
         jLabel6.setForeground(java.awt.Color.black);
-        jLabel6.setText("Estantería");
+        jLabel6.setText("Ubicacion Estante ");
 
         detailsName.setBackground(new java.awt.Color(255, 255, 255));
         detailsName.setFont(new java.awt.Font("Yu Gothic UI Semibold", 0, 12)); // NOI18N
         detailsName.setForeground(new java.awt.Color(204, 204, 204));
-        detailsName.setText("Ingrese el Nombre de la Estantería");
+        detailsName.setText("Ingrese el Nombre del Estante ");
         detailsName.setBorder(javax.swing.BorderFactory.createEmptyBorder(4, 4, 4, 8));
         detailsName.setSelectionColor(new java.awt.Color(30, 30, 30));
         detailsName.addFocusListener(new java.awt.event.FocusAdapter() {
@@ -60,21 +60,21 @@ public class ShelveDetailsPanel extends javax.swing.JPanel {
             .addGroup(layout.createSequentialGroup()
                 .addGap(32, 32, 32)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 109, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jSeparator2, javax.swing.GroupLayout.DEFAULT_SIZE, 262, Short.MAX_VALUE)
-                    .addComponent(detailsName))
+                    .addComponent(detailsName)
+                    .addComponent(jLabel6))
                 .addContainerGap(31, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(26, 26, 26)
+                .addGap(48, 48, 48)
                 .addComponent(jLabel6)
                 .addGap(8, 8, 8)
                 .addComponent(detailsName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(2, 2, 2)
                 .addComponent(jSeparator2, javax.swing.GroupLayout.PREFERRED_SIZE, 4, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(293, Short.MAX_VALUE))
+                .addContainerGap(271, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
