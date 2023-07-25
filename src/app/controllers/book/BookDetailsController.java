@@ -5,7 +5,7 @@ import app.dao.exceptions.DAOException;
 import app.dao.interfaces.AuthorDAO;
 import app.dao.interfaces.CategoryDAO;
 import app.models.Author;
-import app.views.book.BookDetailsPanel;
+import app.views.book.BookDetailsPanel1;
 import app.models.Book;
 import app.models.Category;
 import java.awt.event.ActionEvent;
@@ -28,7 +28,7 @@ import javax.swing.JTextField;
 
 public class BookDetailsController {
     private boolean editable;
-    private BookDetailsPanel entityDetailsPanel;
+    private BookDetailsPanel1 entityDetailsPanel;
     private Book entity;
     
     private BookCategoryComboBoxModel categoryComboBoxModel;
@@ -43,7 +43,7 @@ public class BookDetailsController {
     private JButton detailsBtnLoadImage;
     
 
-    public BookDetailsController(BookDetailsPanel entityDetailsPanel, CategoryDAO categoryDAO, AuthorDAO authorDAO) throws DAOException {
+    public BookDetailsController(BookDetailsPanel1 entityDetailsPanel, CategoryDAO categoryDAO, AuthorDAO authorDAO) throws DAOException {
         this.entityDetailsPanel = entityDetailsPanel;
         
         this.categoryComboBoxModel = new BookCategoryComboBoxModel(categoryDAO);
@@ -183,8 +183,21 @@ public class BookDetailsController {
                 try {
                     Files.copy(sourceFile.toPath(), destinationFile.toPath());
                 } catch (IOException ex) {
-                    Logger.getLogger(BookDetailsPanel.class.getName()).log(Level.SEVERE, null, ex);
+                    Logger.getLogger(BookDetailsPanel1.class.getName()).log(Level.SEVERE, null, ex);
                 }
+            
+            
+     
+            
+//                try {
+//                    entityDetailsController.setEntity(null);
+//                    entityDetailsController.loadData();
+//                    entityDetailsController.setEditable(true);
+//                    btnSave.setEnabled(true);
+//                    btnCancel.setEnabled(true);
+//                } catch (ParseException ex) {
+//                    Logger.getLogger(BookController.class.getName()).log(Level.SEVERE, null, ex);
+//                }
             
             
      

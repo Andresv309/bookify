@@ -16,9 +16,9 @@ import javax.swing.JTextArea;
 import javax.swing.JTextField;
 
 
-public class BookDetailsPanel extends javax.swing.JPanel {
+public class BookDetailsPanel1 extends javax.swing.JPanel {
 
-    public BookDetailsPanel() {
+    public BookDetailsPanel1() {
         initComponents();
     }
 
