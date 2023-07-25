@@ -1,6 +1,10 @@
 package app.views.shoppingCart;
 
 import app.models.Book;
+import java.awt.Cursor;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import javax.swing.JButton;
 import javax.swing.JSpinner;
 
@@ -18,15 +22,42 @@ public class ShoppingCartBookPanel extends javax.swing.JPanel {
         initComponents();
         this.book = bookItem;
         
-        String path = System.getProperty("user.dir") +
-                            "\\src\\Images\\portadas\\" +
-                            bookItem.getImgPath();
-       
-        detailsItemBookPortrait.setIcon(new javax.swing.ImageIcon(path));
+        drawBookPortrait( bookItem.getImgPath());
+
         detailsItemBookName.setText(bookItem.getName());
         detailsItemBookPrice.setText(String.format("$%,.2f", bookItem.getPrice()));
     }
 
+        public void drawBookPortrait(String imgName) {
+        detailsBtnRemoveBookItem.setCursor(new Cursor(Cursor.HAND_CURSOR));
+
+        String imgPath = System.getProperty("user.dir") +
+                            "\\src\\Images\\portadas\\" +
+                            imgName;
+        
+        Path path = Paths.get(imgPath);
+        
+        if (Files.exists(path) && !imgName.isBlank()){
+            detailsItemBookPortrait.setIcon(
+                new javax.swing.ImageIcon(imgPath)
+            );
+        } else {
+            System.out.println("no existe imagen");
+            detailsItemBookPortrait.setIcon(
+                new javax.swing.ImageIcon(
+                    System.getProperty("user.dir") +
+                    "\\src\\Images\\portadas\\" +
+                    "placeholder.jpg"
+                )
+            );
+        }
+    }
+    
+    
+    
+    
+    
+    
     public JSpinner getDetailsItemAmount() {
         return detailsItemAmount;
     }

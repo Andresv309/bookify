@@ -7,6 +7,7 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import app.models.Book;
+import java.io.File;
 
 
 public class BookView extends javax.swing.JPanel {
@@ -37,7 +38,7 @@ public class BookView extends javax.swing.JPanel {
         
         Path path = Paths.get(imgPath);
         
-        if (Files.exists(path)){
+        if (Files.exists(path) && !imgName.isBlank()){
             bookPortrait.setIcon(
                 new javax.swing.ImageIcon(imgPath)
             );
