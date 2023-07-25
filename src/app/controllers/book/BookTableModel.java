@@ -55,7 +55,8 @@ public class BookTableModel extends AbstractTableModel {
             case 2: return requestedEntity.getName();
             case 3: return requestedEntity.getCategoryName();
             case 4: return requestedEntity.getAuthorName();
-            case 5: return "$ " + requestedEntity.getPrice();
+//            case 5: return "$ " + requestedEntity.getPrice();
+            case 5: return String.format("$ %,.2f", requestedEntity.getPrice());
             case 6: return requestedEntity.getDescription();
             case 7: return requestedEntity.getImgPath();
             default: return "";
