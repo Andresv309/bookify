@@ -5,7 +5,7 @@ import app.dao.exceptions.DAOException;
 import app.dao.interfaces.AuthorDAO;
 import app.dao.interfaces.CategoryDAO;
 import app.models.Author;
-import app.views.book.BookDetailsPanel1;
+import app.views.book.BookDetailsPanel;
 import app.models.Book;
 import app.models.Category;
 import java.awt.Graphics2D;
@@ -37,7 +37,7 @@ import javax.swing.JLabel;
 
 public class BookDetailsController {
     private boolean editable;
-    private BookDetailsPanel1 entityDetailsPanel;
+    private BookDetailsPanel entityDetailsPanel;
     private Book entity;
     
     private BookCategoryComboBoxModel categoryComboBoxModel;
@@ -58,8 +58,8 @@ public class BookDetailsController {
     final int BOOK_ITEM_PORTRAIT_WIDTH = 145;
     final int BOOK_ITEM_PORTRAIT_HEIGHT = 232; 
     
-    
-    public BookDetailsController(BookDetailsPanel1 entityDetailsPanel, CategoryDAO categoryDAO, AuthorDAO authorDAO) throws DAOException {
+
+    public BookDetailsController(BookDetailsPanel entityDetailsPanel, CategoryDAO categoryDAO, AuthorDAO authorDAO) throws DAOException {
         this.entityDetailsPanel = entityDetailsPanel;
         
         this.categoryComboBoxModel = new BookCategoryComboBoxModel(categoryDAO);
