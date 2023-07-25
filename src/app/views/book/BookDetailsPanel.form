@@ -21,17 +21,21 @@
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" alignment="0" attributes="0">
               <EmptySpace min="-2" pref="32" max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                  <Component id="jScrollPane1" max="32767" attributes="0"/>
-                  <Component id="jLabel6" alignment="0" min="-2" pref="109" max="-2" attributes="0"/>
-                  <Component id="jSeparator2" alignment="0" pref="262" max="32767" attributes="0"/>
-                  <Component id="detailsName" alignment="0" max="32767" attributes="0"/>
-                  <Component id="detailsCategory" alignment="0" max="32767" attributes="0"/>
-                  <Component id="detailsAuthor" alignment="0" max="32767" attributes="0"/>
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Group type="103" alignment="0" groupAlignment="0" max="-2" attributes="0">
+                      <Component id="jScrollPane1" max="32767" attributes="0"/>
+                      <Component id="jLabel6" alignment="0" min="-2" pref="109" max="-2" attributes="0"/>
+                      <Component id="jSeparator2" alignment="0" pref="262" max="32767" attributes="0"/>
+                      <Component id="detailsName" alignment="0" max="32767" attributes="0"/>
+                      <Component id="detailsCategory" alignment="0" max="32767" attributes="0"/>
+                      <Component id="detailsAuthor" alignment="0" max="32767" attributes="0"/>
+                  </Group>
                   <Group type="102" alignment="0" attributes="0">
                       <Component id="detailsPrice" min="-2" pref="118" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
-                      <Component id="detailsImgPath" pref="0" max="32767" attributes="0"/>
+                      <Component id="detailsImgPath" min="-2" pref="46" max="-2" attributes="0"/>
+                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                      <Component id="detailsBtnLoadImage" min="-2" max="-2" attributes="0"/>
                   </Group>
               </Group>
               <EmptySpace pref="31" max="32767" attributes="0"/>
@@ -55,13 +59,15 @@
               <Group type="103" groupAlignment="0" max="-2" attributes="0">
                   <Component id="detailsPrice" min="-2" pref="30" max="-2" attributes="0"/>
                   <Group type="102" attributes="0">
-                      <Component id="detailsImgPath" max="32767" attributes="0"/>
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="detailsImgPath" alignment="3" max="32767" attributes="0"/>
+                          <Component id="detailsBtnLoadImage" alignment="3" min="-2" max="-2" attributes="0"/>
+                      </Group>
                       <EmptySpace min="3" pref="3" max="-2" attributes="0"/>
                   </Group>
               </Group>
-              <EmptySpace type="unrelated" max="-2" attributes="0"/>
               <Component id="jScrollPane1" min="-2" pref="130" max="-2" attributes="0"/>
-              <EmptySpace pref="23" max="32767" attributes="0"/>
+              <EmptySpace pref="35" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -182,6 +188,14 @@
         <EventHandler event="focusGained" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="detailsImgPathFocusGained"/>
         <EventHandler event="mousePressed" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="detailsImgPathMousePressed"/>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="detailsImgPathActionPerformed"/>
+      </Events>
+    </Component>
+    <Component class="javax.swing.JButton" name="detailsBtnLoadImage">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="load"/>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="detailsBtnLoadImageActionPerformed"/>
       </Events>
     </Component>
   </SubComponents>

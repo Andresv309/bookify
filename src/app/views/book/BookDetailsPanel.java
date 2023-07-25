@@ -3,7 +3,14 @@ package app.views.book;
 
 import app.models.Category;
 import app.models.Author;
+import java.io.File;
+import java.io.IOException;
+import java.nio.file.Files;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.JButton;
 import javax.swing.JComboBox;
+import javax.swing.JFileChooser;
 import javax.swing.JFormattedTextField;
 import javax.swing.JTextArea;
 import javax.swing.JTextField;
@@ -38,6 +45,11 @@ public class BookDetailsPanel extends javax.swing.JPanel {
     public JTextField getDetailsImgPath() {
         return detailsImgPath;
     }
+
+    public JButton getDetailsBtnLoadImage() {
+        return detailsBtnLoadImage;
+    }
+ 
     
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
@@ -52,6 +64,7 @@ public class BookDetailsPanel extends javax.swing.JPanel {
         detailsDescription = new javax.swing.JTextArea();
         detailsPrice = new javax.swing.JFormattedTextField();
         detailsImgPath = new javax.swing.JTextField();
+        detailsBtnLoadImage = new javax.swing.JButton();
 
         setOpaque(false);
 
@@ -117,23 +130,33 @@ public class BookDetailsPanel extends javax.swing.JPanel {
             }
         });
 
+        detailsBtnLoadImage.setText("load");
+        detailsBtnLoadImage.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                detailsBtnLoadImageActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(32, 32, 32)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jScrollPane1)
-                    .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 109, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jSeparator2, javax.swing.GroupLayout.DEFAULT_SIZE, 262, Short.MAX_VALUE)
-                    .addComponent(detailsName)
-                    .addComponent(detailsCategory, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(detailsAuthor, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                        .addComponent(jScrollPane1)
+                        .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 109, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jSeparator2, javax.swing.GroupLayout.DEFAULT_SIZE, 262, Short.MAX_VALUE)
+                        .addComponent(detailsName)
+                        .addComponent(detailsCategory, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(detailsAuthor, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(detailsPrice, javax.swing.GroupLayout.PREFERRED_SIZE, 118, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(detailsImgPath, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)))
+                        .addComponent(detailsImgPath, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(detailsBtnLoadImage)))
                 .addContainerGap(31, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -153,11 +176,12 @@ public class BookDetailsPanel extends javax.swing.JPanel {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(detailsPrice, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(detailsImgPath)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(detailsImgPath)
+                            .addComponent(detailsBtnLoadImage))
                         .addGap(3, 3, 3)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(23, Short.MAX_VALUE))
+                .addContainerGap(35, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -190,9 +214,15 @@ public class BookDetailsPanel extends javax.swing.JPanel {
         // TODO add your handling code here:
     }//GEN-LAST:event_detailsImgPathActionPerformed
 
+    private void detailsBtnLoadImageActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_detailsBtnLoadImageActionPerformed
+ 
+               
+    }//GEN-LAST:event_detailsBtnLoadImageActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JComboBox<Author> detailsAuthor;
+    private javax.swing.JButton detailsBtnLoadImage;
     private javax.swing.JComboBox<Category> detailsCategory;
     private javax.swing.JTextArea detailsDescription;
     private javax.swing.JTextField detailsImgPath;

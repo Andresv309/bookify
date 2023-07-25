@@ -8,10 +8,19 @@ import app.models.Author;
 import app.views.book.BookDetailsPanel;
 import app.models.Book;
 import app.models.Category;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.io.File;
+import java.io.IOException;
 import java.math.BigDecimal;
+import java.nio.file.Files;
 import java.text.ParseException;
 import java.util.Objects;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.JButton;
 import javax.swing.JComboBox;
+import javax.swing.JFileChooser;
 import javax.swing.JFormattedTextField;
 import javax.swing.JTextArea;
 import javax.swing.JTextField;
@@ -31,6 +40,7 @@ public class BookDetailsController {
     private JTextArea detailsDescription;
     private JFormattedTextField detailsPrice;
     private JTextField detailsImgPath;
+    private JButton detailsBtnLoadImage;
     
 
     public BookDetailsController(BookDetailsPanel entityDetailsPanel, CategoryDAO categoryDAO, AuthorDAO authorDAO) throws DAOException {
@@ -45,9 +55,12 @@ public class BookDetailsController {
         this.detailsCategory = entityDetailsPanel.getDetailsCategory();
         this.detailsAuthor = entityDetailsPanel.getDetailsAuthor();
         this.detailsImgPath = entityDetailsPanel.getDetailsImgPath();
+        this.detailsBtnLoadImage = entityDetailsPanel.getDetailsBtnLoadImage();
         
         this.detailsCategory.setModel(categoryComboBoxModel);
         this.detailsAuthor.setModel(authorComboBoxModel);
+        
+        this.addLoadImageEventListenner(detailsBtnLoadImage);
                 
         this.setEditable(false);
     }
@@ -142,6 +155,60 @@ public class BookDetailsController {
         this.authorComboBoxModel = authorComboBoxModel;
         detailsAuthor.setModel(authorComboBoxModel);
     }
+    
+    private void addLoadImageEventListenner(JButton detailsBtnLoadImage) {
+        detailsBtnLoadImage.addActionListener(new ActionListener() {
+            
+            @Override
+            public void actionPerformed(ActionEvent ae) {  
+                final int BOOK_ITEM_PORTRAIT_WIDTH = 145;
+                final int BOOK_ITEM_PORTRAIT_HEIGHT = 232; 
+                final String bookPortraitsBasePath = System.getProperty("user.dir") + "\\src\\Images\\portadas\\";
+
+                JFileChooser jFileChooser = new JFileChooser();
+                int jfileChooserState = jFileChooser.showOpenDialog(null);
+
+                // Return if not file choosen
+                if (!(jfileChooserState == JFileChooser.APPROVE_OPTION)) return;
+
+                File bookImageFile = jFileChooser.getSelectedFile();
+                String bookImageFilePath = bookImageFile.getAbsolutePath();
+
+                String extension = bookImageFilePath.substring(bookImageFilePath.lastIndexOf("."));
+
+
+                File sourceFile = new File(bookImageFilePath);
+                File destinationFile = new File(bookPortraitsBasePath + "holafsd" + extension);
+
+                try {
+                    Files.copy(sourceFile.toPath(), destinationFile.toPath());
+                } catch (IOException ex) {
+                    Logger.getLogger(BookDetailsPanel.class.getName()).log(Level.SEVERE, null, ex);
+                }
+            
+            
+     
+            
+//                try {
+//                    entityDetailsController.setEntity(null);
+//                    entityDetailsController.loadData();
+//                    entityDetailsController.setEditable(true);
+//                    btnSave.setEnabled(true);
+//                    btnCancel.setEnabled(true);
+//                } catch (ParseException ex) {
+//                    Logger.getLogger(BookController.class.getName()).log(Level.SEVERE, null, ex);
+//                }
+            }
+        });
+    }
+    
+    private void resizeBookPortrait() {
+        
+    }
+    
+    
+    
+    
     
     
     
