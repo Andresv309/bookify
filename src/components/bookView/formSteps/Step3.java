@@ -47,7 +47,7 @@ public class Step3 extends javax.swing.JPanel {
             }
         });
 
-        detailsItemBookPortrait.setIcon(new javax.swing.ImageIcon(System.getProperty("user.dir") + "\\src\\Images\\portadas\\el-instituto.jpg"));
+        detailsItemBookPortrait.setIcon(new javax.swing.ImageIcon(System.getProperty("user.dir") + "\\src\\Images\\portadas\\placeholder.jpg"));
 
         pagesPlaceholder.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/portadas/bordeLibro.png"))); // NOI18N
 
