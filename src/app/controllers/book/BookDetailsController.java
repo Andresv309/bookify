@@ -50,7 +50,7 @@ public class BookDetailsController {
     private JComboBox<Category> detailsCategory;
     private JTextArea detailsDescription;
     private JFormattedTextField detailsPrice;
-//    private JTextField detailsImgPath;
+    private String detailsImgPath;
     
     private JButton detailsBtnLoadImage;
     private JLabel detailsBookPortraitPreview;
@@ -120,6 +120,7 @@ public class BookDetailsController {
         detailsDescription.setText(entity.getDescription());
         detailsPrice.setValue(entity.getPrice());
 //        detailsImgPath.setText(entity.getImgPath());
+        detailsImgPath = entity.getImgPath();
         showPreviewBookPortrait(bookPortraitsBasePath + entity.getImgPath());
 
         Category categoryItem;
@@ -161,10 +162,13 @@ public class BookDetailsController {
         entity.setDescription(detailsDescription.getText());
 //        entity.setImgPath(detailsImgPath.getText());
 
+        System.out.println(detailsImgPath);
+        entity.setImgPath(detailsImgPath);
+
         if (choosenBookImageFileAbsolutePath != null) {
             entity.setImgPath(resizeAndSaveBookPortrait(choosenBookImageFileAbsolutePath));
         } else {
-            entity.setImgPath("");
+            entity.setImgPath(detailsImgPath);
         }
     }
 
