@@ -11,7 +11,7 @@ import app.dao.interfaces.SaleItemsDAO;
 import app.dao.interfaces.ShelveDAO;
 import app.dao.interfaces.StockDAO;
 import app.dao.interfaces.UserDAO;
-import app.models.connections.DBSQLiteConnection;
+import app.dbConnections.SQLite.DBSQLiteConnection;
 import java.sql.Connection;
 import app.dao.interfaces.IDAOManager;
 
