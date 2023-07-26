@@ -5,8 +5,10 @@ import app.controllers.login.LoginController;
 import app.dao.exceptions.DAOException;
 import components.ButtonGradient;
 import java.awt.Color;
+import java.awt.Image;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.ImageIcon;
 import javax.swing.JPasswordField;
 import javax.swing.JTextField;
 import javax.swing.UIManager;
@@ -18,6 +20,8 @@ public class LoginFrame extends javax.swing.JFrame {
      * Creates new form login
      */
     public LoginFrame() throws DAOException {
+        
+        setIconImage(new ImageIcon(getClass().getResource("/Images/Logo.png")).getImage());
         initComponents();
         init();
         setBackground(new Color(0, 0, 0 , 0));
