@@ -6,7 +6,7 @@ package components.mainComponents.swing.buttons;
 
 
 
-import app.models.connections.DBSQLiteConnection;
+import app.dbConnections.SQLite.DBSQLiteConnection;
 import components.mainComponents.swing.PanelBackground;
 import java.awt.Color;
 import java.awt.event.ActionEvent;

@@ -1,4 +1,4 @@
-package app.models.connections;
+package app.dbConnections.SQLite;
 
 import java.sql.DriverManager;
 import java.sql.SQLException;
