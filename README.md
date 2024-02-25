@@ -43,9 +43,9 @@ Bookify is a basic management system for a shop library built using `Java`.
 <table>
   <tbody>
     <tr>
-      <td align="center"><a href="https://github.com/Andresv309"><img src="" width="120px"  alt="Andres Profile"/><br /><sub><b>Andres Vianchá</b></sub></a> <br><br>    
+      <td align="center"><a href="https://github.com/Andresv309"><img src="https://avatars.githubusercontent.com/u/116861909?v=4?s=120" width="120px"  alt="Andres Profile"/><br /><sub><b>Andres Vianchá</b></sub></a> <br><br>    
         <a href="https://github.com/Andresv309">
-          <img src="https://img.shields.io/badge/follow-30363D?style=for-the-badge&logo=GitHub-Sponsors&logoColor=#white" alt="Cristian Profile" />
+          <img src="https://img.shields.io/badge/follow-30363D?style=for-the-badge&logo=GitHub-Sponsors&logoColor=#white" alt="Andres Profile" />
         </a> 
       </td>
       <td align="center"><a href="https://github.com/Cristian1503V"><img src="https://avatars.githubusercontent.com/u/92413890?v=4?s=120"  width="120px"  alt="Cristian Profile"/><br /><sub><b>Cristian Vega</b></sub></a> <br><br> 
@@ -55,7 +55,6 @@ Bookify is a basic management system for a shop library built using `Java`.
       </td>
     </tr>
   </tbody>
-</table>
 
 
 <br>
