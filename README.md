@@ -55,7 +55,7 @@ Bookify is a basic management system for a shop library built using `Java`.
       </td>
     </tr>
   </tbody>
-
+</table>
 
 <br>
 <br>
